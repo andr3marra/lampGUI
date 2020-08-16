@@ -11,8 +11,8 @@ namespace lampGUI {
         public string endpoint;
 
         public Api(string url) {
-            this.url = url;
-            request = WebRequest.Create(url);
+            this.url = "http://" + url;
+            //request = WebRequest.Create(this.url);
         }
 
         public void SetEndpoint(string endpoint) {
@@ -20,7 +20,7 @@ namespace lampGUI {
         }
 
         public string Post(byte[] data) {
-
+            request = WebRequest.Create(this.url);
             request.Method = "POST";
             request.ContentType = "application/octet-stream";
             request.ContentLength = data.Length;
@@ -39,8 +39,8 @@ namespace lampGUI {
             return responseData;
         }
 
-        public string Get() {
-
+        public string Get(String data) {
+            request = WebRequest.Create(this.url + data);
             request.Method = "GET";
             request.UseDefaultCredentials = true;
 
@@ -53,6 +53,14 @@ namespace lampGUI {
             }
             response.Close();
             return responseData;
+        }
+    }
+    public static class rgb {
+        public static string singleColor(byte r, byte g, byte b) {
+            return "/color/single?r=" + r.ToString() +"&g="+g.ToString() + "&b="+b.ToString(); 
+        }
+        public static string doubleColor(byte r1, byte g1, byte b1, byte r2, byte g2, byte b2) {
+            return "/color/double?r1=" + r1.ToString() + "&g1=" + g1.ToString() + "&b1=" + b1.ToString() + "&r2" + r2.ToString() + "&g2=" + g2.ToString() + "&b2=" + b2.ToString();
         }
     }
 }

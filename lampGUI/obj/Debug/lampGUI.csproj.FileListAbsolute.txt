@@ -7,3 +7,7 @@ C:\Users\andre\source\repos\lampGUI\lampGUI\obj\Debug\lampGUI.csproj.GenerateRes
 C:\Users\andre\source\repos\lampGUI\lampGUI\obj\Debug\lampGUI.csproj.CoreCompileInputs.cache
 C:\Users\andre\source\repos\lampGUI\lampGUI\obj\Debug\lampGUI.exe
 C:\Users\andre\source\repos\lampGUI\lampGUI\obj\Debug\lampGUI.pdb
+C:\Users\andre\source\repos\lampGUI\lampGUI\obj\Debug\lampGUI.Form1.resources
+C:\Users\andre\source\repos\lampGUI\lampGUI\bin\Debug\Cyotek.Windows.Forms.ColorPicker.dll
+C:\Users\andre\source\repos\lampGUI\lampGUI\bin\Debug\Cyotek.Windows.Forms.ColorPicker.xml
+C:\Users\andre\source\repos\lampGUI\lampGUI\obj\Debug\lampGUI.csproj.CopyComplete
