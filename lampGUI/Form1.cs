@@ -29,5 +29,9 @@ namespace lampGUI {
         private void colorWheel2_ColorChanged(object sender, EventArgs e) {
             led.Get(rgb.doubleColor(colorWheel1.Color.R, colorWheel1.Color.G, colorWheel1.Color.B, colorWheel2.Color.R, colorWheel2.Color.G, colorWheel2.Color.B));
         }
+
+        private void hScrollBar1_Scroll(object sender, ScrollEventArgs e) {
+            led.Get(rgb.brightness((byte) hScrollBar1.Value));
+        }
     }
 }

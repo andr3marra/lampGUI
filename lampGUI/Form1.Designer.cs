@@ -26,6 +26,7 @@
             this.colorDialog1 = new System.Windows.Forms.ColorDialog();
             this.colorWheel1 = new Cyotek.Windows.Forms.ColorWheel();
             this.colorWheel2 = new Cyotek.Windows.Forms.ColorWheel();
+            this.hScrollBar1 = new System.Windows.Forms.HScrollBar();
             this.SuspendLayout();
             // 
             // colorWheel1
@@ -46,11 +47,21 @@
             this.colorWheel2.TabIndex = 2;
             this.colorWheel2.ColorChanged += new System.EventHandler(this.colorWheel2_ColorChanged);
             // 
+            // hScrollBar1
+            // 
+            this.hScrollBar1.Location = new System.Drawing.Point(223, 359);
+            this.hScrollBar1.Maximum = 255;
+            this.hScrollBar1.Name = "hScrollBar1";
+            this.hScrollBar1.Size = new System.Drawing.Size(430, 17);
+            this.hScrollBar1.TabIndex = 3;
+            this.hScrollBar1.Scroll += new System.Windows.Forms.ScrollEventHandler(this.hScrollBar1_Scroll);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.hScrollBar1);
             this.Controls.Add(this.colorWheel2);
             this.Controls.Add(this.colorWheel1);
             this.Name = "Form1";
@@ -64,6 +75,7 @@
         private System.Windows.Forms.ColorDialog colorDialog1;
         private Cyotek.Windows.Forms.ColorWheel colorWheel1;
         private Cyotek.Windows.Forms.ColorWheel colorWheel2;
+        private System.Windows.Forms.HScrollBar hScrollBar1;
     }
 }
 

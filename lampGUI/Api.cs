@@ -62,5 +62,20 @@ namespace lampGUI {
         public static string doubleColor(byte r1, byte g1, byte b1, byte r2, byte g2, byte b2) {
             return "/color/double?r1=" + r1.ToString() + "&g1=" + g1.ToString() + "&b1=" + b1.ToString() + "&r2" + r2.ToString() + "&g2=" + g2.ToString() + "&b2=" + b2.ToString();
         }
+
+        public static string rainwbow() {
+            return "/color/rainbow";
+        }
+
+        public static string mode(char mode) {
+            return "/animation?mode=" + mode ;
+        }
+        public static string mode(char mode, int delay) {
+            return $"/animation?mode={mode}&delay={delay}";
+        }
+        public static string brightness( byte brightness) {
+            return $"/brightness?set={brightness}";
+        }
+
     }
 }
