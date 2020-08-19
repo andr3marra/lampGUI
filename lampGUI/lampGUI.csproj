@@ -50,42 +50,42 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Api.cs" />
-    <Compile Include="Cores.cs">
+    <Compile Include="Telas\1-UmaCor.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Cores.Designer.cs">
-      <DependentUpon>Cores.cs</DependentUpon>
+    <Compile Include="Telas\1-UmaCor.Designer.cs">
+      <DependentUpon>1-UmaCor.cs</DependentUpon>
     </Compile>
-    <Compile Include="DuasCores.cs">
+    <Compile Include="Telas\2-DuasCores.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="DuasCores.Designer.cs">
-      <DependentUpon>DuasCores.cs</DependentUpon>
+    <Compile Include="Telas\2-DuasCores.Designer.cs">
+      <DependentUpon>2-DuasCores.cs</DependentUpon>
     </Compile>
-    <Compile Include="Form1.cs">
+    <Compile Include="Telas\Form.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Form1.Designer.cs">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <Compile Include="Telas\Form.Designer.cs">
+      <DependentUpon>Form.cs</DependentUpon>
     </Compile>
-    <Compile Include="Musica.cs">
+    <Compile Include="Telas\Musica.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Musica.Designer.cs">
+    <Compile Include="Telas\Musica.Designer.cs">
       <DependentUpon>Musica.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="Cores.resx">
-      <DependentUpon>Cores.cs</DependentUpon>
+    <EmbeddedResource Include="Telas\1-UmaCor.resx">
+      <DependentUpon>1-UmaCor.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="DuasCores.resx">
-      <DependentUpon>DuasCores.cs</DependentUpon>
+    <EmbeddedResource Include="Telas\2-DuasCores.resx">
+      <DependentUpon>2-DuasCores.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Form1.resx">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <EmbeddedResource Include="Telas\Form.resx">
+      <DependentUpon>Form.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Musica.resx">
+    <EmbeddedResource Include="Telas\Musica.resx">
       <DependentUpon>Musica.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">

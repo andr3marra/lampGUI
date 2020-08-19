@@ -24,3 +24,6 @@ C:\Users\Matheus\Desktop\lampGUI\lampGUI\obj\Debug\lampGUI.csproj.CoreCompileInp
 C:\Users\Matheus\Desktop\lampGUI\lampGUI\obj\Debug\lampGUI.csproj.CopyComplete
 C:\Users\Matheus\Desktop\lampGUI\lampGUI\obj\Debug\lampGUI.exe
 C:\Users\Matheus\Desktop\lampGUI\lampGUI\obj\Debug\lampGUI.pdb
+C:\Users\andre\source\repos\lampGUI\lampGUI\obj\Debug\lampGUI.DuasCores.resources
+C:\Users\andre\source\repos\lampGUI\lampGUI\obj\Debug\lampGUI.Musica.resources
+C:\Users\andre\source\repos\lampGUI\lampGUI\obj\Debug\lampGUI.UmaCor.resources

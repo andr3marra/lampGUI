@@ -29,19 +29,19 @@
         private void InitializeComponent()
         {
             this.pnlMusica = new System.Windows.Forms.Panel();
+            this.btnCor4 = new System.Windows.Forms.Panel();
+            this.lblCor4 = new System.Windows.Forms.Label();
             this.btnCor3 = new System.Windows.Forms.Panel();
+            this.lblCor3 = new System.Windows.Forms.Label();
             this.btnCor2 = new System.Windows.Forms.Panel();
             this.lblCo2 = new System.Windows.Forms.Label();
             this.btnCor1 = new System.Windows.Forms.Panel();
             this.lblCor1 = new System.Windows.Forms.Label();
-            this.btnCor4 = new System.Windows.Forms.Panel();
-            this.lblCor3 = new System.Windows.Forms.Label();
-            this.lblCor4 = new System.Windows.Forms.Label();
             this.pnlMusica.SuspendLayout();
+            this.btnCor4.SuspendLayout();
             this.btnCor3.SuspendLayout();
             this.btnCor2.SuspendLayout();
             this.btnCor1.SuspendLayout();
-            this.btnCor4.SuspendLayout();
             this.SuspendLayout();
             // 
             // pnlMusica
@@ -54,9 +54,27 @@
             this.pnlMusica.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pnlMusica.Location = new System.Drawing.Point(0, 0);
             this.pnlMusica.Name = "pnlMusica";
-            this.pnlMusica.Size = new System.Drawing.Size(1058, 601);
+            this.pnlMusica.Size = new System.Drawing.Size(700, 650);
             this.pnlMusica.TabIndex = 8;
             this.pnlMusica.Visible = false;
+            // 
+            // btnCor4
+            // 
+            this.btnCor4.Controls.Add(this.lblCor4);
+            this.btnCor4.Location = new System.Drawing.Point(702, 459);
+            this.btnCor4.Name = "btnCor4";
+            this.btnCor4.Size = new System.Drawing.Size(138, 38);
+            this.btnCor4.TabIndex = 6;
+            // 
+            // lblCor4
+            // 
+            this.lblCor4.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.lblCor4.AutoSize = true;
+            this.lblCor4.Location = new System.Drawing.Point(51, 13);
+            this.lblCor4.Name = "lblCor4";
+            this.lblCor4.Size = new System.Drawing.Size(32, 13);
+            this.lblCor4.TabIndex = 3;
+            this.lblCor4.Text = "Cor 4";
             // 
             // btnCor3
             // 
@@ -65,6 +83,16 @@
             this.btnCor3.Name = "btnCor3";
             this.btnCor3.Size = new System.Drawing.Size(138, 38);
             this.btnCor3.TabIndex = 5;
+            // 
+            // lblCor3
+            // 
+            this.lblCor3.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.lblCor3.AutoSize = true;
+            this.lblCor3.Location = new System.Drawing.Point(51, 13);
+            this.lblCor3.Name = "lblCor3";
+            this.lblCor3.Size = new System.Drawing.Size(32, 13);
+            this.lblCor3.TabIndex = 3;
+            this.lblCor3.Text = "Cor 3";
             // 
             // btnCor2
             // 
@@ -102,51 +130,23 @@
             this.lblCor1.TabIndex = 2;
             this.lblCor1.Text = "Cor 1";
             // 
-            // btnCor4
-            // 
-            this.btnCor4.Controls.Add(this.lblCor4);
-            this.btnCor4.Location = new System.Drawing.Point(702, 459);
-            this.btnCor4.Name = "btnCor4";
-            this.btnCor4.Size = new System.Drawing.Size(138, 38);
-            this.btnCor4.TabIndex = 6;
-            // 
-            // lblCor3
-            // 
-            this.lblCor3.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.lblCor3.AutoSize = true;
-            this.lblCor3.Location = new System.Drawing.Point(51, 13);
-            this.lblCor3.Name = "lblCor3";
-            this.lblCor3.Size = new System.Drawing.Size(32, 13);
-            this.lblCor3.TabIndex = 3;
-            this.lblCor3.Text = "Cor 3";
-            // 
-            // lblCor4
-            // 
-            this.lblCor4.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.lblCor4.AutoSize = true;
-            this.lblCor4.Location = new System.Drawing.Point(51, 13);
-            this.lblCor4.Name = "lblCor4";
-            this.lblCor4.Size = new System.Drawing.Size(32, 13);
-            this.lblCor4.TabIndex = 3;
-            this.lblCor4.Text = "Cor 4";
-            // 
             // Musica
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
-            this.ClientSize = new System.Drawing.Size(1058, 601);
+            this.ClientSize = new System.Drawing.Size(700, 650);
             this.Controls.Add(this.pnlMusica);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "Musica";
             this.Text = "Musica";
             this.pnlMusica.ResumeLayout(false);
+            this.btnCor4.ResumeLayout(false);
+            this.btnCor4.PerformLayout();
             this.btnCor3.ResumeLayout(false);
             this.btnCor3.PerformLayout();
             this.btnCor2.ResumeLayout(false);
             this.btnCor2.PerformLayout();
             this.btnCor1.ResumeLayout(false);
             this.btnCor1.PerformLayout();
-            this.btnCor4.ResumeLayout(false);
-            this.btnCor4.PerformLayout();
             this.ResumeLayout(false);
 
         }

@@ -13,7 +13,6 @@ namespace lampGUI {
         [STAThread]
         
         static void Main() {
-            //led.Get(rgb.doubleColor(255, 0, 0, 0, 0, 255));
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             Application.Run(new Form1());
