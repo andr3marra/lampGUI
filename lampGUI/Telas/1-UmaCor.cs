@@ -21,9 +21,12 @@ namespace lampGUI
         private void cwUmaCor_ColorChanged(object sender, EventArgs e) {
             led.Get(rgb.singleColor(cwUmaCor.Color.R, cwUmaCor.Color.G, cwUmaCor.Color.B));
         }
+        private void btnSolido_Click(object sender, EventArgs e) {
+            led.Get(rgb.mode('s'));
+        }
 
-        private void button1_Click(object sender, EventArgs e) {
-            //Form1.openChildForm(new UmaCor());
+        private void btnPulsar_Click(object sender, EventArgs e) {
+            led.Get(rgb.mode('b', 1000));
         }
     }
 }

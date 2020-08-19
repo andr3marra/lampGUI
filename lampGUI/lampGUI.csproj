@@ -49,6 +49,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Telas\0-Cores.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Telas\0-Cores.Designer.cs">
+      <DependentUpon>0-Cores.cs</DependentUpon>
+    </Compile>
     <Compile Include="Api.cs" />
     <Compile Include="Telas\1-UmaCor.cs">
       <SubType>Form</SubType>
@@ -61,6 +67,12 @@
     </Compile>
     <Compile Include="Telas\2-DuasCores.Designer.cs">
       <DependentUpon>2-DuasCores.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Telas\3-Arcoiris.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Telas\3-Arcoiris.Designer.cs">
+      <DependentUpon>3-Arcoiris.cs</DependentUpon>
     </Compile>
     <Compile Include="Telas\Form.cs">
       <SubType>Form</SubType>
@@ -76,11 +88,17 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="Telas\0-Cores.resx">
+      <DependentUpon>0-Cores.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Telas\1-UmaCor.resx">
       <DependentUpon>1-UmaCor.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Telas\2-DuasCores.resx">
       <DependentUpon>2-DuasCores.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Telas\3-Arcoiris.resx">
+      <DependentUpon>3-Arcoiris.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Telas\Form.resx">
       <DependentUpon>Form.cs</DependentUpon>

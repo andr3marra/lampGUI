@@ -36,27 +36,15 @@
             this.btnSolido = new System.Windows.Forms.Panel();
             this.lblSolido = new System.Windows.Forms.Label();
             this.cwUmaCor = new Cyotek.Windows.Forms.ColorWheel();
-            this.panel2 = new System.Windows.Forms.Panel();
-            this.panel3 = new System.Windows.Forms.Panel();
-            this.panel4 = new System.Windows.Forms.Panel();
-            this.panel5 = new System.Windows.Forms.Panel();
-            this.button1 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.btnOndas.SuspendLayout();
             this.btnPulsar.SuspendLayout();
             this.btnSolido.SuspendLayout();
-            this.panel2.SuspendLayout();
-            this.panel3.SuspendLayout();
-            this.panel4.SuspendLayout();
-            this.panel5.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(71)))), ((int)(((byte)(90)))));
-            this.panel1.Controls.Add(this.panel2);
             this.panel1.Controls.Add(this.btnOndas);
             this.panel1.Controls.Add(this.btnPulsar);
             this.panel1.Controls.Add(this.btnSolido);
@@ -92,6 +80,7 @@
             this.btnPulsar.Name = "btnPulsar";
             this.btnPulsar.Size = new System.Drawing.Size(138, 38);
             this.btnPulsar.TabIndex = 5;
+            this.btnPulsar.Click += new System.EventHandler(this.btnPulsar_Click);
             // 
             // lblPulsar
             // 
@@ -110,6 +99,7 @@
             this.btnSolido.Name = "btnSolido";
             this.btnSolido.Size = new System.Drawing.Size(138, 38);
             this.btnSolido.TabIndex = 4;
+            this.btnSolido.Click += new System.EventHandler(this.btnSolido_Click);
             // 
             // lblSolido
             // 
@@ -130,75 +120,6 @@
             this.cwUmaCor.TabIndex = 3;
             this.cwUmaCor.ColorChanged += new System.EventHandler(this.cwUmaCor_ColorChanged);
             // 
-            // panel2
-            // 
-            this.panel2.Controls.Add(this.panel5);
-            this.panel2.Controls.Add(this.panel4);
-            this.panel2.Controls.Add(this.panel3);
-            this.panel2.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel2.Location = new System.Drawing.Point(0, 0);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(700, 50);
-            this.panel2.TabIndex = 7;
-            // 
-            // panel3
-            // 
-            this.panel3.Controls.Add(this.button1);
-            this.panel3.Dock = System.Windows.Forms.DockStyle.Left;
-            this.panel3.Location = new System.Drawing.Point(0, 0);
-            this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(233, 50);
-            this.panel3.TabIndex = 0;
-            // 
-            // panel4
-            // 
-            this.panel4.Controls.Add(this.button2);
-            this.panel4.Dock = System.Windows.Forms.DockStyle.Left;
-            this.panel4.Location = new System.Drawing.Point(233, 0);
-            this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(234, 50);
-            this.panel4.TabIndex = 1;
-            // 
-            // panel5
-            // 
-            this.panel5.Controls.Add(this.button3);
-            this.panel5.Dock = System.Windows.Forms.DockStyle.Right;
-            this.panel5.Location = new System.Drawing.Point(467, 0);
-            this.panel5.Name = "panel5";
-            this.panel5.Size = new System.Drawing.Size(233, 50);
-            this.panel5.TabIndex = 2;
-            // 
-            // button1
-            // 
-            this.button1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.button1.Location = new System.Drawing.Point(0, 0);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(233, 50);
-            this.button1.TabIndex = 0;
-            this.button1.Text = "Uma Cor";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
-            // 
-            // button2
-            // 
-            this.button2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.button2.Location = new System.Drawing.Point(0, 0);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(234, 50);
-            this.button2.TabIndex = 1;
-            this.button2.Text = "Duas Cores";
-            this.button2.UseVisualStyleBackColor = true;
-            // 
-            // button3
-            // 
-            this.button3.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.button3.Location = new System.Drawing.Point(0, 0);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(233, 50);
-            this.button3.TabIndex = 1;
-            this.button3.Text = "Arco-Íris";
-            this.button3.UseVisualStyleBackColor = true;
-            // 
             // UmaCor
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
@@ -214,10 +135,6 @@
             this.btnPulsar.PerformLayout();
             this.btnSolido.ResumeLayout(false);
             this.btnSolido.PerformLayout();
-            this.panel2.ResumeLayout(false);
-            this.panel3.ResumeLayout(false);
-            this.panel4.ResumeLayout(false);
-            this.panel5.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -232,12 +149,5 @@
         private System.Windows.Forms.Panel btnSolido;
         private System.Windows.Forms.Label lblSolido;
         private Cyotek.Windows.Forms.ColorWheel cwUmaCor;
-        private System.Windows.Forms.Panel panel2;
-        private System.Windows.Forms.Panel panel5;
-        private System.Windows.Forms.Button button3;
-        private System.Windows.Forms.Panel panel4;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Panel panel3;
-        private System.Windows.Forms.Button button1;
     }
 }

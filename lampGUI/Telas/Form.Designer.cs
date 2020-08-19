@@ -133,6 +133,7 @@
             this.btnCores.TabIndex = 1;
             this.btnCores.Tag = "";
             this.btnCores.Click += new System.EventHandler(this.btnCores_Click);
+            this.btnCores.Paint += new System.Windows.Forms.PaintEventHandler(this.btnCores_Paint);
             // 
             // lblCores
             // 

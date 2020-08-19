@@ -25,5 +25,13 @@ namespace lampGUI
         private void cwDuasCores2_ColorChanged(object sender, EventArgs e) {
             led.Get(rgb.doubleColor(cwDuasCores1.Color.R, cwDuasCores1.Color.G, cwDuasCores1.Color.B, cwDuasCores2.Color.R, cwDuasCores2.Color.G, cwDuasCores2.Color.B));
         }
+
+        private void btnSolido_Click_1(object sender, EventArgs e) {
+            led.Get(rgb.mode('s'));
+        }
+
+        private void btnBreath_Click(object sender, EventArgs e) {
+            led.Get(rgb.mode('b', 1000));
+        }
     }
 }

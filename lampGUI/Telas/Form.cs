@@ -53,10 +53,9 @@ namespace lampGUI {
             panelChildForm.Tag = childForm;
             childForm.BringToFront();
             childForm.Show();
-
         }
         private void btnCores_Click(object sender, EventArgs e) {
-            openChildForm(new UmaCor());
+            openChildForm(new _0_Cores());
         }
 
         private void btnMusica_Click(object sender, EventArgs e) {
@@ -68,6 +67,10 @@ namespace lampGUI {
                 ReleaseCapture();
                 SendMessage(Handle, WM_NCLBUTTONDOWN, HT_CAPTION, 0);
             }
+        }
+
+        private void btnCores_Paint(object sender, PaintEventArgs e) {
+
         }
     }
 }

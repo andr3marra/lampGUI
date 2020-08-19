@@ -27,3 +27,5 @@ C:\Users\Matheus\Desktop\lampGUI\lampGUI\obj\Debug\lampGUI.pdb
 C:\Users\andre\source\repos\lampGUI\lampGUI\obj\Debug\lampGUI.DuasCores.resources
 C:\Users\andre\source\repos\lampGUI\lampGUI\obj\Debug\lampGUI.Musica.resources
 C:\Users\andre\source\repos\lampGUI\lampGUI\obj\Debug\lampGUI.UmaCor.resources
+C:\Users\andre\source\repos\lampGUI\lampGUI\obj\Debug\lampGUI._0_Cores.resources
+C:\Users\andre\source\repos\lampGUI\lampGUI\obj\Debug\lampGUI.Telas._3_Arcoiris.resources
