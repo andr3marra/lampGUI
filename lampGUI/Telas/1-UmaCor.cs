@@ -26,11 +26,11 @@ namespace lampGUI
         }
 
         private void btnPulsar_Click(object sender, EventArgs e) {
-            led.Get(rgb.mode('b', 1000));
+            led.Get(rgb.mode('b', tbFrequencia.Value));
         }
 
         private void btnWave_Click(object sender, EventArgs e) {
-            led.Get(rgb.mode('w', 1000));
+            led.Get(rgb.mode('w', tbFrequencia.Value));
         }
 
         private void label2_Click(object sender, EventArgs e)
@@ -46,6 +46,10 @@ namespace lampGUI
         private void panel1_Paint(object sender, PaintEventArgs e)
         {
 
+        }
+
+        private void tbBrilho_Scroll(object sender, EventArgs e) {
+            led.Get(rgb.brightness((byte) tbBrilho.Value));
         }
     }
 }

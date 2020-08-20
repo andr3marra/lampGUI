@@ -31,11 +31,15 @@ namespace lampGUI
         }
 
         private void btnBreath_Click(object sender, EventArgs e) {
-            led.Get(rgb.mode('b', 1000));
+            led.Get(rgb.mode('b', tbFrequencia.Value));
         }
 
         private void btnWave_Click(object sender, EventArgs e) {
-            led.Get(rgb.mode('w', 1000));
+            led.Get(rgb.mode('w', tbFrequencia.Value));
+        }
+
+        private void tbBrilho_Scroll(object sender, EventArgs e) {
+            led.Get(rgb.brightness((byte)tbBrilho.Value));
         }
     }
 }

@@ -53,6 +53,7 @@
             this.tbBrilho.TabIndex = 21;
             this.tbBrilho.TickFrequency = 100;
             this.tbBrilho.TickStyle = System.Windows.Forms.TickStyle.None;
+            this.tbBrilho.Scroll += new System.EventHandler(this.tbBrilho_Scroll);
             // 
             // btnArcoIris
             // 
@@ -62,6 +63,7 @@
             this.btnArcoIris.TabIndex = 23;
             this.btnArcoIris.Text = "Arco Íris";
             this.btnArcoIris.UseVisualStyleBackColor = true;
+            this.btnArcoIris.Click += new System.EventHandler(this.btnArcoIris_Click);
             // 
             // pictureBox1
             // 

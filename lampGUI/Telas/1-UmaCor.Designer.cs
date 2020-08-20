@@ -29,17 +29,17 @@
         private void InitializeComponent()
         {
             this.panel1 = new System.Windows.Forms.Panel();
+            this.lblFrequencia = new System.Windows.Forms.Label();
+            this.tbFrequencia = new System.Windows.Forms.TrackBar();
+            this.lblBrilho = new System.Windows.Forms.Label();
+            this.tbBrilho = new System.Windows.Forms.TrackBar();
             this.btnWave = new System.Windows.Forms.Button();
             this.btnBreath = new System.Windows.Forms.Button();
             this.btnSolido = new System.Windows.Forms.Button();
             this.cwUmaCor = new Cyotek.Windows.Forms.ColorWheel();
-            this.tbBrilho = new System.Windows.Forms.TrackBar();
-            this.lblBrilho = new System.Windows.Forms.Label();
-            this.lblFrequencia = new System.Windows.Forms.Label();
-            this.tbFrequencia = new System.Windows.Forms.TrackBar();
             this.panel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.tbBrilho)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.tbFrequencia)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.tbBrilho)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
@@ -58,6 +58,53 @@
             this.panel1.Size = new System.Drawing.Size(700, 500);
             this.panel1.TabIndex = 6;
             this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
+            // 
+            // lblFrequencia
+            // 
+            this.lblFrequencia.AutoSize = true;
+            this.lblFrequencia.Location = new System.Drawing.Point(355, 390);
+            this.lblFrequencia.Name = "lblFrequencia";
+            this.lblFrequencia.Size = new System.Drawing.Size(60, 13);
+            this.lblFrequencia.TabIndex = 22;
+            this.lblFrequencia.Text = "Frequência";
+            this.lblFrequencia.Click += new System.EventHandler(this.label2_Click);
+            // 
+            // tbFrequencia
+            // 
+            this.tbFrequencia.AutoSize = false;
+            this.tbFrequencia.Cursor = System.Windows.Forms.Cursors.Default;
+            this.tbFrequencia.Location = new System.Drawing.Point(265, 372);
+            this.tbFrequencia.Maximum = 5000;
+            this.tbFrequencia.Minimum = 200;
+            this.tbFrequencia.Name = "tbFrequencia";
+            this.tbFrequencia.Size = new System.Drawing.Size(232, 45);
+            this.tbFrequencia.TabIndex = 21;
+            this.tbFrequencia.TickFrequency = 100;
+            this.tbFrequencia.TickStyle = System.Windows.Forms.TickStyle.None;
+            this.tbFrequencia.Value = 200;
+            this.tbFrequencia.Scroll += new System.EventHandler(this.trackBar2_Scroll);
+            // 
+            // lblBrilho
+            // 
+            this.lblBrilho.AutoSize = true;
+            this.lblBrilho.Location = new System.Drawing.Point(366, 440);
+            this.lblBrilho.Name = "lblBrilho";
+            this.lblBrilho.Size = new System.Drawing.Size(33, 13);
+            this.lblBrilho.TabIndex = 20;
+            this.lblBrilho.Text = "Brilho";
+            // 
+            // tbBrilho
+            // 
+            this.tbBrilho.AutoSize = false;
+            this.tbBrilho.Cursor = System.Windows.Forms.Cursors.Default;
+            this.tbBrilho.Location = new System.Drawing.Point(265, 423);
+            this.tbBrilho.Maximum = 255;
+            this.tbBrilho.Name = "tbBrilho";
+            this.tbBrilho.Size = new System.Drawing.Size(232, 42);
+            this.tbBrilho.TabIndex = 19;
+            this.tbBrilho.TickFrequency = 100;
+            this.tbBrilho.TickStyle = System.Windows.Forms.TickStyle.None;
+            this.tbBrilho.Scroll += new System.EventHandler(this.tbBrilho_Scroll);
             // 
             // btnWave
             // 
@@ -101,50 +148,6 @@
             this.cwUmaCor.TabIndex = 3;
             this.cwUmaCor.ColorChanged += new System.EventHandler(this.cwUmaCor_ColorChanged);
             // 
-            // tbBrilho
-            // 
-            this.tbBrilho.AutoSize = false;
-            this.tbBrilho.Cursor = System.Windows.Forms.Cursors.Default;
-            this.tbBrilho.Location = new System.Drawing.Point(265, 423);
-            this.tbBrilho.Maximum = 100;
-            this.tbBrilho.Name = "tbBrilho";
-            this.tbBrilho.Size = new System.Drawing.Size(232, 42);
-            this.tbBrilho.TabIndex = 19;
-            this.tbBrilho.TickFrequency = 100;
-            this.tbBrilho.TickStyle = System.Windows.Forms.TickStyle.None;
-            // 
-            // lblBrilho
-            // 
-            this.lblBrilho.AutoSize = true;
-            this.lblBrilho.Location = new System.Drawing.Point(366, 440);
-            this.lblBrilho.Name = "lblBrilho";
-            this.lblBrilho.Size = new System.Drawing.Size(33, 13);
-            this.lblBrilho.TabIndex = 20;
-            this.lblBrilho.Text = "Brilho";
-            // 
-            // lblFrequencia
-            // 
-            this.lblFrequencia.AutoSize = true;
-            this.lblFrequencia.Location = new System.Drawing.Point(355, 390);
-            this.lblFrequencia.Name = "lblFrequencia";
-            this.lblFrequencia.Size = new System.Drawing.Size(60, 13);
-            this.lblFrequencia.TabIndex = 22;
-            this.lblFrequencia.Text = "Frequência";
-            this.lblFrequencia.Click += new System.EventHandler(this.label2_Click);
-            // 
-            // tbFrequencia
-            // 
-            this.tbFrequencia.AutoSize = false;
-            this.tbFrequencia.Cursor = System.Windows.Forms.Cursors.Default;
-            this.tbFrequencia.Location = new System.Drawing.Point(265, 372);
-            this.tbFrequencia.Maximum = 100;
-            this.tbFrequencia.Name = "tbFrequencia";
-            this.tbFrequencia.Size = new System.Drawing.Size(232, 45);
-            this.tbFrequencia.TabIndex = 21;
-            this.tbFrequencia.TickFrequency = 100;
-            this.tbFrequencia.TickStyle = System.Windows.Forms.TickStyle.None;
-            this.tbFrequencia.Scroll += new System.EventHandler(this.trackBar2_Scroll);
-            // 
             // UmaCor
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
@@ -155,8 +158,8 @@
             this.Text = "Cores";
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.tbBrilho)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.tbFrequencia)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.tbBrilho)).EndInit();
             this.ResumeLayout(false);
 
         }
