@@ -33,23 +33,23 @@
             this.button2 = new System.Windows.Forms.Button();
             this.pnlCores = new System.Windows.Forms.Panel();
             this.btnCores = new System.Windows.Forms.Button();
+            this.pnlLogo = new System.Windows.Forms.Panel();
+            this.DuasCores = new System.Windows.Forms.Panel();
+            this.colorWheel3 = new Cyotek.Windows.Forms.ColorWheel();
+            this.colorWheel1 = new Cyotek.Windows.Forms.ColorWheel();
+            this.panel1 = new System.Windows.Forms.Panel();
             this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
             this.panelChildForm = new System.Windows.Forms.Panel();
             this.panel2 = new System.Windows.Forms.Panel();
             this.btnCloseWindow = new System.Windows.Forms.Button();
-            this.panel1 = new System.Windows.Forms.Panel();
-            this.DuasCores = new System.Windows.Forms.Panel();
-            this.colorWheel1 = new Cyotek.Windows.Forms.ColorWheel();
-            this.colorWheel3 = new Cyotek.Windows.Forms.ColorWheel();
-            this.pnlLogo = new System.Windows.Forms.Panel();
             this.pnlLateral.SuspendLayout();
             this.btnConfiguracoes.SuspendLayout();
             this.btnTela.SuspendLayout();
             this.btnMusica.SuspendLayout();
             this.pnlCores.SuspendLayout();
-            this.panel2.SuspendLayout();
-            this.DuasCores.SuspendLayout();
             this.pnlLogo.SuspendLayout();
+            this.DuasCores.SuspendLayout();
+            this.panel2.SuspendLayout();
             this.SuspendLayout();
             // 
             // pnlLateral
@@ -79,7 +79,9 @@
             // 
             this.button4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(47)))), ((int)(((byte)(49)))), ((int)(((byte)(54)))));
             this.button4.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.button4.Font = new System.Drawing.Font("Kozuka Gothic Pr6N M", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.button4.FlatAppearance.BorderSize = 0;
+            this.button4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button4.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
             this.button4.Location = new System.Drawing.Point(0, 0);
             this.button4.Name = "button4";
             this.button4.Size = new System.Drawing.Size(200, 100);
@@ -101,7 +103,9 @@
             // 
             this.button3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(47)))), ((int)(((byte)(49)))), ((int)(((byte)(54)))));
             this.button3.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.button3.Font = new System.Drawing.Font("Kozuka Gothic Pr6N M", 18F, System.Drawing.FontStyle.Bold);
+            this.button3.FlatAppearance.BorderSize = 0;
+            this.button3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button3.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Bold);
             this.button3.Location = new System.Drawing.Point(0, 0);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(200, 100);
@@ -123,7 +127,9 @@
             // 
             this.button2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(47)))), ((int)(((byte)(49)))), ((int)(((byte)(54)))));
             this.button2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.button2.Font = new System.Drawing.Font("Kozuka Gothic Pr6N M", 18F, System.Drawing.FontStyle.Bold);
+            this.button2.FlatAppearance.BorderSize = 0;
+            this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button2.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Bold);
             this.button2.Location = new System.Drawing.Point(0, 0);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(200, 100);
@@ -146,8 +152,9 @@
             // 
             this.btnCores.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(47)))), ((int)(((byte)(49)))), ((int)(((byte)(54)))));
             this.btnCores.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.btnCores.FlatAppearance.BorderSize = 0;
             this.btnCores.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnCores.Font = new System.Drawing.Font("Kozuka Gothic Pr6N M", 18F, System.Drawing.FontStyle.Bold);
+            this.btnCores.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Bold);
             this.btnCores.Location = new System.Drawing.Point(0, 0);
             this.btnCores.Name = "btnCores";
             this.btnCores.Size = new System.Drawing.Size(200, 100);
@@ -157,6 +164,49 @@
             this.btnCores.Click += new System.EventHandler(this.btnCores_Click_1);
             this.btnCores.Enter += new System.EventHandler(this.btnCores_Enter);
             this.btnCores.Leave += new System.EventHandler(this.btnCores_Leave);
+            // 
+            // pnlLogo
+            // 
+            this.pnlLogo.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(34)))), ((int)(((byte)(37)))));
+            this.pnlLogo.Controls.Add(this.DuasCores);
+            this.pnlLogo.Controls.Add(this.panel1);
+            this.pnlLogo.Dock = System.Windows.Forms.DockStyle.Top;
+            this.pnlLogo.Location = new System.Drawing.Point(0, 0);
+            this.pnlLogo.Name = "pnlLogo";
+            this.pnlLogo.Size = new System.Drawing.Size(200, 84);
+            this.pnlLogo.TabIndex = 0;
+            // 
+            // DuasCores
+            // 
+            this.DuasCores.Controls.Add(this.colorWheel3);
+            this.DuasCores.Controls.Add(this.colorWheel1);
+            this.DuasCores.Location = new System.Drawing.Point(200, 1);
+            this.DuasCores.Name = "DuasCores";
+            this.DuasCores.Size = new System.Drawing.Size(1058, 600);
+            this.DuasCores.TabIndex = 14;
+            // 
+            // colorWheel3
+            // 
+            this.colorWheel3.Color = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.colorWheel3.Location = new System.Drawing.Point(605, 79);
+            this.colorWheel3.Name = "colorWheel3";
+            this.colorWheel3.Size = new System.Drawing.Size(241, 268);
+            this.colorWheel3.TabIndex = 5;
+            // 
+            // colorWheel1
+            // 
+            this.colorWheel1.Color = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.colorWheel1.Location = new System.Drawing.Point(105, 67);
+            this.colorWheel1.Name = "colorWheel1";
+            this.colorWheel1.Size = new System.Drawing.Size(241, 268);
+            this.colorWheel1.TabIndex = 4;
+            // 
+            // panel1
+            // 
+            this.panel1.Location = new System.Drawing.Point(200, 0);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(1058, 603);
+            this.panel1.TabIndex = 15;
             // 
             // panelChildForm
             // 
@@ -188,49 +238,6 @@
             this.btnCloseWindow.UseVisualStyleBackColor = true;
             this.btnCloseWindow.Click += new System.EventHandler(this.btnCloseWindow_Click);
             // 
-            // panel1
-            // 
-            this.panel1.Location = new System.Drawing.Point(200, 0);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1058, 603);
-            this.panel1.TabIndex = 15;
-            // 
-            // DuasCores
-            // 
-            this.DuasCores.Controls.Add(this.colorWheel3);
-            this.DuasCores.Controls.Add(this.colorWheel1);
-            this.DuasCores.Location = new System.Drawing.Point(200, 1);
-            this.DuasCores.Name = "DuasCores";
-            this.DuasCores.Size = new System.Drawing.Size(1058, 600);
-            this.DuasCores.TabIndex = 14;
-            // 
-            // colorWheel1
-            // 
-            this.colorWheel1.Color = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.colorWheel1.Location = new System.Drawing.Point(105, 67);
-            this.colorWheel1.Name = "colorWheel1";
-            this.colorWheel1.Size = new System.Drawing.Size(241, 268);
-            this.colorWheel1.TabIndex = 4;
-            // 
-            // colorWheel3
-            // 
-            this.colorWheel3.Color = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.colorWheel3.Location = new System.Drawing.Point(605, 79);
-            this.colorWheel3.Name = "colorWheel3";
-            this.colorWheel3.Size = new System.Drawing.Size(241, 268);
-            this.colorWheel3.TabIndex = 5;
-            // 
-            // pnlLogo
-            // 
-            this.pnlLogo.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(34)))), ((int)(((byte)(37)))));
-            this.pnlLogo.Controls.Add(this.DuasCores);
-            this.pnlLogo.Controls.Add(this.panel1);
-            this.pnlLogo.Dock = System.Windows.Forms.DockStyle.Top;
-            this.pnlLogo.Location = new System.Drawing.Point(0, 0);
-            this.pnlLogo.Name = "pnlLogo";
-            this.pnlLogo.Size = new System.Drawing.Size(200, 84);
-            this.pnlLogo.TabIndex = 0;
-            // 
             // Form1
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
@@ -248,9 +255,9 @@
             this.btnTela.ResumeLayout(false);
             this.btnMusica.ResumeLayout(false);
             this.pnlCores.ResumeLayout(false);
-            this.panel2.ResumeLayout(false);
-            this.DuasCores.ResumeLayout(false);
             this.pnlLogo.ResumeLayout(false);
+            this.DuasCores.ResumeLayout(false);
+            this.panel2.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }

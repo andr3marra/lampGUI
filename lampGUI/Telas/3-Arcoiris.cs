@@ -13,5 +13,10 @@ namespace lampGUI.Telas {
         public _3_Arcoiris() {
             InitializeComponent();
         }
+
+        private void lblBrilho_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

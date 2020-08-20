@@ -34,12 +34,22 @@
             this.btnSolido = new System.Windows.Forms.Button();
             this.cwDuasCores2 = new Cyotek.Windows.Forms.ColorWheel();
             this.cwDuasCores1 = new Cyotek.Windows.Forms.ColorWheel();
+            this.lblFrequencia = new System.Windows.Forms.Label();
+            this.tbFrequencia = new System.Windows.Forms.TrackBar();
+            this.lblBrilho = new System.Windows.Forms.Label();
+            this.tbBrilho = new System.Windows.Forms.TrackBar();
             this.panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.tbFrequencia)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.tbBrilho)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(71)))), ((int)(((byte)(90)))));
+            this.panel1.Controls.Add(this.lblFrequencia);
+            this.panel1.Controls.Add(this.tbFrequencia);
+            this.panel1.Controls.Add(this.lblBrilho);
+            this.panel1.Controls.Add(this.tbBrilho);
             this.panel1.Controls.Add(this.btnWave);
             this.panel1.Controls.Add(this.btnBreath);
             this.panel1.Controls.Add(this.btnSolido);
@@ -48,7 +58,7 @@
             this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(700, 550);
+            this.panel1.Size = new System.Drawing.Size(700, 500);
             this.panel1.TabIndex = 7;
             // 
             // btnWave
@@ -63,7 +73,7 @@
             // 
             // btnBreath
             // 
-            this.btnBreath.Location = new System.Drawing.Point(330, 402);
+            this.btnBreath.Location = new System.Drawing.Point(317, 402);
             this.btnBreath.Name = "btnBreath";
             this.btnBreath.Size = new System.Drawing.Size(75, 23);
             this.btnBreath.TabIndex = 16;
@@ -99,15 +109,60 @@
             this.cwDuasCores1.TabIndex = 3;
             this.cwDuasCores1.ColorChanged += new System.EventHandler(this.cwDuasCores1_ColorChanged);
             // 
+            // lblFrequencia
+            // 
+            this.lblFrequencia.AutoSize = true;
+            this.lblFrequencia.Location = new System.Drawing.Point(427, 448);
+            this.lblFrequencia.Name = "lblFrequencia";
+            this.lblFrequencia.Size = new System.Drawing.Size(60, 13);
+            this.lblFrequencia.TabIndex = 26;
+            this.lblFrequencia.Text = "Frequência";
+            // 
+            // tbFrequencia
+            // 
+            this.tbFrequencia.AutoSize = false;
+            this.tbFrequencia.Cursor = System.Windows.Forms.Cursors.Default;
+            this.tbFrequencia.Location = new System.Drawing.Point(380, 431);
+            this.tbFrequencia.Maximum = 100;
+            this.tbFrequencia.Name = "tbFrequencia";
+            this.tbFrequencia.Size = new System.Drawing.Size(146, 45);
+            this.tbFrequencia.TabIndex = 25;
+            this.tbFrequencia.TickFrequency = 100;
+            this.tbFrequencia.TickStyle = System.Windows.Forms.TickStyle.None;
+            // 
+            // lblBrilho
+            // 
+            this.lblBrilho.AutoSize = true;
+            this.lblBrilho.Location = new System.Drawing.Point(248, 448);
+            this.lblBrilho.Name = "lblBrilho";
+            this.lblBrilho.Size = new System.Drawing.Size(33, 13);
+            this.lblBrilho.TabIndex = 24;
+            this.lblBrilho.Text = "Brilho";
+            // 
+            // tbBrilho
+            // 
+            this.tbBrilho.AutoSize = false;
+            this.tbBrilho.Cursor = System.Windows.Forms.Cursors.Default;
+            this.tbBrilho.Location = new System.Drawing.Point(194, 431);
+            this.tbBrilho.Maximum = 100;
+            this.tbBrilho.Name = "tbBrilho";
+            this.tbBrilho.Size = new System.Drawing.Size(146, 45);
+            this.tbBrilho.TabIndex = 23;
+            this.tbBrilho.TickFrequency = 100;
+            this.tbBrilho.TickStyle = System.Windows.Forms.TickStyle.None;
+            // 
             // DuasCores
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
-            this.ClientSize = new System.Drawing.Size(700, 550);
+            this.ClientSize = new System.Drawing.Size(700, 500);
             this.Controls.Add(this.panel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "DuasCores";
             this.Text = "DuasCores";
             this.panel1.ResumeLayout(false);
+            this.panel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.tbFrequencia)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.tbBrilho)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -120,5 +175,9 @@
         private System.Windows.Forms.Button btnWave;
         private System.Windows.Forms.Button btnBreath;
         private System.Windows.Forms.Button btnSolido;
+        private System.Windows.Forms.Label lblFrequencia;
+        private System.Windows.Forms.TrackBar tbFrequencia;
+        private System.Windows.Forms.Label lblBrilho;
+        private System.Windows.Forms.TrackBar tbBrilho;
     }
 }

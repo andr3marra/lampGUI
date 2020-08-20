@@ -29,74 +29,134 @@
         private void InitializeComponent()
         {
             this.panel1 = new System.Windows.Forms.Panel();
-            this.cwUmaCor = new Cyotek.Windows.Forms.ColorWheel();
-            this.btnSolido = new System.Windows.Forms.Button();
-            this.btnBreath = new System.Windows.Forms.Button();
             this.btnWave = new System.Windows.Forms.Button();
+            this.btnBreath = new System.Windows.Forms.Button();
+            this.btnSolido = new System.Windows.Forms.Button();
+            this.cwUmaCor = new Cyotek.Windows.Forms.ColorWheel();
+            this.tbBrilho = new System.Windows.Forms.TrackBar();
+            this.lblBrilho = new System.Windows.Forms.Label();
+            this.lblFrequencia = new System.Windows.Forms.Label();
+            this.tbFrequencia = new System.Windows.Forms.TrackBar();
             this.panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.tbBrilho)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.tbFrequencia)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(71)))), ((int)(((byte)(90)))));
+            this.panel1.Controls.Add(this.lblFrequencia);
+            this.panel1.Controls.Add(this.tbFrequencia);
+            this.panel1.Controls.Add(this.lblBrilho);
+            this.panel1.Controls.Add(this.tbBrilho);
             this.panel1.Controls.Add(this.btnWave);
             this.panel1.Controls.Add(this.btnBreath);
             this.panel1.Controls.Add(this.btnSolido);
             this.panel1.Controls.Add(this.cwUmaCor);
-            this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(700, 550);
+            this.panel1.Size = new System.Drawing.Size(700, 500);
             this.panel1.TabIndex = 6;
-            // 
-            // cwUmaCor
-            // 
-            this.cwUmaCor.Color = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.cwUmaCor.Location = new System.Drawing.Point(209, 123);
-            this.cwUmaCor.Name = "cwUmaCor";
-            this.cwUmaCor.Size = new System.Drawing.Size(241, 268);
-            this.cwUmaCor.TabIndex = 3;
-            this.cwUmaCor.ColorChanged += new System.EventHandler(this.cwUmaCor_ColorChanged);
-            // 
-            // btnSolido
-            // 
-            this.btnSolido.Location = new System.Drawing.Point(137, 445);
-            this.btnSolido.Name = "btnSolido";
-            this.btnSolido.Size = new System.Drawing.Size(75, 23);
-            this.btnSolido.TabIndex = 16;
-            this.btnSolido.Text = "Sólido";
-            this.btnSolido.UseVisualStyleBackColor = true;
-            this.btnSolido.Click += new System.EventHandler(this.btnSolido_Click);
-            // 
-            // btnBreath
-            // 
-            this.btnBreath.Location = new System.Drawing.Point(314, 445);
-            this.btnBreath.Name = "btnBreath";
-            this.btnBreath.Size = new System.Drawing.Size(75, 23);
-            this.btnBreath.TabIndex = 17;
-            this.btnBreath.Text = "Pulsar";
-            this.btnBreath.UseVisualStyleBackColor = true;
-            this.btnBreath.Click += new System.EventHandler(this.btnPulsar_Click);
+            this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
             // 
             // btnWave
             // 
-            this.btnWave.Location = new System.Drawing.Point(489, 445);
+            this.btnWave.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnWave.Location = new System.Drawing.Point(508, 324);
             this.btnWave.Name = "btnWave";
-            this.btnWave.Size = new System.Drawing.Size(75, 23);
+            this.btnWave.Size = new System.Drawing.Size(97, 32);
             this.btnWave.TabIndex = 18;
             this.btnWave.Text = "Onda";
             this.btnWave.UseVisualStyleBackColor = true;
             this.btnWave.Click += new System.EventHandler(this.btnWave_Click);
             // 
+            // btnBreath
+            // 
+            this.btnBreath.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnBreath.Location = new System.Drawing.Point(333, 324);
+            this.btnBreath.Name = "btnBreath";
+            this.btnBreath.Size = new System.Drawing.Size(97, 32);
+            this.btnBreath.TabIndex = 17;
+            this.btnBreath.Text = "Pulsar";
+            this.btnBreath.UseVisualStyleBackColor = true;
+            this.btnBreath.Click += new System.EventHandler(this.btnPulsar_Click);
+            // 
+            // btnSolido
+            // 
+            this.btnSolido.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnSolido.Location = new System.Drawing.Point(156, 324);
+            this.btnSolido.Name = "btnSolido";
+            this.btnSolido.Size = new System.Drawing.Size(97, 32);
+            this.btnSolido.TabIndex = 16;
+            this.btnSolido.Text = "Sólido";
+            this.btnSolido.UseVisualStyleBackColor = true;
+            this.btnSolido.Click += new System.EventHandler(this.btnSolido_Click);
+            // 
+            // cwUmaCor
+            // 
+            this.cwUmaCor.Color = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.cwUmaCor.Location = new System.Drawing.Point(256, 24);
+            this.cwUmaCor.Name = "cwUmaCor";
+            this.cwUmaCor.Size = new System.Drawing.Size(241, 268);
+            this.cwUmaCor.TabIndex = 3;
+            this.cwUmaCor.ColorChanged += new System.EventHandler(this.cwUmaCor_ColorChanged);
+            // 
+            // tbBrilho
+            // 
+            this.tbBrilho.AutoSize = false;
+            this.tbBrilho.Cursor = System.Windows.Forms.Cursors.Default;
+            this.tbBrilho.Location = new System.Drawing.Point(265, 423);
+            this.tbBrilho.Maximum = 100;
+            this.tbBrilho.Name = "tbBrilho";
+            this.tbBrilho.Size = new System.Drawing.Size(232, 42);
+            this.tbBrilho.TabIndex = 19;
+            this.tbBrilho.TickFrequency = 100;
+            this.tbBrilho.TickStyle = System.Windows.Forms.TickStyle.None;
+            // 
+            // lblBrilho
+            // 
+            this.lblBrilho.AutoSize = true;
+            this.lblBrilho.Location = new System.Drawing.Point(366, 440);
+            this.lblBrilho.Name = "lblBrilho";
+            this.lblBrilho.Size = new System.Drawing.Size(33, 13);
+            this.lblBrilho.TabIndex = 20;
+            this.lblBrilho.Text = "Brilho";
+            // 
+            // lblFrequencia
+            // 
+            this.lblFrequencia.AutoSize = true;
+            this.lblFrequencia.Location = new System.Drawing.Point(355, 390);
+            this.lblFrequencia.Name = "lblFrequencia";
+            this.lblFrequencia.Size = new System.Drawing.Size(60, 13);
+            this.lblFrequencia.TabIndex = 22;
+            this.lblFrequencia.Text = "Frequência";
+            this.lblFrequencia.Click += new System.EventHandler(this.label2_Click);
+            // 
+            // tbFrequencia
+            // 
+            this.tbFrequencia.AutoSize = false;
+            this.tbFrequencia.Cursor = System.Windows.Forms.Cursors.Default;
+            this.tbFrequencia.Location = new System.Drawing.Point(265, 372);
+            this.tbFrequencia.Maximum = 100;
+            this.tbFrequencia.Name = "tbFrequencia";
+            this.tbFrequencia.Size = new System.Drawing.Size(232, 45);
+            this.tbFrequencia.TabIndex = 21;
+            this.tbFrequencia.TickFrequency = 100;
+            this.tbFrequencia.TickStyle = System.Windows.Forms.TickStyle.None;
+            this.tbFrequencia.Scroll += new System.EventHandler(this.trackBar2_Scroll);
+            // 
             // UmaCor
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
-            this.ClientSize = new System.Drawing.Size(700, 550);
+            this.ClientSize = new System.Drawing.Size(700, 500);
             this.Controls.Add(this.panel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "UmaCor";
             this.Text = "Cores";
             this.panel1.ResumeLayout(false);
+            this.panel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.tbBrilho)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.tbFrequencia)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -108,5 +168,9 @@
         private System.Windows.Forms.Button btnSolido;
         private System.Windows.Forms.Button btnBreath;
         private System.Windows.Forms.Button btnWave;
+        private System.Windows.Forms.TrackBar tbBrilho;
+        private System.Windows.Forms.Label lblFrequencia;
+        private System.Windows.Forms.TrackBar tbFrequencia;
+        private System.Windows.Forms.Label lblBrilho;
     }
 }

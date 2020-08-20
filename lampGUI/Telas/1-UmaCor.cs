@@ -32,5 +32,20 @@ namespace lampGUI
         private void btnWave_Click(object sender, EventArgs e) {
             led.Get(rgb.mode('w', 1000));
         }
+
+        private void label2_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void trackBar2_Scroll(object sender, EventArgs e)
+        {
+
+        }
+
+        private void panel1_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
     }
 }
