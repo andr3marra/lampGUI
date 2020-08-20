@@ -29,11 +29,11 @@
         private void InitializeComponent()
         {
             this.panel1 = new System.Windows.Forms.Panel();
+            this.btnWave = new System.Windows.Forms.Button();
+            this.btnBreath = new System.Windows.Forms.Button();
+            this.btnSolido = new System.Windows.Forms.Button();
             this.cwDuasCores2 = new Cyotek.Windows.Forms.ColorWheel();
             this.cwDuasCores1 = new Cyotek.Windows.Forms.ColorWheel();
-            this.btnSolido = new System.Windows.Forms.Button();
-            this.btnBreath = new System.Windows.Forms.Button();
-            this.btnWave = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -50,6 +50,36 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(700, 550);
             this.panel1.TabIndex = 7;
+            // 
+            // btnWave
+            // 
+            this.btnWave.Location = new System.Drawing.Point(480, 402);
+            this.btnWave.Name = "btnWave";
+            this.btnWave.Size = new System.Drawing.Size(75, 23);
+            this.btnWave.TabIndex = 17;
+            this.btnWave.Text = "Onda";
+            this.btnWave.UseVisualStyleBackColor = true;
+            this.btnWave.Click += new System.EventHandler(this.btnWave_Click);
+            // 
+            // btnBreath
+            // 
+            this.btnBreath.Location = new System.Drawing.Point(330, 402);
+            this.btnBreath.Name = "btnBreath";
+            this.btnBreath.Size = new System.Drawing.Size(75, 23);
+            this.btnBreath.TabIndex = 16;
+            this.btnBreath.Text = "Pulsar";
+            this.btnBreath.UseVisualStyleBackColor = true;
+            this.btnBreath.Click += new System.EventHandler(this.btnBreath_Click);
+            // 
+            // btnSolido
+            // 
+            this.btnSolido.Location = new System.Drawing.Point(155, 402);
+            this.btnSolido.Name = "btnSolido";
+            this.btnSolido.Size = new System.Drawing.Size(75, 23);
+            this.btnSolido.TabIndex = 15;
+            this.btnSolido.Text = "Sólido";
+            this.btnSolido.UseVisualStyleBackColor = true;
+            this.btnSolido.Click += new System.EventHandler(this.btnSolido_Click_1);
             // 
             // cwDuasCores2
             // 
@@ -68,35 +98,6 @@
             this.cwDuasCores1.Size = new System.Drawing.Size(241, 268);
             this.cwDuasCores1.TabIndex = 3;
             this.cwDuasCores1.ColorChanged += new System.EventHandler(this.cwDuasCores1_ColorChanged);
-            // 
-            // btnSolido
-            // 
-            this.btnSolido.Location = new System.Drawing.Point(155, 402);
-            this.btnSolido.Name = "btnSolido";
-            this.btnSolido.Size = new System.Drawing.Size(75, 23);
-            this.btnSolido.TabIndex = 15;
-            this.btnSolido.Text = "Sólido";
-            this.btnSolido.UseVisualStyleBackColor = true;
-            this.btnSolido.Click += new System.EventHandler(this.btnSolido_Click_1);
-            // 
-            // btnBreath
-            // 
-            this.btnBreath.Location = new System.Drawing.Point(330, 402);
-            this.btnBreath.Name = "btnBreath";
-            this.btnBreath.Size = new System.Drawing.Size(75, 23);
-            this.btnBreath.TabIndex = 16;
-            this.btnBreath.Text = "Pulsar";
-            this.btnBreath.UseVisualStyleBackColor = true;
-            this.btnBreath.Click += new System.EventHandler(this.btnBreath_Click);
-            // 
-            // btnWave
-            // 
-            this.btnWave.Location = new System.Drawing.Point(480, 402);
-            this.btnWave.Name = "btnWave";
-            this.btnWave.Size = new System.Drawing.Size(75, 23);
-            this.btnWave.TabIndex = 17;
-            this.btnWave.Text = "Onda";
-            this.btnWave.UseVisualStyleBackColor = true;
             // 
             // DuasCores
             // 

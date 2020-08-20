@@ -1,4 +1,5 @@
-﻿using System;
+﻿using lampGUI.Telas;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -54,12 +55,11 @@ namespace lampGUI {
             childForm.BringToFront();
             childForm.Show();
         }
-        private void btnCores_Click(object sender, EventArgs e) {
+        private void btnCores_Click_1(object sender, EventArgs e) {
             openChildForm(new _0_Cores());
         }
-
         private void btnMusica_Click(object sender, EventArgs e) {
-            openChildForm(new DuasCores());
+            openChildForm(new Musica());
         }
 
         private void panel2_MouseDown(object sender, MouseEventArgs e) {
@@ -69,8 +69,24 @@ namespace lampGUI {
             }
         }
 
-        private void btnCores_Paint(object sender, PaintEventArgs e) {
+        private void button4_Click(object sender, EventArgs e) {
+            openChildForm(new Configuracoes());
+        }
 
+        private void button3_Click(object sender, EventArgs e) {
+            openChildForm(new Tela());
+        }
+
+        private void btnCores_Enter(object sender, EventArgs e) {
+            btnCores.BackColor = (Color.FromArgb(47, 49, 54));
+        }
+
+        private void btnCores_Leave(object sender, EventArgs e) {
+            btnCores.BackColor = (Color.FromArgb(47, 49, 54));
+        }
+
+        private void btnCloseWindow_Click(object sender, EventArgs e) {
+            Application.Exit();
         }
     }
 }

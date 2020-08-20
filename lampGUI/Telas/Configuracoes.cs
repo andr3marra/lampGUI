@@ -8,12 +8,9 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace lampGUI.Telas
-{
-    public partial class Musica: Form
-    {
-        public Musica()
-        {
+namespace lampGUI.Telas {
+    public partial class Configuracoes : Form {
+        public Configuracoes() {
             InitializeComponent();
         }
     }

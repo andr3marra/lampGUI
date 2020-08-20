@@ -1,4 +1,5 @@
-﻿using System;
+﻿using lampGUI.Telas;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -12,6 +13,7 @@ namespace lampGUI {
     public partial class _0_Cores : Form {
         public _0_Cores() {
             InitializeComponent();
+            openChildForm(new UmaCor());
         }
         private Form activeForm = null;
         public void openChildForm(Form childForm) {
@@ -33,6 +35,10 @@ namespace lampGUI {
 
         private void button2_Click(object sender, EventArgs e) {
             openChildForm(new DuasCores());
+        }
+
+        private void button3_Click(object sender, EventArgs e) {
+            openChildForm(new _3_Arcoiris());
         }
     }
 

@@ -33,5 +33,9 @@ namespace lampGUI
         private void btnBreath_Click(object sender, EventArgs e) {
             led.Get(rgb.mode('b', 1000));
         }
+
+        private void btnWave_Click(object sender, EventArgs e) {
+            led.Get(rgb.mode('w', 1000));
+        }
     }
 }
