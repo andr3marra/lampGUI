@@ -62,3 +62,5 @@ C:\Users\Matheus\Desktop\lampGUI\lampGUI\obj\Debug\lampGUI.Telas._3_Arcoiris.res
 C:\Users\Matheus\Desktop\lampGUI\lampGUI\obj\Debug\lampGUI.Telas.Configuracoes.resources
 C:\Users\Matheus\Desktop\lampGUI\lampGUI\obj\Debug\lampGUI.Telas.Musica.resources
 C:\Users\Matheus\Desktop\lampGUI\lampGUI\obj\Debug\lampGUI.Telas.Tela.resources
+C:\Users\andre\source\repos\lampGUI\lampGUI\bin\Debug\Newtonsoft.Json.dll
+C:\Users\andre\source\repos\lampGUI\lampGUI\bin\Debug\Newtonsoft.Json.xml

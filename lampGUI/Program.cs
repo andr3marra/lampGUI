@@ -3,9 +3,11 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using System.Text.Json;
+//using System.Text.Json;
 using System.IO;
-using System.Text.Json.Serialization;
+//using System.Text.Json.Serialization;
+using Newtonsoft.Json;
+using Newtonsoft.Json.Serialization;
 
 namespace lampGUI {
     public static class Program {
@@ -16,18 +18,22 @@ namespace lampGUI {
         [STAThread]
         
         static void Main() {
-/*            using (StreamReader r = new StreamReader("config.json")) {
-                string jsonString = r.ReadToEnd();
-
-                Devices devices = JsonSerializer.Deserialize<Devices>(jsonString);
-            }*/
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             Application.Run(new Form1());
         }
-        public class Devices {
+        // Root myDeserializedClass = JsonConvert.DeserializeObject<Root>(myJsonResponse); 
+        public class Device {
+            public string id { get; set; }
             public string name { get; set; }
             public string ip { get; set; }
         }
+
+        public class Root {
+            public List<Device> devices { get; set; }
+        }
+
+
+
     }
 }
