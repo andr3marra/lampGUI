@@ -11,9 +11,12 @@ using System.Windows.Forms;
 
 namespace lampGUI {
     public partial class _0_Cores : Form {
+        Api led = new Api("192.168.15.12");
         public _0_Cores() {
             InitializeComponent();
-            openChildForm(new UmaCor());
+
+            
+            openChildForm(new UmaCor(led));
         }
         private Form activeForm = null;
         public void openChildForm(Form childForm) {
@@ -30,7 +33,7 @@ namespace lampGUI {
         }
 
         private void button1_Click(object sender, EventArgs e) {
-            openChildForm(new UmaCor());
+            openChildForm(new UmaCor(led));
         }
 
         private void button2_Click(object sender, EventArgs e) {

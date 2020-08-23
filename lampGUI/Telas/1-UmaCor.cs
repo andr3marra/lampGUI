@@ -12,10 +12,14 @@ namespace lampGUI
 {
     public partial class UmaCor : Form
     {
-        Api led = new Api("192.168.15.12");
-        public UmaCor()
+        //Api led = new Api("192.168.15.12");
+        Api led;
+        public UmaCor(Api instancia)
         {
+            led = instancia;
+            //Api led = api_instance;
             InitializeComponent();
+
         }
 
         private void cwUmaCor_ColorChanged(object sender, EventArgs e) {

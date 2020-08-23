@@ -4,13 +4,12 @@ using System.Net;
 
 
 namespace lampGUI {
-    class Api {
+    public class Api {
         private WebRequest request;
         private readonly string url;
         public Api(string url) {
             this.url = "http://" + url;
             //request = WebRequest.Create(this.url);
-            
         }
         public string Post(byte[] data) {
             request = WebRequest.Create(this.url + "/color/custom");

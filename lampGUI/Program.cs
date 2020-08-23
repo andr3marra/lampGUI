@@ -10,7 +10,7 @@ using Newtonsoft.Json;
 using Newtonsoft.Json.Serialization;
 
 namespace lampGUI {
-    public static class Program {
+    public class Program {
         /// <summary>
         /// Ponto de entrada principal para o aplicativo.
         /// </summary>
@@ -31,6 +31,7 @@ namespace lampGUI {
             Application.SetCompatibleTextRenderingDefault(false);
             Application.Run(new Form1());
         }
+        Api led = new Api("192.168.15.12");
 
     }
 }
