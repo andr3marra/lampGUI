@@ -18,22 +18,19 @@ namespace lampGUI {
         [STAThread]
         
         static void Main() {
+            using (StreamReader r = new StreamReader("config.json")) {
+                string json = r.ReadToEnd();
+                dynamic array = JsonConvert.DeserializeObject(json);
+                foreach (var item in array) {
+                    Console.WriteLine(item.name);
+                    Console.WriteLine(item.ip);
+
+                }
+            }
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             Application.Run(new Form1());
         }
-        // Root myDeserializedClass = JsonConvert.DeserializeObject<Root>(myJsonResponse); 
-        public class Device {
-            public string id { get; set; }
-            public string name { get; set; }
-            public string ip { get; set; }
-        }
-
-        public class Root {
-            public List<Device> devices { get; set; }
-        }
-
-
 
     }
 }
