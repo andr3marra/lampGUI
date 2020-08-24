@@ -12,29 +12,27 @@ namespace lampGUI
 {
     public partial class UmaCor : Form
     {
-        //Api led = new Api("192.168.15.12");
         Api led;
         public UmaCor(Api instancia)
         {
             led = instancia;
-            //Api led = api_instance;
             InitializeComponent();
 
         }
 
         private void cwUmaCor_ColorChanged(object sender, EventArgs e) {
-            led.Get(rgb.singleColor(cwUmaCor.Color.R, cwUmaCor.Color.G, cwUmaCor.Color.B));
+            led.Send(cwUmaCor.Color.R, cwUmaCor.Color.G, cwUmaCor.Color.B);
         }
         private void btnSolido_Click(object sender, EventArgs e) {
-            led.Get(rgb.mode('s'));
+            led.Send('s');
         }
 
         private void btnPulsar_Click(object sender, EventArgs e) {
-            led.Get(rgb.mode('b', tbFrequencia.Value));
+            led.Send('b', tbFrequencia.Value);
         }
 
         private void btnWave_Click(object sender, EventArgs e) {
-            led.Get(rgb.mode('w', tbFrequencia.Value));
+            led.Send('w', tbFrequencia.Value);
         }
 
         private void label2_Click(object sender, EventArgs e)
@@ -53,7 +51,7 @@ namespace lampGUI
         }
 
         private void tbBrilho_Scroll(object sender, EventArgs e) {
-            led.Get(rgb.brightness((byte) tbBrilho.Value));
+            led.Send((byte) tbBrilho.Value);
         }
     }
 }

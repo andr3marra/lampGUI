@@ -13,11 +13,12 @@ namespace lampGUI.Telas
     public partial class Musica: Form
     {
         private Analyzer analyzer;
-        public Musica()
+        private Api led;
+        public Musica(Api instancia)
         {
-            
+            led = instancia;
             InitializeComponent();
-            analyzer = new Analyzer(comboBox1);
+            analyzer = new Analyzer(comboBox1, led);
         }
 
         private void button1_Click(object sender, EventArgs e) {

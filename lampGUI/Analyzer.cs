@@ -27,10 +27,10 @@ namespace lampGUI {
         //private Chart _chart;
 
         private int _lines = 10;            // number of spectrum lines
-        Api led = new Api("192.168.15.12");
+        Api led;
 
         //ctor
-        public Analyzer(/*ProgressBar left, ProgressBar right, Spectrum spectrum,*/ ComboBox devicelist /*Chart chart*/) {
+        public Analyzer(ComboBox devicelist, Api instancia) {
 
             _fft = new float[8192];
             _lastlevel = 0;
@@ -67,7 +67,7 @@ namespace lampGUI {
                         {
                             chart.Series["wave"].Points.Add(0);
                         }*/
-
+            led = instancia;
             Init();
         }
 

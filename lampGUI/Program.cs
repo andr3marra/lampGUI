@@ -11,27 +11,24 @@ using Newtonsoft.Json.Serialization;
 
 namespace lampGUI {
     public class Program {
-        /// <summary>
-        /// Ponto de entrada principal para o aplicativo.
-        /// </summary>
-        
         [STAThread]
-        
+
         static void Main() {
+            String[] ip;
+            bool[] lamps = new []{ true, false, false };
             using (StreamReader r = new StreamReader("config.json")) {
                 string json = r.ReadToEnd();
                 dynamic array = JsonConvert.DeserializeObject(json);
-                foreach (var item in array) {
-                    Console.WriteLine(item.name);
-                    Console.WriteLine(item.ip);
-
+                ip = new String[array.Count];
+                for ( int i = 0; i <array.Count; i++ ) {
+                    ip[i] = array[i].ip;
                 }
             }
+            
+            Api led = new Api(ip);
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Form1());
+            Application.Run(new Form1(led));
         }
-        Api led = new Api("192.168.15.12");
-
     }
 }

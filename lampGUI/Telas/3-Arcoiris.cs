@@ -10,8 +10,9 @@ using System.Windows.Forms;
 
 namespace lampGUI.Telas {
     public partial class _3_Arcoiris : Form {
-        Api led = new Api("192.168.15.12");
-        public _3_Arcoiris() {
+        Api led;
+        public _3_Arcoiris(Api instancia) {
+            led = instancia;
             InitializeComponent();
         }
 
@@ -21,11 +22,11 @@ namespace lampGUI.Telas {
         }
 
         private void btnArcoIris_Click(object sender, EventArgs e) {
-            led.Get(rgb.rainwbow());
+            led.Send('r');
         }
 
         private void tbBrilho_Scroll(object sender, EventArgs e) {
-            led.Get(rgb.brightness((byte)tbBrilho.Value));
+            led.Send((byte)tbBrilho.Value);
         }
     }
 }

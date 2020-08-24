@@ -11,11 +11,9 @@ using System.Windows.Forms;
 
 namespace lampGUI {
     public partial class _0_Cores : Form {
-        Api led = new Api("192.168.15.12");
+        Api led = new Api(new[] { "192.168.15.12" });
         public _0_Cores() {
             InitializeComponent();
-
-            
             openChildForm(new UmaCor(led));
         }
         private Form activeForm = null;
@@ -37,11 +35,11 @@ namespace lampGUI {
         }
 
         private void button2_Click(object sender, EventArgs e) {
-            openChildForm(new DuasCores());
+            openChildForm(new DuasCores(led));
         }
 
         private void button3_Click(object sender, EventArgs e) {
-            openChildForm(new _3_Arcoiris());
+            openChildForm(new _3_Arcoiris(led));
         }
     }
 
