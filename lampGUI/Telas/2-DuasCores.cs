@@ -42,5 +42,10 @@ namespace lampGUI
         private void tbBrilho_Scroll(object sender, EventArgs e) {
             led.Send((byte)tbBrilho.Value);
         }
+
+        private void DuasCores_Load(object sender, EventArgs e) {
+            tbFrequencia.Value = PersistentData.delay;
+            tbBrilho.Value = PersistentData.brightness;
+        }
     }
 }

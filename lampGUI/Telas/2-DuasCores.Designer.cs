@@ -45,7 +45,7 @@
             // 
             // panel1
             // 
-            this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(71)))), ((int)(((byte)(90)))));
+            this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(54)))), ((int)(((byte)(57)))), ((int)(((byte)(63)))));
             this.panel1.Controls.Add(this.lblFrequencia);
             this.panel1.Controls.Add(this.tbFrequencia);
             this.panel1.Controls.Add(this.lblBrilho);
@@ -98,7 +98,7 @@
             this.tbBrilho.AutoSize = false;
             this.tbBrilho.Cursor = System.Windows.Forms.Cursors.Default;
             this.tbBrilho.Location = new System.Drawing.Point(194, 431);
-            this.tbBrilho.Maximum = 100;
+            this.tbBrilho.Maximum = 255;
             this.tbBrilho.Name = "tbBrilho";
             this.tbBrilho.Size = new System.Drawing.Size(146, 45);
             this.tbBrilho.TabIndex = 23;
@@ -162,6 +162,7 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "DuasCores";
             this.Text = "DuasCores";
+            this.Load += new System.EventHandler(this.DuasCores_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.tbFrequencia)).EndInit();

@@ -60,6 +60,7 @@
             // btnDuasCores
             // 
             this.btnDuasCores.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.btnDuasCores.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnDuasCores.Location = new System.Drawing.Point(0, 0);
             this.btnDuasCores.Name = "btnDuasCores";
             this.btnDuasCores.Size = new System.Drawing.Size(234, 50);
@@ -80,6 +81,7 @@
             // btnArcoIris
             // 
             this.btnArcoIris.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.btnArcoIris.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnArcoIris.Location = new System.Drawing.Point(0, 0);
             this.btnArcoIris.Name = "btnArcoIris";
             this.btnArcoIris.Size = new System.Drawing.Size(233, 50);
@@ -99,18 +101,20 @@
             // 
             // btnUmaCor
             // 
+            this.btnUmaCor.BackColor = System.Drawing.SystemColors.Control;
             this.btnUmaCor.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.btnUmaCor.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnUmaCor.Location = new System.Drawing.Point(0, 0);
             this.btnUmaCor.Name = "btnUmaCor";
             this.btnUmaCor.Size = new System.Drawing.Size(233, 50);
             this.btnUmaCor.TabIndex = 2;
             this.btnUmaCor.Text = "Uma Cor";
-            this.btnUmaCor.UseVisualStyleBackColor = true;
+            this.btnUmaCor.UseVisualStyleBackColor = false;
             this.btnUmaCor.Click += new System.EventHandler(this.button1_Click);
             // 
             // panelChildCores
             // 
-            this.panelChildCores.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(71)))), ((int)(((byte)(90)))));
+            this.panelChildCores.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(54)))), ((int)(((byte)(57)))), ((int)(((byte)(63)))));
             this.panelChildCores.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelChildCores.Location = new System.Drawing.Point(0, 50);
             this.panelChildCores.Name = "panelChildCores";

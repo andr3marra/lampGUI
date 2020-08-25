@@ -11,7 +11,7 @@ using System.Windows.Forms;
 
 namespace lampGUI {
     public partial class _0_Cores : Form {
-        Api led = new Api(new[] { "192.168.15.12" });
+        Api led = new Api();
         public _0_Cores() {
             InitializeComponent();
             openChildForm(new UmaCor(led));

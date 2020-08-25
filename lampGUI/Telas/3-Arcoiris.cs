@@ -28,5 +28,9 @@ namespace lampGUI.Telas {
         private void tbBrilho_Scroll(object sender, EventArgs e) {
             led.Send((byte)tbBrilho.Value);
         }
+
+        private void _3_Arcoiris_Load(object sender, EventArgs e) {
+            tbBrilho.Value = PersistentData.brightness;
+        }
     }
 }

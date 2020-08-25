@@ -17,7 +17,6 @@ namespace lampGUI
         {
             led = instancia;
             InitializeComponent();
-
         }
 
         private void cwUmaCor_ColorChanged(object sender, EventArgs e) {
@@ -52,6 +51,11 @@ namespace lampGUI
 
         private void tbBrilho_Scroll(object sender, EventArgs e) {
             led.Send((byte) tbBrilho.Value);
+        }
+
+        private void UmaCor_Load(object sender, EventArgs e) {
+            tbFrequencia.Value = PersistentData.delay;
+            tbBrilho.Value = PersistentData.brightness;
         }
     }
 }

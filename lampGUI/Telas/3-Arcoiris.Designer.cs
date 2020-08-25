@@ -47,7 +47,7 @@
             this.tbBrilho.AutoSize = false;
             this.tbBrilho.Cursor = System.Windows.Forms.Cursors.Default;
             this.tbBrilho.Location = new System.Drawing.Point(272, 392);
-            this.tbBrilho.Maximum = 100;
+            this.tbBrilho.Maximum = 255;
             this.tbBrilho.Name = "tbBrilho";
             this.tbBrilho.Size = new System.Drawing.Size(146, 45);
             this.tbBrilho.TabIndex = 21;
@@ -78,7 +78,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(71)))), ((int)(((byte)(90)))));
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(54)))), ((int)(((byte)(57)))), ((int)(((byte)(63)))));
             this.ClientSize = new System.Drawing.Size(700, 500);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.btnArcoIris);
@@ -87,6 +87,7 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "_3_Arcoiris";
             this.Text = "_3_Arcoiris";
+            this.Load += new System.EventHandler(this._3_Arcoiris_Load);
             ((System.ComponentModel.ISupportInitialize)(this.tbBrilho)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
