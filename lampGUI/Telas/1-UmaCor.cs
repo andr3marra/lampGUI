@@ -47,5 +47,10 @@ namespace lampGUI
         {
 
         }
+
+        private void lblBrilho_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

@@ -59,13 +59,18 @@
             // 
             // btnDuasCores
             // 
+            this.btnDuasCores.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(85)))), ((int)(((byte)(85)))));
             this.btnDuasCores.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.btnDuasCores.FlatAppearance.BorderSize = 0;
+            this.btnDuasCores.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btnDuasCores.Font = new System.Drawing.Font("Arial Rounded MT Bold", 12F);
+            this.btnDuasCores.ForeColor = System.Drawing.SystemColors.ControlLightLight;
             this.btnDuasCores.Location = new System.Drawing.Point(0, 0);
             this.btnDuasCores.Name = "btnDuasCores";
             this.btnDuasCores.Size = new System.Drawing.Size(234, 50);
             this.btnDuasCores.TabIndex = 3;
             this.btnDuasCores.Text = "Duas Cores";
-            this.btnDuasCores.UseVisualStyleBackColor = true;
+            this.btnDuasCores.UseVisualStyleBackColor = false;
             this.btnDuasCores.Click += new System.EventHandler(this.button2_Click);
             // 
             // panel3
@@ -79,13 +84,18 @@
             // 
             // btnArcoIris
             // 
+            this.btnArcoIris.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(139)))), ((int)(((byte)(233)))), ((int)(((byte)(253)))));
             this.btnArcoIris.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.btnArcoIris.FlatAppearance.BorderSize = 0;
+            this.btnArcoIris.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btnArcoIris.Font = new System.Drawing.Font("Arial Rounded MT Bold", 12F);
+            this.btnArcoIris.ForeColor = System.Drawing.SystemColors.ControlLightLight;
             this.btnArcoIris.Location = new System.Drawing.Point(0, 0);
             this.btnArcoIris.Name = "btnArcoIris";
             this.btnArcoIris.Size = new System.Drawing.Size(233, 50);
             this.btnArcoIris.TabIndex = 3;
             this.btnArcoIris.Text = "Arco Íris";
-            this.btnArcoIris.UseVisualStyleBackColor = true;
+            this.btnArcoIris.UseVisualStyleBackColor = false;
             this.btnArcoIris.Click += new System.EventHandler(this.button3_Click);
             // 
             // panel2
@@ -99,13 +109,18 @@
             // 
             // btnUmaCor
             // 
+            this.btnUmaCor.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(80)))), ((int)(((byte)(250)))), ((int)(((byte)(123)))));
             this.btnUmaCor.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.btnUmaCor.FlatAppearance.BorderSize = 0;
+            this.btnUmaCor.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btnUmaCor.Font = new System.Drawing.Font("Arial Rounded MT Bold", 12F);
+            this.btnUmaCor.ForeColor = System.Drawing.SystemColors.ControlLightLight;
             this.btnUmaCor.Location = new System.Drawing.Point(0, 0);
             this.btnUmaCor.Name = "btnUmaCor";
             this.btnUmaCor.Size = new System.Drawing.Size(233, 50);
             this.btnUmaCor.TabIndex = 2;
             this.btnUmaCor.Text = "Uma Cor";
-            this.btnUmaCor.UseVisualStyleBackColor = true;
+            this.btnUmaCor.UseVisualStyleBackColor = false;
             this.btnUmaCor.Click += new System.EventHandler(this.button1_Click);
             // 
             // panelChildCores

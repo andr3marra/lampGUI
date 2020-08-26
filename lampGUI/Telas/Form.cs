@@ -57,9 +57,14 @@ namespace lampGUI {
         }
         private void btnCores_Click_1(object sender, EventArgs e) {
             openChildForm(new _0_Cores());
+            pnlLeft.Height = btnCores.Height;
+            pnlLeft.Top = btnCores.Top;
+            
         }
         private void btnMusica_Click(object sender, EventArgs e) {
             openChildForm(new Musica());
+            pnlLeft.Height = btnMusica.Height;
+            pnlLeft.Top = btnMusica.Top;
         }
 
         private void panel2_MouseDown(object sender, MouseEventArgs e) {
@@ -69,12 +74,16 @@ namespace lampGUI {
             }
         }
 
-        private void button4_Click(object sender, EventArgs e) {
+        private void btnConfiguracoes_Click(object sender, EventArgs e) {
             openChildForm(new Configuracoes());
+            pnlLeft.Height = btnConfiguracoes.Height;
+            pnlLeft.Top = btnConfiguracoes.Top;
         }
 
-        private void button3_Click(object sender, EventArgs e) {
+        private void btnTela_Click(object sender, EventArgs e) {
             openChildForm(new Tela());
+            pnlLeft.Height = btnTela.Height;
+            pnlLeft.Top = btnTela.Top;
         }
 
         private void btnCores_Enter(object sender, EventArgs e) {
@@ -87,6 +96,11 @@ namespace lampGUI {
 
         private void btnCloseWindow_Click(object sender, EventArgs e) {
             Application.Exit();
+        }
+
+        private void pnlLeft_Paint(object sender, PaintEventArgs e)
+        {
+
         }
     }
 }

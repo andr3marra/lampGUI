@@ -18,5 +18,15 @@ namespace lampGUI.Telas {
         {
 
         }
+
+        private void tbBrilho_Scroll(object sender, EventArgs e)
+        {
+          
+        }
+
+        private void pbArcoIris_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
