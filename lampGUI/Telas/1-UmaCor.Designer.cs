@@ -62,17 +62,11 @@
             // lblFrequencia
             // 
             this.lblFrequencia.AutoSize = true;
-<<<<<<< HEAD
             this.lblFrequencia.Font = new System.Drawing.Font("Arial Rounded MT Bold", 9F);
             this.lblFrequencia.ForeColor = System.Drawing.SystemColors.ControlLightLight;
             this.lblFrequencia.Location = new System.Drawing.Point(319, 391);
             this.lblFrequencia.Name = "lblFrequencia";
             this.lblFrequencia.Size = new System.Drawing.Size(72, 14);
-=======
-            this.lblFrequencia.Location = new System.Drawing.Point(355, 390);
-            this.lblFrequencia.Name = "lblFrequencia";
-            this.lblFrequencia.Size = new System.Drawing.Size(60, 13);
->>>>>>> cb06bc4f0d9eb1b1b64fee053c86ea869f9b17d4
             this.lblFrequencia.TabIndex = 22;
             this.lblFrequencia.Text = "Frequência";
             this.lblFrequencia.Click += new System.EventHandler(this.label2_Click);
@@ -81,28 +75,21 @@
             // 
             this.tbFrequencia.AutoSize = false;
             this.tbFrequencia.Cursor = System.Windows.Forms.Cursors.Default;
-<<<<<<< HEAD
+
             this.tbFrequencia.Location = new System.Drawing.Point(234, 372);
-            this.tbFrequencia.Maximum = 100;
-=======
-            this.tbFrequencia.Location = new System.Drawing.Point(265, 372);
             this.tbFrequencia.Maximum = 5000;
             this.tbFrequencia.Minimum = 200;
->>>>>>> cb06bc4f0d9eb1b1b64fee053c86ea869f9b17d4
+
             this.tbFrequencia.Name = "tbFrequencia";
             this.tbFrequencia.Size = new System.Drawing.Size(232, 45);
             this.tbFrequencia.TabIndex = 21;
             this.tbFrequencia.TickFrequency = 100;
             this.tbFrequencia.TickStyle = System.Windows.Forms.TickStyle.None;
-<<<<<<< HEAD
-=======
             this.tbFrequencia.Value = 200;
->>>>>>> cb06bc4f0d9eb1b1b64fee053c86ea869f9b17d4
             this.tbFrequencia.Scroll += new System.EventHandler(this.trackBar2_Scroll);
             // 
             // lblBrilho
             // 
-<<<<<<< HEAD
             this.lblBrilho.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.lblBrilho.AutoSize = true;
             this.lblBrilho.Font = new System.Drawing.Font("Arial Rounded MT Bold", 9F);
@@ -113,35 +100,19 @@
             this.lblBrilho.TabIndex = 20;
             this.lblBrilho.Text = "Brilho";
             this.lblBrilho.Click += new System.EventHandler(this.lblBrilho_Click);
-=======
-            this.lblBrilho.AutoSize = true;
-            this.lblBrilho.Location = new System.Drawing.Point(366, 440);
-            this.lblBrilho.Name = "lblBrilho";
-            this.lblBrilho.Size = new System.Drawing.Size(33, 13);
-            this.lblBrilho.TabIndex = 20;
-            this.lblBrilho.Text = "Brilho";
->>>>>>> cb06bc4f0d9eb1b1b64fee053c86ea869f9b17d4
             // 
             // tbBrilho
             // 
             this.tbBrilho.AutoSize = false;
             this.tbBrilho.Cursor = System.Windows.Forms.Cursors.Default;
-<<<<<<< HEAD
             this.tbBrilho.Location = new System.Drawing.Point(234, 408);
-            this.tbBrilho.Maximum = 100;
-=======
-            this.tbBrilho.Location = new System.Drawing.Point(265, 423);
             this.tbBrilho.Maximum = 255;
->>>>>>> cb06bc4f0d9eb1b1b64fee053c86ea869f9b17d4
             this.tbBrilho.Name = "tbBrilho";
             this.tbBrilho.Size = new System.Drawing.Size(232, 42);
             this.tbBrilho.TabIndex = 19;
             this.tbBrilho.TickFrequency = 100;
             this.tbBrilho.TickStyle = System.Windows.Forms.TickStyle.None;
-<<<<<<< HEAD
-=======
             this.tbBrilho.Scroll += new System.EventHandler(this.tbBrilho_Scroll);
->>>>>>> cb06bc4f0d9eb1b1b64fee053c86ea869f9b17d4
             // 
             // btnWave
             // 

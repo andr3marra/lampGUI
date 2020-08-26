@@ -49,11 +49,8 @@ namespace lampGUI
 
         }
 
-<<<<<<< HEAD
-        private void lblBrilho_Click(object sender, EventArgs e)
-        {
-
-=======
+        private void lblBrilho_Click(object sender, EventArgs e) {
+        }
         private void tbBrilho_Scroll(object sender, EventArgs e) {
             led.Send((byte) tbBrilho.Value);
         }
@@ -61,7 +58,6 @@ namespace lampGUI
         private void UmaCor_Load(object sender, EventArgs e) {
             tbFrequencia.Value = PersistentData.delay;
             tbBrilho.Value = PersistentData.brightness;
->>>>>>> cb06bc4f0d9eb1b1b64fee053c86ea869f9b17d4
         }
     }
 }

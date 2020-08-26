@@ -44,13 +44,10 @@ namespace lampGUI {
             
         }
         private void btnMusica_Click(object sender, EventArgs e) {
-<<<<<<< HEAD
-            openChildForm(new Musica());
+
+            openChildForm(new Musica(led));
             pnlLeft.Height = btnMusica.Height;
             pnlLeft.Top = btnMusica.Top;
-=======
-            openChildForm(new Musica(led));
->>>>>>> cb06bc4f0d9eb1b1b64fee053c86ea869f9b17d4
         }
         private void panel2_MouseDown(object sender, MouseEventArgs e) {
             if (e.Button == MouseButtons.Left) {
@@ -58,26 +55,20 @@ namespace lampGUI {
                 SendMessage(Handle, WM_NCLBUTTONDOWN, HT_CAPTION, 0);
             }
         }
-<<<<<<< HEAD
+
 
         private void btnConfiguracoes_Click(object sender, EventArgs e) {
-=======
-        private void button4_Click(object sender, EventArgs e) {
->>>>>>> cb06bc4f0d9eb1b1b64fee053c86ea869f9b17d4
             openChildForm(new Configuracoes());
             pnlLeft.Height = btnConfiguracoes.Height;
             pnlLeft.Top = btnConfiguracoes.Top;
-        }
-<<<<<<< HEAD
 
+        }
         private void btnTela_Click(object sender, EventArgs e) {
-=======
-        private void button3_Click(object sender, EventArgs e) {
->>>>>>> cb06bc4f0d9eb1b1b64fee053c86ea869f9b17d4
             openChildForm(new Tela());
             pnlLeft.Height = btnTela.Height;
             pnlLeft.Top = btnTela.Top;
-        }
+            }
+
         private void btnCores_Enter(object sender, EventArgs e) {
             btnCores.BackColor = (Color.FromArgb(47, 49, 54));
         }

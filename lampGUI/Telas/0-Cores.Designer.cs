@@ -61,14 +61,10 @@
             // 
             this.btnDuasCores.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(85)))), ((int)(((byte)(85)))));
             this.btnDuasCores.Dock = System.Windows.Forms.DockStyle.Fill;
-<<<<<<< HEAD
             this.btnDuasCores.FlatAppearance.BorderSize = 0;
             this.btnDuasCores.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnDuasCores.Font = new System.Drawing.Font("Arial Rounded MT Bold", 12F);
             this.btnDuasCores.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-=======
-            this.btnDuasCores.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
->>>>>>> cb06bc4f0d9eb1b1b64fee053c86ea869f9b17d4
             this.btnDuasCores.Location = new System.Drawing.Point(0, 0);
             this.btnDuasCores.Name = "btnDuasCores";
             this.btnDuasCores.Size = new System.Drawing.Size(234, 50);
@@ -90,14 +86,10 @@
             // 
             this.btnArcoIris.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(139)))), ((int)(((byte)(233)))), ((int)(((byte)(253)))));
             this.btnArcoIris.Dock = System.Windows.Forms.DockStyle.Fill;
-<<<<<<< HEAD
             this.btnArcoIris.FlatAppearance.BorderSize = 0;
             this.btnArcoIris.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnArcoIris.Font = new System.Drawing.Font("Arial Rounded MT Bold", 12F);
             this.btnArcoIris.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-=======
-            this.btnArcoIris.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
->>>>>>> cb06bc4f0d9eb1b1b64fee053c86ea869f9b17d4
             this.btnArcoIris.Location = new System.Drawing.Point(0, 0);
             this.btnArcoIris.Name = "btnArcoIris";
             this.btnArcoIris.Size = new System.Drawing.Size(233, 50);
@@ -117,18 +109,12 @@
             // 
             // btnUmaCor
             // 
-<<<<<<< HEAD
             this.btnUmaCor.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(80)))), ((int)(((byte)(250)))), ((int)(((byte)(123)))));
             this.btnUmaCor.Dock = System.Windows.Forms.DockStyle.Fill;
             this.btnUmaCor.FlatAppearance.BorderSize = 0;
             this.btnUmaCor.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnUmaCor.Font = new System.Drawing.Font("Arial Rounded MT Bold", 12F);
             this.btnUmaCor.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-=======
-            this.btnUmaCor.BackColor = System.Drawing.SystemColors.Control;
-            this.btnUmaCor.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.btnUmaCor.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
->>>>>>> cb06bc4f0d9eb1b1b64fee053c86ea869f9b17d4
             this.btnUmaCor.Location = new System.Drawing.Point(0, 0);
             this.btnUmaCor.Name = "btnUmaCor";
             this.btnUmaCor.Size = new System.Drawing.Size(233, 50);

@@ -21,27 +21,16 @@ namespace lampGUI.Telas {
 
         }
 
-<<<<<<< HEAD
         private void tbBrilho_Scroll(object sender, EventArgs e)
         {
-          
-        }
-
-        private void pbArcoIris_Click(object sender, EventArgs e)
-        {
-
-=======
-        private void btnArcoIris_Click(object sender, EventArgs e) {
-            led.Send('r');
-        }
-
-        private void tbBrilho_Scroll(object sender, EventArgs e) {
             led.Send((byte)tbBrilho.Value);
         }
 
+        private void pbArcoIris_Click(object sender, EventArgs e) {
+            led.Send('r');
+        }
         private void _3_Arcoiris_Load(object sender, EventArgs e) {
             tbBrilho.Value = PersistentData.brightness;
->>>>>>> cb06bc4f0d9eb1b1b64fee053c86ea869f9b17d4
         }
     }
 }

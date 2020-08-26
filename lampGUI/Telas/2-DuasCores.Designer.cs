@@ -64,17 +64,12 @@
             // lblFrequencia
             // 
             this.lblFrequencia.AutoSize = true;
-<<<<<<< HEAD
+
             this.lblFrequencia.Font = new System.Drawing.Font("Arial Rounded MT Bold", 9F);
             this.lblFrequencia.ForeColor = System.Drawing.SystemColors.ControlLightLight;
             this.lblFrequencia.Location = new System.Drawing.Point(319, 391);
             this.lblFrequencia.Name = "lblFrequencia";
             this.lblFrequencia.Size = new System.Drawing.Size(72, 14);
-=======
-            this.lblFrequencia.Location = new System.Drawing.Point(427, 448);
-            this.lblFrequencia.Name = "lblFrequencia";
-            this.lblFrequencia.Size = new System.Drawing.Size(60, 13);
->>>>>>> cb06bc4f0d9eb1b1b64fee053c86ea869f9b17d4
             this.lblFrequencia.TabIndex = 26;
             this.lblFrequencia.Text = "Frequência";
             // 
@@ -82,40 +77,24 @@
             // 
             this.tbFrequencia.AutoSize = false;
             this.tbFrequencia.Cursor = System.Windows.Forms.Cursors.Default;
-<<<<<<< HEAD
             this.tbFrequencia.Location = new System.Drawing.Point(234, 372);
-            this.tbFrequencia.Maximum = 100;
+            this.tbFrequencia.Maximum = 5000;
+            this.tbFrequencia.Minimum = 200;
             this.tbFrequencia.Name = "tbFrequencia";
             this.tbFrequencia.Size = new System.Drawing.Size(232, 45);
             this.tbFrequencia.TabIndex = 25;
             this.tbFrequencia.TickFrequency = 100;
             this.tbFrequencia.TickStyle = System.Windows.Forms.TickStyle.None;
-=======
-            this.tbFrequencia.Location = new System.Drawing.Point(380, 431);
-            this.tbFrequencia.Maximum = 5000;
-            this.tbFrequencia.Minimum = 200;
-            this.tbFrequencia.Name = "tbFrequencia";
-            this.tbFrequencia.Size = new System.Drawing.Size(146, 45);
-            this.tbFrequencia.TabIndex = 25;
-            this.tbFrequencia.TickFrequency = 100;
-            this.tbFrequencia.TickStyle = System.Windows.Forms.TickStyle.None;
-            this.tbFrequencia.Value = 200;
->>>>>>> cb06bc4f0d9eb1b1b64fee053c86ea869f9b17d4
             // 
             // lblBrilho
             // 
             this.lblBrilho.AutoSize = true;
-<<<<<<< HEAD
             this.lblBrilho.Font = new System.Drawing.Font("Arial Rounded MT Bold", 9F);
             this.lblBrilho.ForeColor = System.Drawing.SystemColors.ControlLightLight;
             this.lblBrilho.Location = new System.Drawing.Point(335, 427);
             this.lblBrilho.Name = "lblBrilho";
             this.lblBrilho.Size = new System.Drawing.Size(41, 14);
-=======
-            this.lblBrilho.Location = new System.Drawing.Point(248, 448);
-            this.lblBrilho.Name = "lblBrilho";
-            this.lblBrilho.Size = new System.Drawing.Size(33, 13);
->>>>>>> cb06bc4f0d9eb1b1b64fee053c86ea869f9b17d4
+
             this.lblBrilho.TabIndex = 24;
             this.lblBrilho.Text = "Brilho";
             // 
@@ -123,24 +102,14 @@
             // 
             this.tbBrilho.AutoSize = false;
             this.tbBrilho.Cursor = System.Windows.Forms.Cursors.Default;
-<<<<<<< HEAD
             this.tbBrilho.Location = new System.Drawing.Point(234, 408);
-            this.tbBrilho.Maximum = 100;
+            this.tbBrilho.Maximum = 255;
             this.tbBrilho.Name = "tbBrilho";
             this.tbBrilho.Size = new System.Drawing.Size(232, 45);
             this.tbBrilho.TabIndex = 23;
             this.tbBrilho.TickFrequency = 100;
             this.tbBrilho.TickStyle = System.Windows.Forms.TickStyle.None;
-=======
-            this.tbBrilho.Location = new System.Drawing.Point(194, 431);
-            this.tbBrilho.Maximum = 255;
-            this.tbBrilho.Name = "tbBrilho";
-            this.tbBrilho.Size = new System.Drawing.Size(146, 45);
-            this.tbBrilho.TabIndex = 23;
-            this.tbBrilho.TickFrequency = 100;
-            this.tbBrilho.TickStyle = System.Windows.Forms.TickStyle.None;
             this.tbBrilho.Scroll += new System.EventHandler(this.tbBrilho_Scroll);
->>>>>>> cb06bc4f0d9eb1b1b64fee053c86ea869f9b17d4
             // 
             // btnWave
             // 

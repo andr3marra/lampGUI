@@ -48,13 +48,8 @@
             // 
             this.tbBrilho.AutoSize = false;
             this.tbBrilho.Cursor = System.Windows.Forms.Cursors.Default;
-<<<<<<< HEAD
             this.tbBrilho.Location = new System.Drawing.Point(234, 372);
-            this.tbBrilho.Maximum = 100;
-=======
-            this.tbBrilho.Location = new System.Drawing.Point(272, 392);
             this.tbBrilho.Maximum = 255;
->>>>>>> cb06bc4f0d9eb1b1b64fee053c86ea869f9b17d4
             this.tbBrilho.Name = "tbBrilho";
             this.tbBrilho.Size = new System.Drawing.Size(232, 45);
             this.tbBrilho.TabIndex = 21;
@@ -74,12 +69,8 @@
             this.btnArcoIris.Size = new System.Drawing.Size(97, 32);
             this.btnArcoIris.TabIndex = 23;
             this.btnArcoIris.Text = "Arco Íris";
-<<<<<<< HEAD
             this.btnArcoIris.UseVisualStyleBackColor = false;
-=======
-            this.btnArcoIris.UseVisualStyleBackColor = true;
-            this.btnArcoIris.Click += new System.EventHandler(this.btnArcoIris_Click);
->>>>>>> cb06bc4f0d9eb1b1b64fee053c86ea869f9b17d4
+            this.btnArcoIris.Click += new System.EventHandler(this.lblBrilho_Click);
             // 
             // pbArcoIris
             // 
