@@ -236,6 +236,7 @@
             // 
             // btnCloseWindow
             // 
+            this.btnCloseWindow.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnCloseWindow.Location = new System.Drawing.Point(863, 10);
             this.btnCloseWindow.Name = "btnCloseWindow";
             this.btnCloseWindow.Size = new System.Drawing.Size(25, 25);

@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace lampGUI {
-    
+
     public partial class Form1 : Form {
         public const int WM_NCLBUTTONDOWN = 0xA1;
         public const int HT_CAPTION = 0x2;
@@ -19,28 +19,10 @@ namespace lampGUI {
         public static extern int SendMessage(IntPtr hWnd, int Msg, int wParam, int lParam);
         [System.Runtime.InteropServices.DllImport("user32.dll")]
         public static extern bool ReleaseCapture();
-        public Form1() {
+        Api led;
+        public Form1(Api instancia) {
+            led = instancia;
             InitializeComponent();
-        }
-
-        private void button1_Click(object sender, EventArgs e) {
-            colorDialog1.ShowDialog();
-/*            if (colorDialog1.ShowDialog() == DialogResult.OK) {
-                button1.BackColor = colorDialog1.Color;
-            }*/
-        }
-
-        private void cwUmaCor_ColorChanged(object sender, EventArgs e) {
-            
-        }
-
-        private void colorWheel2_ColorChanged(object sender, EventArgs e) {
-            //
-        }
-
-        private void label6_Click(object sender, EventArgs e)
-        {
-
         }
         private Form activeForm = null;
         public void openChildForm(Form childForm) {
@@ -62,38 +44,46 @@ namespace lampGUI {
             
         }
         private void btnMusica_Click(object sender, EventArgs e) {
+<<<<<<< HEAD
             openChildForm(new Musica());
             pnlLeft.Height = btnMusica.Height;
             pnlLeft.Top = btnMusica.Top;
+=======
+            openChildForm(new Musica(led));
+>>>>>>> cb06bc4f0d9eb1b1b64fee053c86ea869f9b17d4
         }
-
         private void panel2_MouseDown(object sender, MouseEventArgs e) {
             if (e.Button == MouseButtons.Left) {
                 ReleaseCapture();
                 SendMessage(Handle, WM_NCLBUTTONDOWN, HT_CAPTION, 0);
             }
         }
+<<<<<<< HEAD
 
         private void btnConfiguracoes_Click(object sender, EventArgs e) {
+=======
+        private void button4_Click(object sender, EventArgs e) {
+>>>>>>> cb06bc4f0d9eb1b1b64fee053c86ea869f9b17d4
             openChildForm(new Configuracoes());
             pnlLeft.Height = btnConfiguracoes.Height;
             pnlLeft.Top = btnConfiguracoes.Top;
         }
+<<<<<<< HEAD
 
         private void btnTela_Click(object sender, EventArgs e) {
+=======
+        private void button3_Click(object sender, EventArgs e) {
+>>>>>>> cb06bc4f0d9eb1b1b64fee053c86ea869f9b17d4
             openChildForm(new Tela());
             pnlLeft.Height = btnTela.Height;
             pnlLeft.Top = btnTela.Top;
         }
-
         private void btnCores_Enter(object sender, EventArgs e) {
             btnCores.BackColor = (Color.FromArgb(47, 49, 54));
         }
-
         private void btnCores_Leave(object sender, EventArgs e) {
             btnCores.BackColor = (Color.FromArgb(47, 49, 54));
         }
-
         private void btnCloseWindow_Click(object sender, EventArgs e) {
             Application.Exit();
         }

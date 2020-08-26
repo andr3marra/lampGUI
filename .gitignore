@@ -10,6 +10,7 @@
 *.userosscache
 *.sln.docstates
 /lampGUI/bin
+/.vs/lampGUI/v16/
 
 # User-specific files (MonoDevelop/Xamarin Studio)
 *.userprefs
