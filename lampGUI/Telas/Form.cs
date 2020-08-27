@@ -23,6 +23,8 @@ namespace lampGUI {
         public Form1(Api instancia) {
             led = instancia;
             InitializeComponent();
+            openChildForm(new _0_Cores());
+            pnlLeft.BringToFront();
         }
         private Form activeForm = null;
         public void openChildForm(Form childForm) {
@@ -39,15 +41,15 @@ namespace lampGUI {
         }
         private void btnCores_Click_1(object sender, EventArgs e) {
             openChildForm(new _0_Cores());
-            pnlLeft.Height = btnCores.Height;
-            pnlLeft.Top = btnCores.Top;
-            
+            pnlLeft.Height = pnlCores.Height;
+            pnlLeft.Top = pnlCores.Top - 100;
+            pnlLeft.BringToFront();
         }
         private void btnMusica_Click(object sender, EventArgs e) {
-
             openChildForm(new Musica(led));
-            pnlLeft.Height = btnMusica.Height;
-            pnlLeft.Top = btnMusica.Top;
+            pnlLeft.Height = pnlMusica.Height;
+            pnlLeft.Top = pnlMusica.Top - 100;
+            pnlLeft.BringToFront();
         }
         private void panel2_MouseDown(object sender, MouseEventArgs e) {
             if (e.Button == MouseButtons.Left) {
@@ -55,33 +57,28 @@ namespace lampGUI {
                 SendMessage(Handle, WM_NCLBUTTONDOWN, HT_CAPTION, 0);
             }
         }
-
-
         private void btnConfiguracoes_Click(object sender, EventArgs e) {
             openChildForm(new Configuracoes());
-            pnlLeft.Height = btnConfiguracoes.Height;
-            pnlLeft.Top = btnConfiguracoes.Top;
-
+            pnlLeft.Height = pnlConfiguracoes.Height;
+            pnlLeft.Top = pnlConfiguracoes.Top - 100;
+            pnlLeft.BringToFront();
         }
         private void btnTela_Click(object sender, EventArgs e) {
             openChildForm(new Tela());
-            pnlLeft.Height = btnTela.Height;
-            pnlLeft.Top = btnTela.Top;
-            }
-
+            pnlLeft.Height = pnlTela.Height;
+            pnlLeft.Top = pnlTela.Top - 100;
+            pnlLeft.BringToFront();
+        }
         private void btnCores_Enter(object sender, EventArgs e) {
             btnCores.BackColor = (Color.FromArgb(47, 49, 54));
         }
         private void btnCores_Leave(object sender, EventArgs e) {
             btnCores.BackColor = (Color.FromArgb(47, 49, 54));
         }
-        private void btnCloseWindow_Click(object sender, EventArgs e) {
-            Application.Exit();
+        private void pnlLeft_Paint(object sender, PaintEventArgs e) {
         }
-
-        private void pnlLeft_Paint(object sender, PaintEventArgs e)
-        {
-
+        private void button1_Click(object sender, EventArgs e) {
+            Application.Exit();
         }
     }
 }

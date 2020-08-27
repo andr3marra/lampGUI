@@ -3,6 +3,7 @@ using System.IO;
 using System.Linq;
 using System.Net;
 using System.Net.Mail;
+using System.Windows.Forms;
 
 namespace lampGUI {
     public class Api {
@@ -52,16 +53,27 @@ namespace lampGUI {
             request = WebRequest.Create("http://" + address + data);
             request.Method = "GET";
             request.UseDefaultCredentials = true;
+            try {
+                WebResponse response = request.GetResponse();
+                string responseData;
 
-            WebResponse response = request.GetResponse();
-            string responseData;
-
-            using (Stream dataStream = response.GetResponseStream()) {
-                StreamReader reader = new StreamReader(dataStream);
-                responseData = reader.ReadToEnd();
+                using (Stream dataStream = response.GetResponseStream()) {
+                    StreamReader reader = new StreamReader(dataStream);
+                    responseData = reader.ReadToEnd();
+                }
+                response.Close();
+                return responseData;
             }
-            response.Close();
-            return responseData;
+            catch {
+                // Initializes the variables to pass to the MessageBox.Show method.
+                string message = "Verifique se as lampadas estão ligadas na tomada, e conectadas a rede sem fio. ";
+                string caption = "Nenhum dispositivo pode ser encontrado!";
+                MessageBoxButtons buttons = MessageBoxButtons.OK;
+                DialogResult result;
+                result = MessageBox.Show(message, caption, buttons);
+                //if (result == System.Windows.Forms.DialogResult.Yes)
+                return "0";
+            }
         }
 
         public void Send(byte r, byte g, byte b) {                                     // Single Color
@@ -99,7 +111,7 @@ namespace lampGUI {
             PersistentData.delay = delay;
         }
         public byte Status() {
-            foreach(var lamp in PersistentData.lamps) {
+            foreach (var lamp in PersistentData.lamps) {
                 return (byte)Int16.Parse(Get(lamp.ip, "/status"));
             }
             return 0;

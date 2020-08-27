@@ -64,12 +64,11 @@
             // lblFrequencia
             // 
             this.lblFrequencia.AutoSize = true;
-
-            this.lblFrequencia.Font = new System.Drawing.Font("Arial Rounded MT Bold", 9F);
+            this.lblFrequencia.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
             this.lblFrequencia.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.lblFrequencia.Location = new System.Drawing.Point(319, 391);
+            this.lblFrequencia.Location = new System.Drawing.Point(315, 391);
             this.lblFrequencia.Name = "lblFrequencia";
-            this.lblFrequencia.Size = new System.Drawing.Size(72, 14);
+            this.lblFrequencia.Size = new System.Drawing.Size(69, 15);
             this.lblFrequencia.TabIndex = 26;
             this.lblFrequencia.Text = "Frequência";
             // 
@@ -77,7 +76,7 @@
             // 
             this.tbFrequencia.AutoSize = false;
             this.tbFrequencia.Cursor = System.Windows.Forms.Cursors.Default;
-            this.tbFrequencia.Location = new System.Drawing.Point(234, 372);
+            this.tbFrequencia.Location = new System.Drawing.Point(233, 373);
             this.tbFrequencia.Maximum = 5000;
             this.tbFrequencia.Minimum = 200;
             this.tbFrequencia.Name = "tbFrequencia";
@@ -85,16 +84,16 @@
             this.tbFrequencia.TabIndex = 25;
             this.tbFrequencia.TickFrequency = 100;
             this.tbFrequencia.TickStyle = System.Windows.Forms.TickStyle.None;
+            this.tbFrequencia.Value = 200;
             // 
             // lblBrilho
             // 
             this.lblBrilho.AutoSize = true;
-            this.lblBrilho.Font = new System.Drawing.Font("Arial Rounded MT Bold", 9F);
+            this.lblBrilho.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
             this.lblBrilho.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.lblBrilho.Location = new System.Drawing.Point(335, 427);
+            this.lblBrilho.Location = new System.Drawing.Point(330, 438);
             this.lblBrilho.Name = "lblBrilho";
-            this.lblBrilho.Size = new System.Drawing.Size(41, 14);
-
+            this.lblBrilho.Size = new System.Drawing.Size(39, 15);
             this.lblBrilho.TabIndex = 24;
             this.lblBrilho.Text = "Brilho";
             // 
@@ -102,7 +101,7 @@
             // 
             this.tbBrilho.AutoSize = false;
             this.tbBrilho.Cursor = System.Windows.Forms.Cursors.Default;
-            this.tbBrilho.Location = new System.Drawing.Point(234, 408);
+            this.tbBrilho.Location = new System.Drawing.Point(233, 421);
             this.tbBrilho.Maximum = 255;
             this.tbBrilho.Name = "tbBrilho";
             this.tbBrilho.Size = new System.Drawing.Size(232, 45);
@@ -116,7 +115,7 @@
             this.btnWave.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(98)))), ((int)(((byte)(114)))), ((int)(((byte)(164)))));
             this.btnWave.FlatAppearance.BorderSize = 0;
             this.btnWave.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.btnWave.Font = new System.Drawing.Font("Arial Rounded MT Bold", 9F);
+            this.btnWave.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
             this.btnWave.ForeColor = System.Drawing.SystemColors.ControlLightLight;
             this.btnWave.Location = new System.Drawing.Point(470, 335);
             this.btnWave.Name = "btnWave";
@@ -131,7 +130,7 @@
             this.btnBreath.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(98)))), ((int)(((byte)(114)))), ((int)(((byte)(164)))));
             this.btnBreath.FlatAppearance.BorderSize = 0;
             this.btnBreath.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.btnBreath.Font = new System.Drawing.Font("Arial Rounded MT Bold", 9F);
+            this.btnBreath.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
             this.btnBreath.ForeColor = System.Drawing.SystemColors.ControlLightLight;
             this.btnBreath.Location = new System.Drawing.Point(300, 335);
             this.btnBreath.Name = "btnBreath";
@@ -146,7 +145,7 @@
             this.btnSolido.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(98)))), ((int)(((byte)(114)))), ((int)(((byte)(164)))));
             this.btnSolido.FlatAppearance.BorderSize = 0;
             this.btnSolido.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.btnSolido.Font = new System.Drawing.Font("Arial Rounded MT Bold", 9F);
+            this.btnSolido.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
             this.btnSolido.ForeColor = System.Drawing.SystemColors.ControlLightLight;
             this.btnSolido.Location = new System.Drawing.Point(130, 335);
             this.btnSolido.Name = "btnSolido";

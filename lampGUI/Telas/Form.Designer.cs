@@ -32,16 +32,14 @@
             this.pnlMusica = new System.Windows.Forms.Panel();
             this.btnMusica = new System.Windows.Forms.Button();
             this.pnlCores = new System.Windows.Forms.Panel();
-            this.pnlLeft = new System.Windows.Forms.Panel();
             this.btnCores = new System.Windows.Forms.Button();
             this.pnlLogo = new System.Windows.Forms.Panel();
-            this.DuasCores = new System.Windows.Forms.Panel();
-            this.colorWheel3 = new Cyotek.Windows.Forms.ColorWheel();
-            this.colorWheel1 = new Cyotek.Windows.Forms.ColorWheel();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.pnlLeft = new System.Windows.Forms.Panel();
             this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.btnCloseWindow = new System.Windows.Forms.Button();
+            this.button1 = new System.Windows.Forms.Button();
             this.panelChildForm = new System.Windows.Forms.Panel();
             this.pnlLateral.SuspendLayout();
             this.pnlConfiguracoes.SuspendLayout();
@@ -49,7 +47,7 @@
             this.pnlMusica.SuspendLayout();
             this.pnlCores.SuspendLayout();
             this.pnlLogo.SuspendLayout();
-            this.DuasCores.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panel2.SuspendLayout();
             this.panelChildForm.SuspendLayout();
             this.SuspendLayout();
@@ -63,16 +61,16 @@
             this.pnlLateral.Controls.Add(this.pnlCores);
             this.pnlLateral.Controls.Add(this.pnlLogo);
             this.pnlLateral.Dock = System.Windows.Forms.DockStyle.Left;
-            this.pnlLateral.Location = new System.Drawing.Point(0, 100);
+            this.pnlLateral.Location = new System.Drawing.Point(0, 0);
             this.pnlLateral.Name = "pnlLateral";
-            this.pnlLateral.Size = new System.Drawing.Size(200, 550);
+            this.pnlLateral.Size = new System.Drawing.Size(200, 650);
             this.pnlLateral.TabIndex = 4;
             // 
             // pnlConfiguracoes
             // 
             this.pnlConfiguracoes.Controls.Add(this.btnConfiguracoes);
             this.pnlConfiguracoes.Dock = System.Windows.Forms.DockStyle.Top;
-            this.pnlConfiguracoes.Location = new System.Drawing.Point(0, 384);
+            this.pnlConfiguracoes.Location = new System.Drawing.Point(0, 482);
             this.pnlConfiguracoes.Name = "pnlConfiguracoes";
             this.pnlConfiguracoes.Size = new System.Drawing.Size(200, 100);
             this.pnlConfiguracoes.TabIndex = 4;
@@ -83,7 +81,7 @@
             this.btnConfiguracoes.Dock = System.Windows.Forms.DockStyle.Fill;
             this.btnConfiguracoes.FlatAppearance.BorderSize = 0;
             this.btnConfiguracoes.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.btnConfiguracoes.Font = new System.Drawing.Font("Arial Rounded MT Bold", 18F);
+            this.btnConfiguracoes.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F);
             this.btnConfiguracoes.ForeColor = System.Drawing.SystemColors.ControlLightLight;
             this.btnConfiguracoes.Location = new System.Drawing.Point(0, 0);
             this.btnConfiguracoes.Name = "btnConfiguracoes";
@@ -97,7 +95,7 @@
             // 
             this.pnlTela.Controls.Add(this.btnTela);
             this.pnlTela.Dock = System.Windows.Forms.DockStyle.Top;
-            this.pnlTela.Location = new System.Drawing.Point(0, 284);
+            this.pnlTela.Location = new System.Drawing.Point(0, 382);
             this.pnlTela.Name = "pnlTela";
             this.pnlTela.Size = new System.Drawing.Size(200, 100);
             this.pnlTela.TabIndex = 3;
@@ -108,7 +106,7 @@
             this.btnTela.Dock = System.Windows.Forms.DockStyle.Fill;
             this.btnTela.FlatAppearance.BorderSize = 0;
             this.btnTela.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.btnTela.Font = new System.Drawing.Font("Arial Rounded MT Bold", 18F);
+            this.btnTela.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F);
             this.btnTela.ForeColor = System.Drawing.SystemColors.ControlLightLight;
             this.btnTela.Location = new System.Drawing.Point(0, 0);
             this.btnTela.Name = "btnTela";
@@ -122,7 +120,7 @@
             // 
             this.pnlMusica.Controls.Add(this.btnMusica);
             this.pnlMusica.Dock = System.Windows.Forms.DockStyle.Top;
-            this.pnlMusica.Location = new System.Drawing.Point(0, 184);
+            this.pnlMusica.Location = new System.Drawing.Point(0, 282);
             this.pnlMusica.Name = "pnlMusica";
             this.pnlMusica.Size = new System.Drawing.Size(200, 100);
             this.pnlMusica.TabIndex = 2;
@@ -133,7 +131,7 @@
             this.btnMusica.Dock = System.Windows.Forms.DockStyle.Fill;
             this.btnMusica.FlatAppearance.BorderSize = 0;
             this.btnMusica.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.btnMusica.Font = new System.Drawing.Font("Arial Rounded MT Bold", 18F);
+            this.btnMusica.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F);
             this.btnMusica.ForeColor = System.Drawing.SystemColors.ControlLightLight;
             this.btnMusica.Location = new System.Drawing.Point(0, 0);
             this.btnMusica.Name = "btnMusica";
@@ -147,20 +145,11 @@
             // 
             this.pnlCores.Controls.Add(this.btnCores);
             this.pnlCores.Dock = System.Windows.Forms.DockStyle.Top;
-            this.pnlCores.Location = new System.Drawing.Point(0, 84);
+            this.pnlCores.Location = new System.Drawing.Point(0, 182);
             this.pnlCores.Name = "pnlCores";
             this.pnlCores.Size = new System.Drawing.Size(200, 100);
             this.pnlCores.TabIndex = 1;
             this.pnlCores.Tag = "";
-            // 
-            // pnlLeft
-            // 
-            this.pnlLeft.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(250)))), ((int)(((byte)(140)))));
-            this.pnlLeft.Location = new System.Drawing.Point(0, 84);
-            this.pnlLeft.Name = "pnlLeft";
-            this.pnlLeft.Size = new System.Drawing.Size(21, 100);
-            this.pnlLeft.TabIndex = 5;
-            this.pnlLeft.Paint += new System.Windows.Forms.PaintEventHandler(this.pnlLeft_Paint);
             // 
             // btnCores
             // 
@@ -168,7 +157,7 @@
             this.btnCores.Dock = System.Windows.Forms.DockStyle.Fill;
             this.btnCores.FlatAppearance.BorderSize = 0;
             this.btnCores.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.btnCores.Font = new System.Drawing.Font("Arial Rounded MT Bold", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCores.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnCores.ForeColor = System.Drawing.SystemColors.ControlLightLight;
             this.btnCores.Location = new System.Drawing.Point(0, 0);
             this.btnCores.Name = "btnCores";
@@ -183,38 +172,26 @@
             // pnlLogo
             // 
             this.pnlLogo.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(34)))), ((int)(((byte)(37)))));
-            this.pnlLogo.Controls.Add(this.DuasCores);
+            this.pnlLogo.Controls.Add(this.pictureBox1);
             this.pnlLogo.Controls.Add(this.panel1);
             this.pnlLogo.Dock = System.Windows.Forms.DockStyle.Top;
             this.pnlLogo.Location = new System.Drawing.Point(0, 0);
             this.pnlLogo.Name = "pnlLogo";
-            this.pnlLogo.Size = new System.Drawing.Size(200, 84);
+            this.pnlLogo.Size = new System.Drawing.Size(200, 182);
             this.pnlLogo.TabIndex = 0;
             // 
-            // DuasCores
+            // pictureBox1
             // 
-            this.DuasCores.Controls.Add(this.colorWheel3);
-            this.DuasCores.Controls.Add(this.colorWheel1);
-            this.DuasCores.Location = new System.Drawing.Point(200, 1);
-            this.DuasCores.Name = "DuasCores";
-            this.DuasCores.Size = new System.Drawing.Size(1058, 600);
-            this.DuasCores.TabIndex = 14;
-            // 
-            // colorWheel3
-            // 
-            this.colorWheel3.Color = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.colorWheel3.Location = new System.Drawing.Point(605, 79);
-            this.colorWheel3.Name = "colorWheel3";
-            this.colorWheel3.Size = new System.Drawing.Size(241, 268);
-            this.colorWheel3.TabIndex = 5;
-            // 
-            // colorWheel1
-            // 
-            this.colorWheel1.Color = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.colorWheel1.Location = new System.Drawing.Point(105, 67);
-            this.colorWheel1.Name = "colorWheel1";
-            this.colorWheel1.Size = new System.Drawing.Size(241, 268);
-            this.colorWheel1.TabIndex = 4;
+            this.pictureBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.pictureBox1.Image = global::lampGUI.Properties.Resources.logo;
+            this.pictureBox1.Location = new System.Drawing.Point(41, 12);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(119, 161);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox1.TabIndex = 16;
+            this.pictureBox1.TabStop = false;
             // 
             // panel1
             // 
@@ -223,27 +200,38 @@
             this.panel1.Size = new System.Drawing.Size(700, 603);
             this.panel1.TabIndex = 15;
             // 
+            // pnlLeft
+            // 
+            this.pnlLeft.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(189)))), ((int)(((byte)(147)))), ((int)(((byte)(249)))));
+            this.pnlLeft.Location = new System.Drawing.Point(0, 82);
+            this.pnlLeft.Name = "pnlLeft";
+            this.pnlLeft.Size = new System.Drawing.Size(21, 100);
+            this.pnlLeft.TabIndex = 5;
+            this.pnlLeft.Paint += new System.Windows.Forms.PaintEventHandler(this.pnlLeft_Paint);
+            // 
             // panel2
             // 
+            this.panel2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(34)))), ((int)(((byte)(37)))));
-            this.panel2.Controls.Add(this.btnCloseWindow);
-            this.panel2.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel2.Location = new System.Drawing.Point(0, 0);
+            this.panel2.Controls.Add(this.button1);
+            this.panel2.Location = new System.Drawing.Point(200, 0);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(900, 100);
+            this.panel2.Size = new System.Drawing.Size(700, 100);
             this.panel2.TabIndex = 0;
             this.panel2.MouseDown += new System.Windows.Forms.MouseEventHandler(this.panel2_MouseDown);
             // 
-            // btnCloseWindow
+            // button1
             // 
-            this.btnCloseWindow.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnCloseWindow.Location = new System.Drawing.Point(863, 10);
-            this.btnCloseWindow.Name = "btnCloseWindow";
-            this.btnCloseWindow.Size = new System.Drawing.Size(25, 25);
-            this.btnCloseWindow.TabIndex = 0;
-            this.btnCloseWindow.Text = "X";
-            this.btnCloseWindow.UseVisualStyleBackColor = true;
-            this.btnCloseWindow.Click += new System.EventHandler(this.btnCloseWindow_Click);
+            this.button1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(237)))), ((int)(((byte)(59)))), ((int)(((byte)(59)))));
+            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.button1.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.button1.Location = new System.Drawing.Point(662, 12);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(26, 26);
+            this.button1.TabIndex = 0;
+            this.button1.Text = "X";
+            this.button1.UseVisualStyleBackColor = false;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // panelChildForm
             // 
@@ -273,7 +261,7 @@
             this.pnlMusica.ResumeLayout(false);
             this.pnlCores.ResumeLayout(false);
             this.pnlLogo.ResumeLayout(false);
-            this.DuasCores.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.panel2.ResumeLayout(false);
             this.panelChildForm.ResumeLayout(false);
             this.ResumeLayout(false);
@@ -294,14 +282,12 @@
         private System.Windows.Forms.Button btnTela;
         private System.Windows.Forms.Button btnMusica;
         private System.Windows.Forms.Button btnCores;
-        private System.Windows.Forms.Button btnCloseWindow;
-        private System.Windows.Forms.Panel pnlLogo;
-        private System.Windows.Forms.Panel DuasCores;
-        private Cyotek.Windows.Forms.ColorWheel colorWheel3;
-        private Cyotek.Windows.Forms.ColorWheel colorWheel1;
-        private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Panel pnlLeft;
         private System.Windows.Forms.Panel panelChildForm;
+        private System.Windows.Forms.Panel pnlLogo;
+        private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Button button1;
     }
 }
 

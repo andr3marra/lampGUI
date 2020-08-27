@@ -35,11 +35,11 @@
             // lblBrilho
             // 
             this.lblBrilho.AutoSize = true;
-            this.lblBrilho.Font = new System.Drawing.Font("Arial Rounded MT Bold", 9F);
+            this.lblBrilho.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
             this.lblBrilho.ForeColor = System.Drawing.SystemColors.ControlLightLight;
             this.lblBrilho.Location = new System.Drawing.Point(335, 391);
             this.lblBrilho.Name = "lblBrilho";
-            this.lblBrilho.Size = new System.Drawing.Size(41, 14);
+            this.lblBrilho.Size = new System.Drawing.Size(39, 15);
             this.lblBrilho.TabIndex = 22;
             this.lblBrilho.Text = "Brilho";
             this.lblBrilho.Click += new System.EventHandler(this.lblBrilho_Click);
@@ -62,7 +62,7 @@
             this.btnArcoIris.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(98)))), ((int)(((byte)(114)))), ((int)(((byte)(164)))));
             this.btnArcoIris.FlatAppearance.BorderSize = 0;
             this.btnArcoIris.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.btnArcoIris.Font = new System.Drawing.Font("Arial Rounded MT Bold", 9F);
+            this.btnArcoIris.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
             this.btnArcoIris.ForeColor = System.Drawing.SystemColors.ControlLightLight;
             this.btnArcoIris.Location = new System.Drawing.Point(300, 335);
             this.btnArcoIris.Name = "btnArcoIris";
@@ -70,7 +70,7 @@
             this.btnArcoIris.TabIndex = 23;
             this.btnArcoIris.Text = "Arco Íris";
             this.btnArcoIris.UseVisualStyleBackColor = false;
-            this.btnArcoIris.Click += new System.EventHandler(this.lblBrilho_Click);
+            this.btnArcoIris.Click += new System.EventHandler(this.pbArcoIris_Click);
             // 
             // pbArcoIris
             // 
