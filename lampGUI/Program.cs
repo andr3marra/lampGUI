@@ -16,8 +16,8 @@ namespace lampGUI {
         static void Main() {
             PersistentData.Init();
             Api led = new Api();
-            PersistentData.brightness = led.Status();
-            PersistentData.delay = 200;
+            PersistentData.UpdateStatus(led);
+            led.Status();
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             Application.Run(new Form1(led));

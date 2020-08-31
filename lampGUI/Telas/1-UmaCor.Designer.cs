@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.panel1 = new System.Windows.Forms.Panel();
+            this.chklbLamp = new System.Windows.Forms.CheckedListBox();
             this.lblFrequencia = new System.Windows.Forms.Label();
             this.tbFrequencia = new System.Windows.Forms.TrackBar();
             this.lblBrilho = new System.Windows.Forms.Label();
@@ -45,6 +46,7 @@
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(54)))), ((int)(((byte)(57)))), ((int)(((byte)(63)))));
+            this.panel1.Controls.Add(this.chklbLamp);
             this.panel1.Controls.Add(this.lblFrequencia);
             this.panel1.Controls.Add(this.tbFrequencia);
             this.panel1.Controls.Add(this.lblBrilho);
@@ -57,7 +59,16 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(700, 500);
             this.panel1.TabIndex = 6;
-            this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
+            // 
+            // chklbLamp
+            // 
+            this.chklbLamp.FormattingEnabled = true;
+            this.chklbLamp.Location = new System.Drawing.Point(43, 34);
+            this.chklbLamp.Name = "chklbLamp";
+            this.chklbLamp.Size = new System.Drawing.Size(120, 94);
+            this.chklbLamp.TabIndex = 23;
+            this.chklbLamp.ItemCheck += new System.Windows.Forms.ItemCheckEventHandler(this.chklbLamp_ItemCheck);
+            this.chklbLamp.SelectedIndexChanged += new System.EventHandler(this.chklbLamp_SelectedIndexChanged);
             // 
             // lblFrequencia
             // 
@@ -69,7 +80,6 @@
             this.lblFrequencia.Size = new System.Drawing.Size(69, 15);
             this.lblFrequencia.TabIndex = 22;
             this.lblFrequencia.Text = "Frequência";
-            this.lblFrequencia.Click += new System.EventHandler(this.label2_Click);
             // 
             // tbFrequencia
             // 
@@ -84,7 +94,6 @@
             this.tbFrequencia.TickFrequency = 100;
             this.tbFrequencia.TickStyle = System.Windows.Forms.TickStyle.None;
             this.tbFrequencia.Value = 200;
-            this.tbFrequencia.Scroll += new System.EventHandler(this.trackBar2_Scroll);
             // 
             // lblBrilho
             // 
@@ -97,7 +106,6 @@
             this.lblBrilho.Size = new System.Drawing.Size(39, 15);
             this.lblBrilho.TabIndex = 20;
             this.lblBrilho.Text = "Brilho";
-            this.lblBrilho.Click += new System.EventHandler(this.lblBrilho_Click);
             // 
             // tbBrilho
             // 
@@ -110,7 +118,6 @@
             this.tbBrilho.TabIndex = 19;
             this.tbBrilho.TickFrequency = 100;
             this.tbBrilho.TickStyle = System.Windows.Forms.TickStyle.None;
-            this.tbBrilho.Scroll += new System.EventHandler(this.tbBrilho_Scroll);
             // 
             // btnWave
             // 
@@ -196,5 +203,6 @@
         private System.Windows.Forms.Label lblFrequencia;
         private System.Windows.Forms.TrackBar tbFrequencia;
         private System.Windows.Forms.Label lblBrilho;
+        private System.Windows.Forms.CheckedListBox chklbLamp;
     }
 }

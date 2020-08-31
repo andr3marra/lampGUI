@@ -44,8 +44,8 @@ namespace lampGUI
         }
 
         private void DuasCores_Load(object sender, EventArgs e) {
-            tbFrequencia.Value = PersistentData.delay;
-            tbBrilho.Value = PersistentData.brightness;
+/*            tbFrequencia.Value = PersistentData.delay;
+            tbBrilho.Value = PersistentData.brightness;*/
         }
     }
 }

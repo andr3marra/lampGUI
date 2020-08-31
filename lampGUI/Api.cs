@@ -10,12 +10,9 @@ namespace lampGUI {
         private WebRequest request;
         private string url;
         private string endereco;
-        bool[] lamps { set; get; }
         public Api() {
-            this.endereco = PersistentData.lamps[0].ip;
-            //lamps = new bool[] { true, false, false};
-            //request = WebRequest.Create(this.url);
-            this.url = endereco;
+            this.endereco = PersistentData.lamps[0].ip;     // APENAS POST
+            this.url = endereco;                            // APENAS POST
         }
         public string Post(byte[] data) {
             request = WebRequest.Create("http://" + this.url + "/color/custom");
@@ -72,47 +69,69 @@ namespace lampGUI {
                 DialogResult result;
                 result = MessageBox.Show(message, caption, buttons);
                 //if (result == System.Windows.Forms.DialogResult.Yes)
-                return "0";
+                return "notFound";
             }
         }
 
         public void Send(byte r, byte g, byte b) {                                     // Single Color
             foreach (var lamp in PersistentData.lamps) {
-                Get(lamp.ip, "/color/single?r=" + r.ToString() + "&g=" + g.ToString() + "&b=" + b.ToString());
+                if (lamp.selected && lamp.available)
+                    Get(lamp.ip, "/color/single?r=" + r.ToString() + "&g=" + g.ToString() + "&b=" + b.ToString());
             }
         }
         public void Send(byte r1, byte g1, byte b1, byte r2, byte g2, byte b2) {        // Dual Color
             foreach (var lamp in PersistentData.lamps) {
-                Get(lamp.ip, "/color/double?r1=" + r1.ToString() + "&g1=" + g1.ToString() + "&b1=" + b1.ToString() + "&r2=" + r2.ToString() + "&g2=" + g2.ToString() + "&b2=" + b2.ToString());
+                if (lamp.selected && lamp.available)
+                    Get(lamp.ip, "/color/double?r1=" + r1.ToString() + "&g1=" + g1.ToString() + "&b1=" + b1.ToString() + "&r2=" + r2.ToString() + "&g2=" + g2.ToString() + "&b2=" + b2.ToString());
             }
         }
         public void Send(char mode) {                                                   // Mode
             if (mode == 'r') {
                 foreach (var lamp in PersistentData.lamps) {
-                    Get(lamp.ip, "/color/rainbow");
+                    if (lamp.selected && lamp.available)
+                        Get(lamp.ip, "/color/rainbow");
                 }
             }
             else {
                 foreach (var lamp in PersistentData.lamps) {
-                    Get(lamp.ip, "/animation?mode=" + mode);
+                    if (lamp.selected && lamp.available)
+                        Get(lamp.ip, "/animation?mode=" + mode);
                 }
             }
         }
         public void Send(byte brightness) {                                             // Brightness
             foreach (var lamp in PersistentData.lamps) {
-                Get(lamp.ip, $"/brightness?set={brightness}");
+                if (lamp.selected && lamp.available)
+                    Get(lamp.ip, $"/brightness?set={brightness}");
+                    int index = PersistentData.lamps.FindIndex(lamp1 => lamp1.name == lamp.name);
+                    var lampLoop = lamp;
+                    lampLoop.brightness = brightness;
+                    PersistentData.lamps[index] = lampLoop;
             }
-            PersistentData.brightness = brightness;
         }
         public void Send(char mode, int delay) {                                        // Change Mode and Delay
             foreach (var lamp in PersistentData.lamps) {
-                Get(lamp.ip, $"/animation?mode={mode}&delay={delay}");
+                if (lamp.selected && lamp.available)
+                    Get(lamp.ip, $"/animation?mode={mode}&delay={delay}");
             }
-            PersistentData.delay = delay;
+/*            PersistentData.delay = delay;*/
         }
         public byte Status() {
             foreach (var lamp in PersistentData.lamps) {
-                return (byte)Int16.Parse(Get(lamp.ip, "/status"));
+                String data;
+                if (lamp.selected && lamp.available) {
+                    data = Get(lamp.ip, "/status");
+                    if (data != "notFound") {
+                        int index = PersistentData.lamps.FindIndex(lamp1 => lamp1.name == lamp.name);
+                        var lampLoop = lamp;
+                        lampLoop.available = false;
+                        PersistentData.lamps[index] = lampLoop;
+                        return 0;
+                    }
+                    else {
+                        return (byte)Int16.Parse(data);
+                    }
+                }
             }
             return 0;
         }
