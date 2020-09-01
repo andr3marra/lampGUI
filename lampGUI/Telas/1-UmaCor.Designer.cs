@@ -94,6 +94,7 @@
             this.tbFrequencia.TickFrequency = 100;
             this.tbFrequencia.TickStyle = System.Windows.Forms.TickStyle.None;
             this.tbFrequencia.Value = 200;
+            this.tbFrequencia.Scroll += new System.EventHandler(this.tbFrequencia_Scroll);
             // 
             // lblBrilho
             // 
@@ -118,6 +119,7 @@
             this.tbBrilho.TabIndex = 19;
             this.tbBrilho.TickFrequency = 100;
             this.tbBrilho.TickStyle = System.Windows.Forms.TickStyle.None;
+            this.tbBrilho.Scroll += new System.EventHandler(this.tbBrilho_Scroll);
             // 
             // btnWave
             // 

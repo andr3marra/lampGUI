@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Net;
@@ -100,21 +101,22 @@ namespace lampGUI {
             }
         }
         public void Send(byte brightness) {                                             // Brightness
-            foreach (var lamp in PersistentData.lamps) {
-                if (lamp.selected && lamp.available)
-                    Get(lamp.ip, $"/brightness?set={brightness}");
-                    int index = PersistentData.lamps.FindIndex(lamp1 => lamp1.name == lamp.name);
-                    var lampLoop = lamp;
-                    lampLoop.brightness = brightness;
-                    PersistentData.lamps[index] = lampLoop;
+            List<lamp> temporary = new List<lamp> { };
+            foreach (lamp item in PersistentData.lamps) {
+                Get(item.ip, $"/brightness?set={brightness}");
+                int index = PersistentData.lamps.FindIndex(lamp1 => lamp1.name == item.name);
+                var lampLoop = item;
+                lampLoop.delay = 200;
+                temporary.Add(item);
             }
+            PersistentData.lamps = temporary;
         }
         public void Send(char mode, int delay) {                                        // Change Mode and Delay
             foreach (var lamp in PersistentData.lamps) {
                 if (lamp.selected && lamp.available)
                     Get(lamp.ip, $"/animation?mode={mode}&delay={delay}");
             }
-/*            PersistentData.delay = delay;*/
+
         }
         public byte Status() {
             foreach (var lamp in PersistentData.lamps) {
@@ -124,7 +126,7 @@ namespace lampGUI {
                     if (data != "notFound") {
                         int index = PersistentData.lamps.FindIndex(lamp1 => lamp1.name == lamp.name);
                         var lampLoop = lamp;
-                        lampLoop.available = false;
+                        lampLoop.available = true;
                         PersistentData.lamps[index] = lampLoop;
                         return 0;
                     }

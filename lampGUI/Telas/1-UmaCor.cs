@@ -54,5 +54,14 @@ namespace lampGUI
         private void chklbLamp_SelectedIndexChanged(object sender, EventArgs e) {
 
         }
+
+        private void tbFrequencia_Scroll(object sender, EventArgs e) {
+
+        }
+
+        private void tbBrilho_Scroll(object sender, EventArgs e) {
+            led.Send((byte) tbBrilho.Value);
+            
+        }
     }
 }
