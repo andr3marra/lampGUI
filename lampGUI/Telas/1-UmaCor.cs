@@ -13,13 +13,15 @@ namespace lampGUI
     public partial class UmaCor : Form
     {
         Api led;
+        bool starting;
         public UmaCor(Api api)
         {
             led = api;
             InitializeComponent();
+            starting = true;
             var items = chklbLamp.Items;
             foreach (var lamp in PersistentData.lamps) {
-                items.Add(lamp.name, lamp.available);
+                items.Add(lamp.name, lamp.available&&lamp.selected);
             }
         }
 
@@ -43,16 +45,25 @@ namespace lampGUI
         }
 
         private void chklbLamp_ItemCheck(object sender, ItemCheckEventArgs e) {
-/*            foreach (var item in chklbLamp.CheckedItems) {
-                int index = PersistentData.lamps.FindIndex(lamp => lamp.name == item.ToString());
-                var ms = PersistentData.lamps[index];
-                ms.selected = false;
-                PersistentData.lamps[index] = ms;
-            }*/
-        }
-
-        private void chklbLamp_SelectedIndexChanged(object sender, EventArgs e) {
-
+            if (starting) {
+                starting = false;
+                return;
+            }
+            string itemText = chklbLamp.Items[e.Index].ToString();
+            List<lamp> copy = new List<lamp>(PersistentData.lamps);
+            if (e.NewValue == CheckState.Checked) {
+                int index = PersistentData.lamps.FindIndex(lamp => lamp.name == itemText);
+                var copyItem = PersistentData.lamps[index];
+                copyItem.selected = true;
+                copy[index] = copyItem;
+            }
+            else {
+                int index = PersistentData.lamps.FindIndex(lamp => lamp.name == itemText);
+                var copyItem = PersistentData.lamps[index];
+                copyItem.selected = false;
+                copy[index] = copyItem;
+            }
+            PersistentData.lamps = copy;
         }
 
         private void tbFrequencia_Scroll(object sender, EventArgs e) {

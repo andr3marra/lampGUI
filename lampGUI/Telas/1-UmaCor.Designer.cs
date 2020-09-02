@@ -68,7 +68,6 @@
             this.chklbLamp.Size = new System.Drawing.Size(120, 94);
             this.chklbLamp.TabIndex = 23;
             this.chklbLamp.ItemCheck += new System.Windows.Forms.ItemCheckEventHandler(this.chklbLamp_ItemCheck);
-            this.chklbLamp.SelectedIndexChanged += new System.EventHandler(this.chklbLamp_SelectedIndexChanged);
             // 
             // lblFrequencia
             // 
@@ -200,11 +199,11 @@
         private Cyotek.Windows.Forms.ColorWheel cwUmaCor;
         private System.Windows.Forms.Button btnSolido;
         private System.Windows.Forms.Button btnBreath;
-        private System.Windows.Forms.Button btnWave;
         private System.Windows.Forms.TrackBar tbBrilho;
         private System.Windows.Forms.Label lblFrequencia;
         private System.Windows.Forms.TrackBar tbFrequencia;
         private System.Windows.Forms.Label lblBrilho;
         private System.Windows.Forms.CheckedListBox chklbLamp;
+        private System.Windows.Forms.Button btnWave;
     }
 }

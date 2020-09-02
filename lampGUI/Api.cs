@@ -4,6 +4,7 @@ using System.IO;
 using System.Linq;
 using System.Net;
 using System.Net.Mail;
+using System.Net.NetworkInformation;
 using System.Windows.Forms;
 
 namespace lampGUI {
@@ -101,15 +102,10 @@ namespace lampGUI {
             }
         }
         public void Send(byte brightness) {                                             // Brightness
-            List<lamp> temporary = new List<lamp> { };
-            foreach (lamp item in PersistentData.lamps) {
-                Get(item.ip, $"/brightness?set={brightness}");
-                int index = PersistentData.lamps.FindIndex(lamp1 => lamp1.name == item.name);
-                var lampLoop = item;
-                lampLoop.delay = 200;
-                temporary.Add(item);
+            foreach (lamp lamp in PersistentData.lamps) {
+                if (lamp.selected && lamp.available)
+                    Get(lamp.ip, $"/brightness?set={brightness}");
             }
-            PersistentData.lamps = temporary;
         }
         public void Send(char mode, int delay) {                                        // Change Mode and Delay
             foreach (var lamp in PersistentData.lamps) {
@@ -118,24 +114,51 @@ namespace lampGUI {
             }
 
         }
-        public byte Status() {
+        public void Status() {
+            List<lamp> copy = new List<lamp>(PersistentData.lamps);
+
+            foreach (var lamp in PersistentData.lamps) {
+                Ping myPing = new Ping();
+                PingReply reply = myPing.Send(lamp.ip, 900);
+                if(reply.Status == IPStatus.Success) {
+                    int index = PersistentData.lamps.FindIndex(lamp1 => lamp1.name == lamp.name);
+                    var copyItem = PersistentData.lamps[index];
+                    copyItem.available = true;
+                    copy[index] = copyItem;
+                }
+                else{
+                    int index = PersistentData.lamps.FindIndex(lamp1 => lamp1.name == lamp.name);
+                    var copyItem = PersistentData.lamps[index];
+                    copyItem.available = false;
+                    copyItem.selected = false;
+                    copy[index] = copyItem;
+                }
+            }
+            PersistentData.lamps = copy;
+        }
+        public void State() {
+            List<lamp> copy = new List<lamp>(PersistentData.lamps);
+
             foreach (var lamp in PersistentData.lamps) {
                 String data;
                 if (lamp.selected && lamp.available) {
                     data = Get(lamp.ip, "/status");
-                    if (data != "notFound") {
+                    if (data == "notFound") {
                         int index = PersistentData.lamps.FindIndex(lamp1 => lamp1.name == lamp.name);
-                        var lampLoop = lamp;
-                        lampLoop.available = true;
-                        PersistentData.lamps[index] = lampLoop;
-                        return 0;
+                        var copyItem = PersistentData.lamps[index];
+                        copyItem.available = false;
+                        copy[index] = copyItem;
                     }
                     else {
-                        return (byte)Int16.Parse(data);
+                        int index = PersistentData.lamps.FindIndex(lamp1 => lamp1.name == lamp.name);
+                        var copyItem = PersistentData.lamps[index];
+                        copyItem.available = true;
+                        copyItem.brightness = (byte)Int16.Parse(data);
+                        copy[index] = copyItem;
                     }
                 }
             }
-            return 0;
+            PersistentData.lamps = copy;
         }
     }
 }

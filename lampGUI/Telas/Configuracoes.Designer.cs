@@ -24,11 +24,18 @@
         /// </summary>
         private void InitializeComponent() {
             this.lvLamps = new System.Windows.Forms.ListView();
+            this.Nome = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.IP = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.Status = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.button1 = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // lvLamps
             // 
+            this.lvLamps.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.Nome,
+            this.IP,
+            this.Status});
             this.lvLamps.HideSelection = false;
             this.lvLamps.Location = new System.Drawing.Point(73, 55);
             this.lvLamps.Name = "lvLamps";
@@ -36,6 +43,21 @@
             this.lvLamps.TabIndex = 0;
             this.lvLamps.UseCompatibleStateImageBehavior = false;
             this.lvLamps.SelectedIndexChanged += new System.EventHandler(this.listView1_SelectedIndexChanged);
+            // 
+            // Nome
+            // 
+            this.Nome.Tag = "";
+            this.Nome.Text = "Nome";
+            // 
+            // IP
+            // 
+            this.IP.Text = "IP";
+            this.IP.Width = 110;
+            // 
+            // Status
+            // 
+            this.Status.Text = "Status";
+            this.Status.Width = 15;
             // 
             // button1
             // 
@@ -45,6 +67,7 @@
             this.button1.TabIndex = 1;
             this.button1.Text = "Adicionar Manualmente";
             this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // Configuracoes
             // 
@@ -65,5 +88,8 @@
 
         private System.Windows.Forms.ListView lvLamps;
         private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.ColumnHeader Nome;
+        private System.Windows.Forms.ColumnHeader IP;
+        private System.Windows.Forms.ColumnHeader Status;
     }
 }

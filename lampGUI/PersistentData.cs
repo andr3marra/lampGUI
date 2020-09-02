@@ -12,9 +12,7 @@ using System.Windows.Forms;
 namespace lampGUI {
     public static class PersistentData {
         public static List<lamp> lamps = new List<lamp> { };
-        //public static List<lamp> temporary = new List<lamp> { };
-        //public static byte brightness;
-        //public static int delay;
+
         public static void Init() {
             using (StreamReader r = new StreamReader("config.json")) {
                 string json = r.ReadToEnd();
