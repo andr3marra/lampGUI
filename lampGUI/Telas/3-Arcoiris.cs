@@ -32,5 +32,13 @@ namespace lampGUI.Telas {
         private void _3_Arcoiris_Load(object sender, EventArgs e) {
 /*            tbBrilho.Value = PersistentData.brightness;*/
         }
+
+        private void btnSolido_Click(object sender, EventArgs e) {
+            led.Send('s');
+        }
+
+        private void btnBreath_Click(object sender, EventArgs e) {
+            led.Send('b', tbFrequencia.Value);
+        }
     }
 }

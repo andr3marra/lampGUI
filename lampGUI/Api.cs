@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Net;
-using System.Net.Mail;
 using System.Net.NetworkInformation;
 using System.Windows.Forms;
 
@@ -12,26 +11,28 @@ namespace lampGUI {
         private WebRequest request;
         private string url;
         private string endereco;
+
         public Api() {
             this.endereco = PersistentData.lamps[0].ip;     // APENAS POST
             this.url = endereco;                            // APENAS POST
         }
-        public string Post(byte[] data) {
+        public void Post(byte[] data) {
             request = WebRequest.Create("http://" + this.url + "/color/custom");
             request.Method = "POST";
-            request.ContentType = "application/octet-stream";
+            request.ContentType = "text/plain";
             request.ContentLength = data.Length;
+            ServicePointManager.DefaultConnectionLimit = 20;
             Stream dataStream = request.GetRequestStream();
             dataStream.Write(data, 0, data.Length);
             dataStream.Close();
             WebResponse response = request.GetResponse();
-            string responseData;
+/*            string responseData;
             using (dataStream = response.GetResponseStream()) {
                 StreamReader reader = new StreamReader(dataStream);
                 responseData = reader.ReadToEnd();
-            }
+            }*/
             response.Close();
-            return responseData;
+            return;
         }
         public string Get(string address) {
             request = WebRequest.Create("http://" + address);

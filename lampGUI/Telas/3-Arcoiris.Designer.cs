@@ -26,10 +26,14 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(_3_Arcoiris));
             this.lblBrilho = new System.Windows.Forms.Label();
             this.tbBrilho = new System.Windows.Forms.TrackBar();
-            this.btnArcoIris = new System.Windows.Forms.Button();
             this.pbArcoIris = new System.Windows.Forms.PictureBox();
+            this.btnSolido = new System.Windows.Forms.Button();
+            this.btnBreath = new System.Windows.Forms.Button();
+            this.tbFrequencia = new System.Windows.Forms.TrackBar();
+            this.label1 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.tbBrilho)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbArcoIris)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.tbFrequencia)).BeginInit();
             this.SuspendLayout();
             // 
             // lblBrilho
@@ -37,7 +41,7 @@
             this.lblBrilho.AutoSize = true;
             this.lblBrilho.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
             this.lblBrilho.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.lblBrilho.Location = new System.Drawing.Point(335, 391);
+            this.lblBrilho.Location = new System.Drawing.Point(334, 391);
             this.lblBrilho.Name = "lblBrilho";
             this.lblBrilho.Size = new System.Drawing.Size(39, 15);
             this.lblBrilho.TabIndex = 22;
@@ -48,7 +52,7 @@
             // 
             this.tbBrilho.AutoSize = false;
             this.tbBrilho.Cursor = System.Windows.Forms.Cursors.Default;
-            this.tbBrilho.Location = new System.Drawing.Point(234, 372);
+            this.tbBrilho.Location = new System.Drawing.Point(237, 372);
             this.tbBrilho.Maximum = 255;
             this.tbBrilho.Name = "tbBrilho";
             this.tbBrilho.Size = new System.Drawing.Size(232, 45);
@@ -56,21 +60,6 @@
             this.tbBrilho.TickFrequency = 100;
             this.tbBrilho.TickStyle = System.Windows.Forms.TickStyle.None;
             this.tbBrilho.Scroll += new System.EventHandler(this.tbBrilho_Scroll);
-            // 
-            // btnArcoIris
-            // 
-            this.btnArcoIris.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(98)))), ((int)(((byte)(114)))), ((int)(((byte)(164)))));
-            this.btnArcoIris.FlatAppearance.BorderSize = 0;
-            this.btnArcoIris.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.btnArcoIris.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
-            this.btnArcoIris.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.btnArcoIris.Location = new System.Drawing.Point(300, 335);
-            this.btnArcoIris.Name = "btnArcoIris";
-            this.btnArcoIris.Size = new System.Drawing.Size(97, 32);
-            this.btnArcoIris.TabIndex = 23;
-            this.btnArcoIris.Text = "Arco Íris";
-            this.btnArcoIris.UseVisualStyleBackColor = false;
-            this.btnArcoIris.Click += new System.EventHandler(this.pbArcoIris_Click);
             // 
             // pbArcoIris
             // 
@@ -83,14 +72,72 @@
             this.pbArcoIris.Tag = "Arco Íris";
             this.pbArcoIris.Click += new System.EventHandler(this.pbArcoIris_Click);
             // 
+            // btnSolido
+            // 
+            this.btnSolido.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(98)))), ((int)(((byte)(114)))), ((int)(((byte)(164)))));
+            this.btnSolido.FlatAppearance.BorderSize = 0;
+            this.btnSolido.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btnSolido.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
+            this.btnSolido.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.btnSolido.Location = new System.Drawing.Point(234, 334);
+            this.btnSolido.Name = "btnSolido";
+            this.btnSolido.Size = new System.Drawing.Size(97, 32);
+            this.btnSolido.TabIndex = 25;
+            this.btnSolido.Text = "Sólido";
+            this.btnSolido.UseVisualStyleBackColor = false;
+            this.btnSolido.Click += new System.EventHandler(this.btnSolido_Click);
+            // 
+            // btnBreath
+            // 
+            this.btnBreath.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(98)))), ((int)(((byte)(114)))), ((int)(((byte)(164)))));
+            this.btnBreath.FlatAppearance.BorderSize = 0;
+            this.btnBreath.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btnBreath.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
+            this.btnBreath.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.btnBreath.Location = new System.Drawing.Point(369, 334);
+            this.btnBreath.Name = "btnBreath";
+            this.btnBreath.Size = new System.Drawing.Size(97, 32);
+            this.btnBreath.TabIndex = 26;
+            this.btnBreath.Text = "Pulsar";
+            this.btnBreath.UseVisualStyleBackColor = false;
+            this.btnBreath.Click += new System.EventHandler(this.btnBreath_Click);
+            // 
+            // tbFrequencia
+            // 
+            this.tbFrequencia.AutoSize = false;
+            this.tbFrequencia.Cursor = System.Windows.Forms.Cursors.Default;
+            this.tbFrequencia.Location = new System.Drawing.Point(237, 409);
+            this.tbFrequencia.Maximum = 5000;
+            this.tbFrequencia.Minimum = 200;
+            this.tbFrequencia.Name = "tbFrequencia";
+            this.tbFrequencia.Size = new System.Drawing.Size(232, 45);
+            this.tbFrequencia.TabIndex = 27;
+            this.tbFrequencia.TickFrequency = 100;
+            this.tbFrequencia.TickStyle = System.Windows.Forms.TickStyle.None;
+            this.tbFrequencia.Value = 200;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
+            this.label1.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.label1.Location = new System.Drawing.Point(319, 439);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(69, 15);
+            this.label1.TabIndex = 28;
+            this.label1.Text = "Frequência";
+            // 
             // _3_Arcoiris
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(54)))), ((int)(((byte)(57)))), ((int)(((byte)(63)))));
             this.ClientSize = new System.Drawing.Size(700, 500);
+            this.Controls.Add(this.label1);
+            this.Controls.Add(this.tbFrequencia);
+            this.Controls.Add(this.btnBreath);
+            this.Controls.Add(this.btnSolido);
             this.Controls.Add(this.pbArcoIris);
-            this.Controls.Add(this.btnArcoIris);
             this.Controls.Add(this.lblBrilho);
             this.Controls.Add(this.tbBrilho);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
@@ -99,6 +146,7 @@
             this.Load += new System.EventHandler(this._3_Arcoiris_Load);
             ((System.ComponentModel.ISupportInitialize)(this.tbBrilho)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbArcoIris)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.tbFrequencia)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -108,7 +156,10 @@
 
         private System.Windows.Forms.Label lblBrilho;
         private System.Windows.Forms.TrackBar tbBrilho;
-        private System.Windows.Forms.Button btnArcoIris;
         private System.Windows.Forms.PictureBox pbArcoIris;
+        private System.Windows.Forms.Button btnSolido;
+        private System.Windows.Forms.Button btnBreath;
+        private System.Windows.Forms.TrackBar tbFrequencia;
+        private System.Windows.Forms.Label label1;
     }
 }

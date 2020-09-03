@@ -74,5 +74,14 @@ namespace lampGUI
             led.Send((byte) tbBrilho.Value);
             
         }
+
+        private void button1_Click(object sender, EventArgs e) {
+            byte[] array = new byte[270];
+            for(int i = 0; i<array.Length; i++) {
+                array[i] = 127;
+            }
+
+            led.Post(array);
+        }
     }
 }

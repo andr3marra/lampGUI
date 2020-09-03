@@ -38,6 +38,7 @@
             this.btnBreath = new System.Windows.Forms.Button();
             this.btnSolido = new System.Windows.Forms.Button();
             this.cwUmaCor = new Cyotek.Windows.Forms.ColorWheel();
+            this.button1 = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.tbFrequencia)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.tbBrilho)).BeginInit();
@@ -46,6 +47,7 @@
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(54)))), ((int)(((byte)(57)))), ((int)(((byte)(63)))));
+            this.panel1.Controls.Add(this.button1);
             this.panel1.Controls.Add(this.chklbLamp);
             this.panel1.Controls.Add(this.lblFrequencia);
             this.panel1.Controls.Add(this.tbFrequencia);
@@ -176,6 +178,16 @@
             this.cwUmaCor.TabIndex = 3;
             this.cwUmaCor.ColorChanged += new System.EventHandler(this.cwUmaCor_ColorChanged);
             // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(491, 94);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(75, 23);
+            this.button1.TabIndex = 24;
+            this.button1.Text = "button1";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
             // UmaCor
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
@@ -205,5 +217,6 @@
         private System.Windows.Forms.Label lblBrilho;
         private System.Windows.Forms.CheckedListBox chklbLamp;
         private System.Windows.Forms.Button btnWave;
+        private System.Windows.Forms.Button button1;
     }
 }

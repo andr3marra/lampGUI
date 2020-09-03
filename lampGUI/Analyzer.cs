@@ -37,7 +37,7 @@ namespace lampGUI {
             _hanctr = 0;
             _t = new DispatcherTimer();
             _t.Tick += _t_Tick;
-            _t.Interval = TimeSpan.FromMilliseconds(50); //40hz refresh rate//25
+            _t.Interval = TimeSpan.FromMilliseconds(20); //40hz refresh rate//25
             _t.IsEnabled = false;
             /*_l = left;
             _r = right;
@@ -162,20 +162,18 @@ namespace lampGUI {
 
             }
             byte[] array = new byte[270];
-            Array.Clear(array, 0, array.Length);
-            /*            for (int test = 0; test < _lines; test++) {
+            for (int test = 0; test < _lines; test++) {
+                array[9 * test] = (byte)(_spectrumdata[test] * 5);
+                array[9 * test +1] = _spectrumdata[test];
+                array[9 * test +2] = _spectrumdata[test];                  
+                array[9 * test + 3] = (byte)(_spectrumdata[test] * 5);
+                array[9 * test +4] = _spectrumdata[test];
+                array[9 * test +5] = _spectrumdata[test];
+                array[9 * test + 6] = (byte)(_spectrumdata[test] * 5);
+                array[9 * test +7] = _spectrumdata[test];
+                array[9 * test +8] = _spectrumdata[test];
+            }
 
-                            array[9*test] = (byte)(_spectrumdata[test] * 5);
-                            //array[9 * test +1] = _spectrumdata[test];
-                            //array[9 * test +2] = _spectrumdata[test];                  
-                            array[9 * test +3] = (byte) (_spectrumdata[test]*5);
-                            //array[9 * test +4] = _spectrumdata[test];
-                            //array[9 * test +5] = _spectrumdata[test];
-                            array[9 * test +6] = (byte)(_spectrumdata[test] * 5);
-                            //array[9 * test +7] = _spectrumdata[test];
-                            //array[9 * test +8] = _spectrumdata[test];
-                        }*/
-            array[3 * 50] = 83;
             led.Post(array);
 
             /*            if (DisplayEnable) _spectrum.Set(_spectrumdata);
