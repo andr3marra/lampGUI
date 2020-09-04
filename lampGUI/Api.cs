@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Net;
+using System.Net.Http;
 using System.Net.NetworkInformation;
 using System.Windows.Forms;
 
@@ -11,43 +12,55 @@ namespace lampGUI {
         private WebRequest request;
         private string url;
         private string endereco;
-
+        private WebClient client;
+        private static HttpClient client1;
         public Api() {
             this.endereco = PersistentData.lamps[0].ip;     // APENAS POST
             this.url = endereco;                            // APENAS POST
+            client = new WebClient();
+            client.Proxy = null;
+            ServicePointManager.ServerCertificateValidationCallback += (sender, certificate, chain, sslPolicyErrors) => true;
+            ServicePointManager.DefaultConnectionLimit = Int32.MaxValue;
+            ServicePointManager.Expect100Continue = false;
+            client1 = new HttpClient();
         }
-        public void Post(byte[] data) {
-            request = WebRequest.Create("http://" + this.url + "/color/custom");
-            request.Method = "POST";
-            request.ContentType = "text/plain";
-            request.ContentLength = data.Length;
-            ServicePointManager.DefaultConnectionLimit = 20;
-            Stream dataStream = request.GetRequestStream();
-            dataStream.Write(data, 0, data.Length);
-            dataStream.Close();
-            WebResponse response = request.GetResponse();
-/*            string responseData;
-            using (dataStream = response.GetResponseStream()) {
-                StreamReader reader = new StreamReader(dataStream);
-                responseData = reader.ReadToEnd();
-            }*/
-            response.Close();
-            return;
-        }
-        public string Get(string address) {
-            request = WebRequest.Create("http://" + address);
-            request.Method = "GET";
-            request.UseDefaultCredentials = true;
+        public async void PostAsync(byte[] data) {
+            /*            request = WebRequest.Create("http://" + this.url + "/color/custom");
+                        request.Method = "POST";
+                        request.ContentType = "text/plain";
+                        request.Proxy = null;
+                        request.ContentLength = data.Length;
+                        ServicePointManager.DefaultConnectionLimit = 20;
+                        Stream dataStream = request.GetRequestStream();
+                        dataStream.Write(data, 0, data.Length);
+                        dataStream.Close();
+                        WebResponse response = request.GetResponse();
+                        string responseData;
+                        using (dataStream = response.GetResponseStream()) {
+                            StreamReader reader = new StreamReader(dataStream);
+                            responseData = reader.ReadToEnd();
+                        }
+                        response.Close();*/
 
-            WebResponse response = request.GetResponse();
-            string responseData;
+            string requestUri = "http://192.168.15.83/color/custom";
+            //string requestBodyString = "Request body string.";
+            string contentType = "text/plain";
+            string requestMethod = "POST";
 
-            using (Stream dataStream = response.GetResponseStream()) {
-                StreamReader reader = new StreamReader(dataStream);
-                responseData = reader.ReadToEnd();
+
+            byte[] responseBody;
+            byte[] requestBodyBytes = data;
+
+            using (client) {
+                client.Headers[HttpRequestHeader.ContentType] = contentType;
+                responseBody = client.UploadData(requestUri, requestMethod, requestBodyBytes);
             }
-            response.Close();
-            return responseData;
+
+            /*await client.UploadDataTaskAsync(new Uri("http://192.168.15.83/color/custom", UriKind.Absolute), "POST",  data);*/
+
+            //var responseString = await response.Content.ReadAsStringAsync();
+            //return;
+
         }
         public string Get(string address, String data) {
             request = WebRequest.Create("http://" + address + data);
@@ -121,13 +134,13 @@ namespace lampGUI {
             foreach (var lamp in PersistentData.lamps) {
                 Ping myPing = new Ping();
                 PingReply reply = myPing.Send(lamp.ip, 900);
-                if(reply.Status == IPStatus.Success) {
+                if (reply.Status == IPStatus.Success) {
                     int index = PersistentData.lamps.FindIndex(lamp1 => lamp1.name == lamp.name);
                     var copyItem = PersistentData.lamps[index];
                     copyItem.available = true;
                     copy[index] = copyItem;
                 }
-                else{
+                else {
                     int index = PersistentData.lamps.FindIndex(lamp1 => lamp1.name == lamp.name);
                     var copyItem = PersistentData.lamps[index];
                     copyItem.available = false;

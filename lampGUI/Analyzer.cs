@@ -37,7 +37,7 @@ namespace lampGUI {
             _hanctr = 0;
             _t = new DispatcherTimer();
             _t.Tick += _t_Tick;
-            _t.Interval = TimeSpan.FromMilliseconds(20); //40hz refresh rate//25
+            _t.Interval = TimeSpan.FromMilliseconds(0); //40hz refresh rate//25
             _t.IsEnabled = false;
             /*_l = left;
             _r = right;
@@ -174,7 +174,7 @@ namespace lampGUI {
                 array[9 * test +8] = _spectrumdata[test];
             }
 
-            led.Post(array);
+            led.PostAsync(array);
 
             /*            if (DisplayEnable) _spectrum.Set(_spectrumdata);
                         for (int i = 0; i < _spectrumdata.ToArray().Length; i++)

@@ -81,7 +81,7 @@ namespace lampGUI
                 array[i] = 127;
             }
 
-            led.Post(array);
+            led.PostAsync(array);
         }
     }
 }
