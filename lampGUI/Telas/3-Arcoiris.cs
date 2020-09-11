@@ -34,11 +34,15 @@ namespace lampGUI.Telas {
         }
 
         private void btnSolido_Click(object sender, EventArgs e) {
-            led.Send('s');
+            led.Send('r');
         }
 
         private void btnBreath_Click(object sender, EventArgs e) {
             led.Send('b', tbFrequencia.Value);
+        }
+
+        private void notifyIcon1_MouseDoubleClick(object sender, MouseEventArgs e) {
+
         }
     }
 }

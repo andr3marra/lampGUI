@@ -23,49 +23,26 @@ namespace lampGUI {
             ServicePointManager.DefaultConnectionLimit = Int32.MaxValue;
             ServicePointManager.Expect100Continue = false;
             client1 = new HttpClient();
+            client1.Timeout = new TimeSpan(50);
         }
         public async void PostAsync(byte[] data) {
-            /*            request = WebRequest.Create("http://" + this.url + "/color/custom");
-                        request.Method = "POST";
-                        request.ContentType = "text/plain";
-                        request.Proxy = null;
-                        request.ContentLength = data.Length;
-                        ServicePointManager.DefaultConnectionLimit = 20;
-                        Stream dataStream = request.GetRequestStream();
-                        dataStream.Write(data, 0, data.Length);
-                        dataStream.Close();
-                        WebResponse response = request.GetResponse();
-                        string responseData;
-                        using (dataStream = response.GetResponseStream()) {
-                            StreamReader reader = new StreamReader(dataStream);
-                            responseData = reader.ReadToEnd();
-                        }
-                        response.Close();*/
-
             string requestUri = "http://192.168.15.83/color/custom";
-            //string requestBodyString = "Request body string.";
             string contentType = "text/plain";
-            string requestMethod = "POST";
 
-
-            byte[] responseBody;
             byte[] requestBodyBytes = data;
+            var dataHttp = new ByteArrayContent(data);
 
             using (client) {
                 client.Headers[HttpRequestHeader.ContentType] = contentType;
-                responseBody = client.UploadData(requestUri, requestMethod, requestBodyBytes);
+
+                var bla = await client1.PostAsync(requestUri, dataHttp);
             }
-
-            /*await client.UploadDataTaskAsync(new Uri("http://192.168.15.83/color/custom", UriKind.Absolute), "POST",  data);*/
-
-            //var responseString = await response.Content.ReadAsStringAsync();
-            //return;
-
         }
         public string Get(string address, String data) {
             request = WebRequest.Create("http://" + address + data);
             request.Method = "GET";
             request.UseDefaultCredentials = true;
+            request.Timeout = 50;
             try {
                 WebResponse response = request.GetResponse();
                 string responseData;
@@ -91,44 +68,44 @@ namespace lampGUI {
 
         public void Send(byte r, byte g, byte b) {                                     // Single Color
             foreach (var lamp in PersistentData.lamps) {
-                if (lamp.selected && lamp.available)
+                if (lamp.selected)
                     Get(lamp.ip, "/color/single?r=" + r.ToString() + "&g=" + g.ToString() + "&b=" + b.ToString());
             }
         }
         public void Send(byte r1, byte g1, byte b1, byte r2, byte g2, byte b2) {        // Dual Color
             foreach (var lamp in PersistentData.lamps) {
-                if (lamp.selected && lamp.available)
+                if (lamp.selected)
                     Get(lamp.ip, "/color/double?r1=" + r1.ToString() + "&g1=" + g1.ToString() + "&b1=" + b1.ToString() + "&r2=" + r2.ToString() + "&g2=" + g2.ToString() + "&b2=" + b2.ToString());
             }
         }
         public void Send(char mode) {                                                   // Mode
             if (mode == 'r') {
                 foreach (var lamp in PersistentData.lamps) {
-                    if (lamp.selected && lamp.available)
+                    if (lamp.selected)
                         Get(lamp.ip, "/color/rainbow");
                 }
             }
             else {
                 foreach (var lamp in PersistentData.lamps) {
-                    if (lamp.selected && lamp.available)
+                    if (lamp.selected)
                         Get(lamp.ip, "/animation?mode=" + mode);
                 }
             }
         }
         public void Send(byte brightness) {                                             // Brightness
             foreach (lamp lamp in PersistentData.lamps) {
-                if (lamp.selected && lamp.available)
+                if (lamp.selected)
                     Get(lamp.ip, $"/brightness?set={brightness}");
             }
         }
         public void Send(char mode, int delay) {                                        // Change Mode and Delay
             foreach (var lamp in PersistentData.lamps) {
-                if (lamp.selected && lamp.available)
+                if (lamp.selected)
                     Get(lamp.ip, $"/animation?mode={mode}&delay={delay}");
             }
 
         }
-        public void Status() {
+        public void CheckConnectivity() {
             List<lamp> copy = new List<lamp>(PersistentData.lamps);
 
             foreach (var lamp in PersistentData.lamps) {
@@ -137,36 +114,34 @@ namespace lampGUI {
                 if (reply.Status == IPStatus.Success) {
                     int index = PersistentData.lamps.FindIndex(lamp1 => lamp1.name == lamp.name);
                     var copyItem = PersistentData.lamps[index];
-                    copyItem.available = true;
                     copy[index] = copyItem;
                 }
                 else {
                     int index = PersistentData.lamps.FindIndex(lamp1 => lamp1.name == lamp.name);
                     var copyItem = PersistentData.lamps[index];
-                    copyItem.available = false;
                     copyItem.selected = false;
                     copy[index] = copyItem;
                 }
             }
             PersistentData.lamps = copy;
         }
-        public void State() {
+        public void Status() {
+            multipleRequests("/status");
+        }
+        public void multipleRequests(String _sendData) {
             List<lamp> copy = new List<lamp>(PersistentData.lamps);
 
             foreach (var lamp in PersistentData.lamps) {
-                String data;
-                if (lamp.selected && lamp.available) {
-                    data = Get(lamp.ip, "/status");
+                if (lamp.selected) {
+                    String data = Get(lamp.ip, _sendData);
                     if (data == "notFound") {
                         int index = PersistentData.lamps.FindIndex(lamp1 => lamp1.name == lamp.name);
                         var copyItem = PersistentData.lamps[index];
-                        copyItem.available = false;
                         copy[index] = copyItem;
                     }
                     else {
                         int index = PersistentData.lamps.FindIndex(lamp1 => lamp1.name == lamp.name);
                         var copyItem = PersistentData.lamps[index];
-                        copyItem.available = true;
                         copyItem.brightness = (byte)Int16.Parse(data);
                         copy[index] = copyItem;
                     }
@@ -174,5 +149,6 @@ namespace lampGUI {
             }
             PersistentData.lamps = copy;
         }
+
     }
 }

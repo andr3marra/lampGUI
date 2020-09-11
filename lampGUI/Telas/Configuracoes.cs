@@ -17,10 +17,10 @@ namespace lampGUI.Telas {
             foreach(var lamp in PersistentData.lamps) {
                 ListViewItem lvi = new ListViewItem(lamp.name);
                 lvi.SubItems.Add(lamp.ip);
-                //lamp.available? lvi.SubItems.Add("O"):lvi.SubItems.Add("X");
-                String item = lamp.available ? "" : "";
-                lvi.SubItems.Add(item);
-                lvi.SubItems[2].BackColor = lamp.available ? Color.Green : Color.Red;
+                //lvi.SubItems.Add("O"):lvi.SubItems.Add("X");
+                //String item = lamp.available ? "" : "";
+                //lvi.SubItems.Add(item);
+                //lvi.SubItems[2].BackColor = lamp.available ? Color.Green : Color.Red;
                 lvi.UseItemStyleForSubItems = false;
                 lvLamps.Items.Add(lvi);
 

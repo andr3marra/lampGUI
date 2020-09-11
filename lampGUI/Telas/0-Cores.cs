@@ -41,6 +41,18 @@ namespace lampGUI {
         private void button3_Click(object sender, EventArgs e) {
             openChildForm(new _3_Arcoiris(led));
         }
+
+        private void btnSingle_Click(object sender, EventArgs e) {
+            openChildForm(new UmaCor(led));
+        }
+
+        private void btnGradient_Click(object sender, EventArgs e) {
+            openChildForm(new DuasCores(led));
+        }
+
+        private void btnRainbow_Click(object sender, EventArgs e) {
+            openChildForm(new _3_Arcoiris(led));
+        }
     }
 
 }

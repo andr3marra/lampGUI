@@ -23,24 +23,29 @@
         /// o conteúdo deste método com o editor de código.
         /// </summary>
         private void InitializeComponent() {
+            this.components = new System.ComponentModel.Container();
+            Syncfusion.Windows.Forms.Tools.SliderCollection sliderCollection6 = new Syncfusion.Windows.Forms.Tools.SliderCollection();
             this.colorDialog1 = new System.Windows.Forms.ColorDialog();
             this.pnlLateral = new System.Windows.Forms.Panel();
             this.pnlConfiguracoes = new System.Windows.Forms.Panel();
-            this.btnConfiguracoes = new System.Windows.Forms.Button();
             this.pnlTela = new System.Windows.Forms.Panel();
-            this.btnTela = new System.Windows.Forms.Button();
             this.pnlMusica = new System.Windows.Forms.Panel();
-            this.btnMusica = new System.Windows.Forms.Button();
             this.pnlCores = new System.Windows.Forms.Panel();
-            this.btnCores = new System.Windows.Forms.Button();
+            this.btnColors = new Syncfusion.WinForms.Controls.SfButton();
             this.pnlLogo = new System.Windows.Forms.Panel();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.panel1 = new System.Windows.Forms.Panel();
             this.pnlLeft = new System.Windows.Forms.Panel();
             this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.button1 = new System.Windows.Forms.Button();
+            this.tgOnOff = new Syncfusion.Windows.Forms.Tools.ToggleButton();
+            this.bntClose = new System.Windows.Forms.Button();
             this.panelChildForm = new System.Windows.Forms.Panel();
+            this.trayBarIcon = new System.Windows.Forms.NotifyIcon(this.components);
+            this.btnMinimize = new System.Windows.Forms.Button();
+            this.btnMusic = new Syncfusion.WinForms.Controls.SfButton();
+            this.btnScreen = new Syncfusion.WinForms.Controls.SfButton();
+            this.btnConfig = new Syncfusion.WinForms.Controls.SfButton();
             this.pnlLateral.SuspendLayout();
             this.pnlConfiguracoes.SuspendLayout();
             this.pnlTela.SuspendLayout();
@@ -49,6 +54,7 @@
             this.pnlLogo.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panel2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.tgOnOff)).BeginInit();
             this.panelChildForm.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -63,111 +69,67 @@
             this.pnlLateral.Dock = System.Windows.Forms.DockStyle.Left;
             this.pnlLateral.Location = new System.Drawing.Point(0, 0);
             this.pnlLateral.Name = "pnlLateral";
-            this.pnlLateral.Size = new System.Drawing.Size(200, 650);
+            this.pnlLateral.Size = new System.Drawing.Size(200, 600);
             this.pnlLateral.TabIndex = 4;
             // 
             // pnlConfiguracoes
             // 
-            this.pnlConfiguracoes.Controls.Add(this.btnConfiguracoes);
+            this.pnlConfiguracoes.Controls.Add(this.btnConfig);
             this.pnlConfiguracoes.Dock = System.Windows.Forms.DockStyle.Top;
-            this.pnlConfiguracoes.Location = new System.Drawing.Point(0, 482);
+            this.pnlConfiguracoes.Location = new System.Drawing.Point(0, 500);
             this.pnlConfiguracoes.Name = "pnlConfiguracoes";
             this.pnlConfiguracoes.Size = new System.Drawing.Size(200, 100);
             this.pnlConfiguracoes.TabIndex = 4;
             // 
-            // btnConfiguracoes
-            // 
-            this.btnConfiguracoes.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(47)))), ((int)(((byte)(49)))), ((int)(((byte)(54)))));
-            this.btnConfiguracoes.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.btnConfiguracoes.FlatAppearance.BorderSize = 0;
-            this.btnConfiguracoes.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.btnConfiguracoes.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F);
-            this.btnConfiguracoes.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.btnConfiguracoes.Location = new System.Drawing.Point(0, 0);
-            this.btnConfiguracoes.Name = "btnConfiguracoes";
-            this.btnConfiguracoes.Size = new System.Drawing.Size(200, 100);
-            this.btnConfiguracoes.TabIndex = 3;
-            this.btnConfiguracoes.Text = "Configurações";
-            this.btnConfiguracoes.UseVisualStyleBackColor = false;
-            this.btnConfiguracoes.Click += new System.EventHandler(this.btnConfiguracoes_Click);
-            // 
             // pnlTela
             // 
-            this.pnlTela.Controls.Add(this.btnTela);
+            this.pnlTela.Controls.Add(this.btnScreen);
             this.pnlTela.Dock = System.Windows.Forms.DockStyle.Top;
-            this.pnlTela.Location = new System.Drawing.Point(0, 382);
+            this.pnlTela.Location = new System.Drawing.Point(0, 400);
             this.pnlTela.Name = "pnlTela";
             this.pnlTela.Size = new System.Drawing.Size(200, 100);
             this.pnlTela.TabIndex = 3;
             // 
-            // btnTela
-            // 
-            this.btnTela.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(47)))), ((int)(((byte)(49)))), ((int)(((byte)(54)))));
-            this.btnTela.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.btnTela.FlatAppearance.BorderSize = 0;
-            this.btnTela.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.btnTela.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F);
-            this.btnTela.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.btnTela.Location = new System.Drawing.Point(0, 0);
-            this.btnTela.Name = "btnTela";
-            this.btnTela.Size = new System.Drawing.Size(200, 100);
-            this.btnTela.TabIndex = 2;
-            this.btnTela.Text = "Tela";
-            this.btnTela.UseVisualStyleBackColor = false;
-            this.btnTela.Click += new System.EventHandler(this.btnTela_Click);
-            // 
             // pnlMusica
             // 
-            this.pnlMusica.Controls.Add(this.btnMusica);
+            this.pnlMusica.Controls.Add(this.btnMusic);
             this.pnlMusica.Dock = System.Windows.Forms.DockStyle.Top;
-            this.pnlMusica.Location = new System.Drawing.Point(0, 282);
+            this.pnlMusica.Location = new System.Drawing.Point(0, 300);
             this.pnlMusica.Name = "pnlMusica";
             this.pnlMusica.Size = new System.Drawing.Size(200, 100);
             this.pnlMusica.TabIndex = 2;
             // 
-            // btnMusica
-            // 
-            this.btnMusica.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(47)))), ((int)(((byte)(49)))), ((int)(((byte)(54)))));
-            this.btnMusica.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.btnMusica.FlatAppearance.BorderSize = 0;
-            this.btnMusica.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.btnMusica.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F);
-            this.btnMusica.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.btnMusica.Location = new System.Drawing.Point(0, 0);
-            this.btnMusica.Name = "btnMusica";
-            this.btnMusica.Size = new System.Drawing.Size(200, 100);
-            this.btnMusica.TabIndex = 1;
-            this.btnMusica.Text = "Música";
-            this.btnMusica.UseVisualStyleBackColor = false;
-            this.btnMusica.Click += new System.EventHandler(this.btnMusica_Click);
-            // 
             // pnlCores
             // 
-            this.pnlCores.Controls.Add(this.btnCores);
+            this.pnlCores.Controls.Add(this.btnColors);
             this.pnlCores.Dock = System.Windows.Forms.DockStyle.Top;
-            this.pnlCores.Location = new System.Drawing.Point(0, 182);
+            this.pnlCores.Location = new System.Drawing.Point(0, 200);
             this.pnlCores.Name = "pnlCores";
             this.pnlCores.Size = new System.Drawing.Size(200, 100);
             this.pnlCores.TabIndex = 1;
             this.pnlCores.Tag = "";
             // 
-            // btnCores
+            // btnColors
             // 
-            this.btnCores.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(47)))), ((int)(((byte)(49)))), ((int)(((byte)(54)))));
-            this.btnCores.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.btnCores.FlatAppearance.BorderSize = 0;
-            this.btnCores.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.btnCores.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnCores.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.btnCores.Location = new System.Drawing.Point(0, 0);
-            this.btnCores.Name = "btnCores";
-            this.btnCores.Size = new System.Drawing.Size(200, 100);
-            this.btnCores.TabIndex = 0;
-            this.btnCores.Text = "Cores";
-            this.btnCores.UseVisualStyleBackColor = false;
-            this.btnCores.Click += new System.EventHandler(this.btnCores_Click_1);
-            this.btnCores.Enter += new System.EventHandler(this.btnCores_Enter);
-            this.btnCores.Leave += new System.EventHandler(this.btnCores_Leave);
+            this.btnColors.AccessibleName = "Button";
+            this.btnColors.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(47)))), ((int)(((byte)(49)))), ((int)(((byte)(54)))));
+            this.btnColors.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.btnColors.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btnColors.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F);
+            this.btnColors.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.btnColors.Location = new System.Drawing.Point(0, 0);
+            this.btnColors.Name = "btnColors";
+            this.btnColors.Size = new System.Drawing.Size(200, 100);
+            this.btnColors.Style.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(47)))), ((int)(((byte)(49)))), ((int)(((byte)(54)))));
+            this.btnColors.Style.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.btnColors.Style.HoverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(57)))), ((int)(((byte)(59)))), ((int)(((byte)(64)))));
+            this.btnColors.Style.HoverForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(61)))), ((int)(((byte)(61)))), ((int)(((byte)(61)))));
+            this.btnColors.TabIndex = 5;
+            this.btnColors.Text = "Cores";
+            this.btnColors.UseVisualStyleBackColor = false;
+            this.btnColors.Click += new System.EventHandler(this.btnCores_Click_1);
+            this.btnColors.Enter += new System.EventHandler(this.btnCores_Enter);
+            this.btnColors.Leave += new System.EventHandler(this.btnCores_Leave);
             // 
             // pnlLogo
             // 
@@ -177,7 +139,7 @@
             this.pnlLogo.Dock = System.Windows.Forms.DockStyle.Top;
             this.pnlLogo.Location = new System.Drawing.Point(0, 0);
             this.pnlLogo.Name = "pnlLogo";
-            this.pnlLogo.Size = new System.Drawing.Size(200, 182);
+            this.pnlLogo.Size = new System.Drawing.Size(200, 200);
             this.pnlLogo.TabIndex = 0;
             // 
             // pictureBox1
@@ -188,7 +150,7 @@
             this.pictureBox1.Image = global::lampGUI.Properties.Resources.logo;
             this.pictureBox1.Location = new System.Drawing.Point(41, 12);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(119, 161);
+            this.pictureBox1.Size = new System.Drawing.Size(119, 179);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox1.TabIndex = 16;
             this.pictureBox1.TabStop = false;
@@ -203,7 +165,7 @@
             // pnlLeft
             // 
             this.pnlLeft.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(189)))), ((int)(((byte)(147)))), ((int)(((byte)(249)))));
-            this.pnlLeft.Location = new System.Drawing.Point(0, 82);
+            this.pnlLeft.Location = new System.Drawing.Point(0, 150);
             this.pnlLeft.Name = "pnlLeft";
             this.pnlLeft.Size = new System.Drawing.Size(21, 100);
             this.pnlLeft.TabIndex = 5;
@@ -213,41 +175,139 @@
             // 
             this.panel2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(34)))), ((int)(((byte)(37)))));
-            this.panel2.Controls.Add(this.button1);
+            this.panel2.Controls.Add(this.btnMinimize);
+            this.panel2.Controls.Add(this.tgOnOff);
+            this.panel2.Controls.Add(this.bntClose);
             this.panel2.Location = new System.Drawing.Point(200, 0);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(700, 100);
+            this.panel2.Size = new System.Drawing.Size(700, 50);
             this.panel2.TabIndex = 0;
             this.panel2.MouseDown += new System.Windows.Forms.MouseEventHandler(this.panel2_MouseDown);
             // 
-            // button1
+            // tgOnOff
             // 
-            this.button1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(237)))), ((int)(((byte)(59)))), ((int)(((byte)(59)))));
-            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.button1.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.button1.Location = new System.Drawing.Point(662, 12);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(26, 26);
-            this.button1.TabIndex = 0;
-            this.button1.Text = "X";
-            this.button1.UseVisualStyleBackColor = false;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.tgOnOff.DisplayMode = Syncfusion.Windows.Forms.Tools.DisplayType.Image;
+            this.tgOnOff.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.tgOnOff.ForeColor = System.Drawing.Color.Black;
+            this.tgOnOff.Location = new System.Drawing.Point(643, 64);
+            this.tgOnOff.MinimumSize = new System.Drawing.Size(52, 20);
+            this.tgOnOff.Name = "tgOnOff";
+            this.tgOnOff.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.tgOnOff.Size = new System.Drawing.Size(52, 30);
+            this.tgOnOff.Slider = sliderCollection6;
+            this.tgOnOff.TabIndex = 1;
+            this.tgOnOff.Text = "toggleButton1";
+            this.tgOnOff.ThemeName = "Office2016Colorful";
+            this.tgOnOff.ToggleState = Syncfusion.Windows.Forms.Tools.ToggleButtonState.Active;
+            this.tgOnOff.VisualStyle = Syncfusion.Windows.Forms.Tools.ToggleButtonStyle.Office2016Colorful;
+            this.tgOnOff.ToggleStateChanged += new Syncfusion.Windows.Forms.Tools.ToggleStateChangedEventHandler(this.tgOnOff_ToggleStateChanged);
+            // 
+            // bntClose
+            // 
+            this.bntClose.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(237)))), ((int)(((byte)(59)))), ((int)(((byte)(59)))));
+            this.bntClose.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.bntClose.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.bntClose.Location = new System.Drawing.Point(662, 12);
+            this.bntClose.Name = "bntClose";
+            this.bntClose.Size = new System.Drawing.Size(26, 26);
+            this.bntClose.TabIndex = 0;
+            this.bntClose.Text = "X";
+            this.bntClose.UseVisualStyleBackColor = false;
+            this.bntClose.Click += new System.EventHandler(this.button1_Click);
             // 
             // panelChildForm
             // 
             this.panelChildForm.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(54)))), ((int)(((byte)(57)))), ((int)(((byte)(63)))));
             this.panelChildForm.Controls.Add(this.pnlLeft);
             this.panelChildForm.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panelChildForm.Location = new System.Drawing.Point(200, 100);
+            this.panelChildForm.Location = new System.Drawing.Point(200, 50);
             this.panelChildForm.Name = "panelChildForm";
             this.panelChildForm.Size = new System.Drawing.Size(700, 550);
             this.panelChildForm.TabIndex = 5;
+            // 
+            // trayBarIcon
+            // 
+            this.trayBarIcon.Text = "ledGUI";
+            this.trayBarIcon.Visible = true;
+            this.trayBarIcon.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.notifyIcon1_MouseDoubleClick);
+            // 
+            // btnMinimize
+            // 
+            this.btnMinimize.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(237)))), ((int)(((byte)(59)))), ((int)(((byte)(59)))));
+            this.btnMinimize.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btnMinimize.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.btnMinimize.Location = new System.Drawing.Point(630, 12);
+            this.btnMinimize.Name = "btnMinimize";
+            this.btnMinimize.Size = new System.Drawing.Size(26, 26);
+            this.btnMinimize.TabIndex = 2;
+            this.btnMinimize.Text = "_";
+            this.btnMinimize.UseVisualStyleBackColor = false;
+            // 
+            // btnMusic
+            // 
+            this.btnMusic.AccessibleName = "Button";
+            this.btnMusic.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(47)))), ((int)(((byte)(49)))), ((int)(((byte)(54)))));
+            this.btnMusic.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.btnMusic.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btnMusic.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F);
+            this.btnMusic.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.btnMusic.Location = new System.Drawing.Point(0, 0);
+            this.btnMusic.Name = "btnMusic";
+            this.btnMusic.Size = new System.Drawing.Size(200, 100);
+            this.btnMusic.Style.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(47)))), ((int)(((byte)(49)))), ((int)(((byte)(54)))));
+            this.btnMusic.Style.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.btnMusic.Style.HoverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(57)))), ((int)(((byte)(59)))), ((int)(((byte)(64)))));
+            this.btnMusic.Style.HoverForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(61)))), ((int)(((byte)(61)))), ((int)(((byte)(61)))));
+            this.btnMusic.TabIndex = 6;
+            this.btnMusic.Text = "Música";
+            this.btnMusic.UseVisualStyleBackColor = false;
+            this.btnMusic.Click += new System.EventHandler(this.btnMusic_Click);
+            // 
+            // btnScreen
+            // 
+            this.btnScreen.AccessibleName = "Button";
+            this.btnScreen.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(47)))), ((int)(((byte)(49)))), ((int)(((byte)(54)))));
+            this.btnScreen.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.btnScreen.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btnScreen.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F);
+            this.btnScreen.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.btnScreen.Location = new System.Drawing.Point(0, 0);
+            this.btnScreen.Name = "btnScreen";
+            this.btnScreen.Size = new System.Drawing.Size(200, 100);
+            this.btnScreen.Style.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(47)))), ((int)(((byte)(49)))), ((int)(((byte)(54)))));
+            this.btnScreen.Style.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.btnScreen.Style.HoverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(57)))), ((int)(((byte)(59)))), ((int)(((byte)(64)))));
+            this.btnScreen.Style.HoverForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(61)))), ((int)(((byte)(61)))), ((int)(((byte)(61)))));
+            this.btnScreen.TabIndex = 7;
+            this.btnScreen.Text = "Tela";
+            this.btnScreen.UseVisualStyleBackColor = false;
+            this.btnScreen.Click += new System.EventHandler(this.btnScreen_Click);
+            // 
+            // btnConfig
+            // 
+            this.btnConfig.AccessibleName = "Button";
+            this.btnConfig.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(47)))), ((int)(((byte)(49)))), ((int)(((byte)(54)))));
+            this.btnConfig.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.btnConfig.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btnConfig.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F);
+            this.btnConfig.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.btnConfig.Location = new System.Drawing.Point(0, 0);
+            this.btnConfig.Name = "btnConfig";
+            this.btnConfig.Size = new System.Drawing.Size(200, 100);
+            this.btnConfig.Style.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(47)))), ((int)(((byte)(49)))), ((int)(((byte)(54)))));
+            this.btnConfig.Style.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.btnConfig.Style.HoverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(57)))), ((int)(((byte)(59)))), ((int)(((byte)(64)))));
+            this.btnConfig.Style.HoverForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(61)))), ((int)(((byte)(61)))), ((int)(((byte)(61)))));
+            this.btnConfig.TabIndex = 8;
+            this.btnConfig.Text = "Configurações";
+            this.btnConfig.UseVisualStyleBackColor = false;
+            this.btnConfig.Click += new System.EventHandler(this.btnConfig_Click);
             // 
             // Form1
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(42)))), ((int)(((byte)(54)))));
-            this.ClientSize = new System.Drawing.Size(900, 650);
+            this.ClientSize = new System.Drawing.Size(900, 600);
             this.Controls.Add(this.panelChildForm);
             this.Controls.Add(this.pnlLateral);
             this.Controls.Add(this.panel2);
@@ -263,6 +323,7 @@
             this.pnlLogo.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.panel2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.tgOnOff)).EndInit();
             this.panelChildForm.ResumeLayout(false);
             this.ResumeLayout(false);
 
@@ -278,16 +339,19 @@
         private System.Windows.Forms.Panel pnlCores;
         private System.ComponentModel.BackgroundWorker backgroundWorker1;
         private System.Windows.Forms.Panel panel2;
-        private System.Windows.Forms.Button btnConfiguracoes;
-        private System.Windows.Forms.Button btnTela;
-        private System.Windows.Forms.Button btnMusica;
-        private System.Windows.Forms.Button btnCores;
         private System.Windows.Forms.Panel pnlLeft;
         private System.Windows.Forms.Panel panelChildForm;
         private System.Windows.Forms.Panel pnlLogo;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button bntClose;
+        private Syncfusion.Windows.Forms.Tools.ToggleButton tgOnOff;
+        private Syncfusion.WinForms.Controls.SfButton btnColors;
+        private System.Windows.Forms.NotifyIcon trayBarIcon;
+        private System.Windows.Forms.Button btnMinimize;
+        private Syncfusion.WinForms.Controls.SfButton btnMusic;
+        private Syncfusion.WinForms.Controls.SfButton btnConfig;
+        private Syncfusion.WinForms.Controls.SfButton btnScreen;
     }
 }
 

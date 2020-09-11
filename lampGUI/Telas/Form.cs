@@ -1,4 +1,5 @@
 ﻿using lampGUI.Telas;
+using Syncfusion.Windows.Forms.Tools;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -45,40 +46,54 @@ namespace lampGUI {
             pnlLeft.Top = pnlCores.Top - 100;
             pnlLeft.BringToFront();
         }
-        private void btnMusica_Click(object sender, EventArgs e) {
-            openChildForm(new Musica(led));
-            pnlLeft.Height = pnlMusica.Height;
-            pnlLeft.Top = pnlMusica.Top - 100;
-            pnlLeft.BringToFront();
-        }
         private void panel2_MouseDown(object sender, MouseEventArgs e) {
             if (e.Button == MouseButtons.Left) {
                 ReleaseCapture();
                 SendMessage(Handle, WM_NCLBUTTONDOWN, HT_CAPTION, 0);
             }
         }
-        private void btnConfiguracoes_Click(object sender, EventArgs e) {
-            openChildForm(new Configuracoes());
-            pnlLeft.Height = pnlConfiguracoes.Height;
-            pnlLeft.Top = pnlConfiguracoes.Top - 100;
-            pnlLeft.BringToFront();
-        }
-        private void btnTela_Click(object sender, EventArgs e) {
-            openChildForm(new Tela());
-            pnlLeft.Height = pnlTela.Height;
-            pnlLeft.Top = pnlTela.Top - 100;
-            pnlLeft.BringToFront();
-        }
         private void btnCores_Enter(object sender, EventArgs e) {
-            btnCores.BackColor = (Color.FromArgb(47, 49, 54));
+            btnColors.BackColor = (Color.FromArgb(47, 49, 54));
         }
         private void btnCores_Leave(object sender, EventArgs e) {
-            btnCores.BackColor = (Color.FromArgb(47, 49, 54));
+            btnColors.BackColor = (Color.FromArgb(47, 49, 54));
         }
         private void pnlLeft_Paint(object sender, PaintEventArgs e) {
         }
         private void button1_Click(object sender, EventArgs e) {
             Application.Exit();
+        }
+
+        private void tgOnOff_ToggleStateChanged(object sender, Syncfusion.Windows.Forms.Tools.ToggleStateChangedEventArgs e) {
+            if(e.ToggleState == ToggleButtonState.Inactive)
+                led.Send(0);
+            if (e.ToggleState == ToggleButtonState.Active)
+                led.Send(255);
+        }
+
+        private void notifyIcon1_MouseDoubleClick(object sender, MouseEventArgs e) {
+
+        }
+
+        private void btnMusic_Click(object sender, EventArgs e) {
+            openChildForm(new Musica(led));
+            pnlLeft.Height = pnlMusica.Height;
+            pnlLeft.Top = pnlMusica.Top - 100;
+            pnlLeft.BringToFront();
+        }
+
+        private void btnScreen_Click(object sender, EventArgs e) {
+            openChildForm(new Tela());
+            pnlLeft.Height = pnlTela.Height;
+            pnlLeft.Top = pnlTela.Top - 100;
+            pnlLeft.BringToFront();
+        }
+
+        private void btnConfig_Click(object sender, EventArgs e) {
+            openChildForm(new Configuracoes());
+            pnlLeft.Height = pnlConfiguracoes.Height;
+            pnlLeft.Top = pnlConfiguracoes.Top - 100;
+            pnlLeft.BringToFront();
         }
     }
 }
