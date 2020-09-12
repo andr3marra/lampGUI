@@ -15,7 +15,7 @@ namespace lampGUI {
         public static Color btnColor4x1 = Color.FromArgb(245, 254, 0);
         public static Color btnColor4x2 = Color.FromArgb(245, 0, 55);
         public static Color btnColor4x3 = Color.FromArgb(245, 57, 75);
-        public static bool HideMinimize = true;
+        public static bool HideMinimize = false;
         public static List<lamp> lamps = new List<lamp> { };
 
         public static void Init() {
@@ -29,7 +29,7 @@ namespace lampGUI {
             }
         }
     }
-    public struct lamp {
+    public class lamp {
         public String name;
         public String ip;
         public byte brightness;

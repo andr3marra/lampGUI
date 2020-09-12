@@ -28,6 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(UmaCor));
             this.panel1 = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
             this.btnColor4x3 = new Syncfusion.WinForms.Controls.SfButton();
@@ -43,7 +45,7 @@
             this.btnColor1x2 = new Syncfusion.WinForms.Controls.SfButton();
             this.btnColor1x1 = new Syncfusion.WinForms.Controls.SfButton();
             this.tbBrilho = new Syncfusion.Windows.Forms.Tools.TrackBarEx(0, 255);
-            this.tbFrequencia = new Syncfusion.Windows.Forms.Tools.TrackBarEx(0, 255);
+            this.tbFrequencia = new Syncfusion.Windows.Forms.Tools.TrackBarEx(200, 2000);
             this.button1 = new System.Windows.Forms.Button();
             this.chklbLamp = new System.Windows.Forms.CheckedListBox();
             this.lblFrequencia = new System.Windows.Forms.Label();
@@ -52,12 +54,16 @@
             this.btnBreath = new System.Windows.Forms.Button();
             this.btnSolido = new System.Windows.Forms.Button();
             this.cwUmaCor = new Cyotek.Windows.Forms.ColorWheel();
+            this.timerPreventOversending = new System.Windows.Forms.Timer(this.components);
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(54)))), ((int)(((byte)(57)))), ((int)(((byte)(63)))));
+            this.panel1.Controls.Add(this.pictureBox1);
             this.panel1.Controls.Add(this.label1);
             this.panel1.Controls.Add(this.btnColor4x3);
             this.panel1.Controls.Add(this.btnColor4x2);
@@ -91,9 +97,9 @@
             this.label1.AutoSize = true;
             this.label1.Location = new System.Drawing.Point(537, 263);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(42, 13);
+            this.label1.Size = new System.Drawing.Size(67, 13);
             this.label1.TabIndex = 40;
-            this.label1.Text = "Custom";
+            this.label1.Text = "Customizada";
             // 
             // btnColor4x3
             // 
@@ -286,12 +292,12 @@
             // 
             // tbBrilho
             // 
-            this.tbBrilho.BackColor = System.Drawing.Color.White;
+            this.tbBrilho.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(54)))), ((int)(((byte)(57)))), ((int)(((byte)(63)))));
             this.tbBrilho.BeforeTouchSize = new System.Drawing.Size(250, 20);
             this.tbBrilho.ChannelHeight = 6;
             this.tbBrilho.DecreaseButtonSize = new System.Drawing.Size(0, 0);
             this.tbBrilho.IncreaseButtonSize = new System.Drawing.Size(0, 0);
-            this.tbBrilho.Location = new System.Drawing.Point(225, 409);
+            this.tbBrilho.Location = new System.Drawing.Point(221, 364);
             this.tbBrilho.Name = "tbBrilho";
             this.tbBrilho.ShowButtons = false;
             this.tbBrilho.Size = new System.Drawing.Size(250, 20);
@@ -313,7 +319,7 @@
             this.tbFrequencia.ChannelHeight = 6;
             this.tbFrequencia.DecreaseButtonSize = new System.Drawing.Size(0, 0);
             this.tbFrequencia.IncreaseButtonSize = new System.Drawing.Size(0, 0);
-            this.tbFrequencia.Location = new System.Drawing.Point(225, 373);
+            this.tbFrequencia.Location = new System.Drawing.Point(221, 413);
             this.tbFrequencia.Name = "tbFrequencia";
             this.tbFrequencia.ShowButtons = false;
             this.tbFrequencia.Size = new System.Drawing.Size(250, 20);
@@ -327,7 +333,7 @@
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(27, 222);
+            this.button1.Location = new System.Drawing.Point(599, 438);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(75, 23);
             this.button1.TabIndex = 24;
@@ -338,9 +344,9 @@
             // chklbLamp
             // 
             this.chklbLamp.FormattingEnabled = true;
-            this.chklbLamp.Location = new System.Drawing.Point(43, 34);
+            this.chklbLamp.Location = new System.Drawing.Point(43, 50);
             this.chklbLamp.Name = "chklbLamp";
-            this.chklbLamp.Size = new System.Drawing.Size(314, 124);
+            this.chklbLamp.Size = new System.Drawing.Size(113, 124);
             this.chklbLamp.Sorted = true;
             this.chklbLamp.TabIndex = 23;
             this.chklbLamp.ItemCheck += new System.Windows.Forms.ItemCheckEventHandler(this.chklbLamp_ItemCheck);
@@ -350,7 +356,7 @@
             this.lblFrequencia.AutoSize = true;
             this.lblFrequencia.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
             this.lblFrequencia.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.lblFrequencia.Location = new System.Drawing.Point(315, 391);
+            this.lblFrequencia.Location = new System.Drawing.Point(227, 446);
             this.lblFrequencia.Name = "lblFrequencia";
             this.lblFrequencia.Size = new System.Drawing.Size(69, 15);
             this.lblFrequencia.TabIndex = 22;
@@ -362,7 +368,7 @@
             this.lblBrilho.AutoSize = true;
             this.lblBrilho.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
             this.lblBrilho.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.lblBrilho.Location = new System.Drawing.Point(330, 438);
+            this.lblBrilho.Location = new System.Drawing.Point(534, 467);
             this.lblBrilho.Name = "lblBrilho";
             this.lblBrilho.Size = new System.Drawing.Size(39, 15);
             this.lblBrilho.TabIndex = 20;
@@ -424,6 +430,20 @@
             this.cwUmaCor.TabIndex = 3;
             this.cwUmaCor.ColorChanged += new System.EventHandler(this.cwUmaCor_ColorChanged);
             // 
+            // timerPreventOversending
+            // 
+            this.timerPreventOversending.Interval = 150;
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
+            this.pictureBox1.Location = new System.Drawing.Point(172, 355);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(35, 35);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox1.TabIndex = 41;
+            this.pictureBox1.TabStop = false;
+            // 
             // UmaCor
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
@@ -435,6 +455,7 @@
             this.Load += new System.EventHandler(this.UmaCor_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -465,5 +486,7 @@
         private Syncfusion.WinForms.Controls.SfButton btnColor1x3;
         private Syncfusion.WinForms.Controls.SfButton btnColor1x2;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Timer timerPreventOversending;
+        private System.Windows.Forms.PictureBox pictureBox1;
     }
 }

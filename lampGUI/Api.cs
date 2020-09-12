@@ -27,22 +27,18 @@ namespace lampGUI {
         }
         public async void PostAsync(byte[] data) {
             string requestUri = "http://192.168.15.83/color/custom";
-            string contentType = "text/plain";
-
             byte[] requestBodyBytes = data;
             var dataHttp = new ByteArrayContent(data);
 
             using (client) {
-                client.Headers[HttpRequestHeader.ContentType] = contentType;
-
                 var bla = await client1.PostAsync(requestUri, dataHttp);
             }
         }
-        public string Get(string address, String data) {
-            request = WebRequest.Create("http://" + address + data);
+        public string Get(lamp _lamp, String data) {
+            request = WebRequest.Create("http://" + _lamp.ip + data);
             request.Method = "GET";
             request.UseDefaultCredentials = true;
-            request.Timeout = 50;
+            request.Timeout = 200;
             try {
                 WebResponse response = request.GetResponse();
                 string responseData;
@@ -61,49 +57,31 @@ namespace lampGUI {
                 MessageBoxButtons buttons = MessageBoxButtons.OK;
                 DialogResult result;
                 result = MessageBox.Show(message, caption, buttons);
+                _lamp.selected = false;
                 //if (result == System.Windows.Forms.DialogResult.Yes)
                 return "notFound";
             }
         }
 
-        public void Send(byte r, byte g, byte b) {                                     // Single Color
-            foreach (var lamp in PersistentData.lamps) {
-                if (lamp.selected)
-                    Get(lamp.ip, "/color/single?r=" + r.ToString() + "&g=" + g.ToString() + "&b=" + b.ToString());
-            }
+        public bool Send(byte r, byte g, byte b) {                                     // Single Color
+            return multipleRequests("/color/single?r=" + r.ToString() + "&g=" + g.ToString() + "&b=" + b.ToString());
         }
-        public void Send(byte r1, byte g1, byte b1, byte r2, byte g2, byte b2) {        // Dual Color
-            foreach (var lamp in PersistentData.lamps) {
-                if (lamp.selected)
-                    Get(lamp.ip, "/color/double?r1=" + r1.ToString() + "&g1=" + g1.ToString() + "&b1=" + b1.ToString() + "&r2=" + r2.ToString() + "&g2=" + g2.ToString() + "&b2=" + b2.ToString());
-            }
+        public bool Send(byte r1, byte g1, byte b1, byte r2, byte g2, byte b2) {        // Dual Color
+            return multipleRequests("/color/double?r1=" + r1.ToString() + "&g1=" + g1.ToString() + "&b1=" + b1.ToString() + "&r2=" + r2.ToString() + "&g2=" + g2.ToString() + "&b2=" + b2.ToString());
         }
-        public void Send(char mode) {                                                   // Mode
+        public bool Send(char mode) {                                                   // Mode
             if (mode == 'r') {
-                foreach (var lamp in PersistentData.lamps) {
-                    if (lamp.selected)
-                        Get(lamp.ip, "/color/rainbow");
-                }
+                return multipleRequests("/color/rainbow");
             }
             else {
-                foreach (var lamp in PersistentData.lamps) {
-                    if (lamp.selected)
-                        Get(lamp.ip, "/animation?mode=" + mode);
-                }
+                return multipleRequests("/animation?mode=" + mode);
             }
         }
-        public void Send(byte brightness) {                                             // Brightness
-            foreach (lamp lamp in PersistentData.lamps) {
-                if (lamp.selected)
-                    Get(lamp.ip, $"/brightness?set={brightness}");
-            }
+        public bool Send(byte brightness) {                                             // Brightness
+            return multipleRequests($"/brightness?set={brightness}");
         }
-        public void Send(char mode, int delay) {                                        // Change Mode and Delay
-            foreach (var lamp in PersistentData.lamps) {
-                if (lamp.selected)
-                    Get(lamp.ip, $"/animation?mode={mode}&delay={delay}");
-            }
-
+        public bool Send(char mode, int delay) {                                        // Change Mode and Delay
+            return multipleRequests($"/animation?mode={mode}&delay={delay}");
         }
         public void CheckConnectivity() {
             List<lamp> copy = new List<lamp>(PersistentData.lamps);
@@ -128,26 +106,31 @@ namespace lampGUI {
         public void Status() {
             multipleRequests("/status");
         }
-        public void multipleRequests(String _sendData) {
+        public bool multipleRequests(String _sendData) {
             List<lamp> copy = new List<lamp>(PersistentData.lamps);
-
-            foreach (var lamp in PersistentData.lamps) {
-                if (lamp.selected) {
-                    String data = Get(lamp.ip, _sendData);
+            bool success = true;
+            for (byte i = 0; i < PersistentData.lamps.Count; i++) {
+                var x = PersistentData.lamps[i];
+                if (x.selected) {
+                    String data = Get(x, _sendData);
                     if (data == "notFound") {
-                        int index = PersistentData.lamps.FindIndex(lamp1 => lamp1.name == lamp.name);
+                        int index = PersistentData.lamps.FindIndex(lamp1 => lamp1.name == x.name);
                         var copyItem = PersistentData.lamps[index];
                         copy[index] = copyItem;
+                        success = success && false;
                     }
                     else {
-                        int index = PersistentData.lamps.FindIndex(lamp1 => lamp1.name == lamp.name);
+                        int index = PersistentData.lamps.FindIndex(lamp1 => lamp1.name == x.name);
                         var copyItem = PersistentData.lamps[index];
-                        copyItem.brightness = (byte)Int16.Parse(data);
+                        if(_sendData == "/status")
+                            copyItem.brightness = (byte)Int16.Parse(data);
                         copy[index] = copyItem;
+                        success = success && true;
                     }
                 }
             }
             PersistentData.lamps = copy;
+            return success;
         }
 
     }

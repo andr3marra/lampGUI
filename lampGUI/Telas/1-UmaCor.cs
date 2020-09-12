@@ -17,10 +17,7 @@ namespace lampGUI
         {
             led = api;
             InitializeComponent();
-            var items = chklbLamp.Items;
-            foreach (var lamp in PersistentData.lamps) {
-                items.Add(lamp.name, lamp.selected);
-            }
+            UpdateChklbLamp();
             int countSelected = 0;
             for( int i = 0; i < PersistentData.lamps.Count; i++) {
                 if (PersistentData.lamps[i].selected == true)
@@ -44,7 +41,14 @@ namespace lampGUI
         }
 
         private void cwUmaCor_ColorChanged(object sender, EventArgs e) {
-            led.Send(cwUmaCor.Color.R, cwUmaCor.Color.G, cwUmaCor.Color.B);
+            if(timerPreventOversending.Interval > 100) {
+                if (!led.Send(cwUmaCor.Color.R, cwUmaCor.Color.G, cwUmaCor.Color.B))
+                    UpdateChklbLamp();
+                timerPreventOversending.Stop();
+                timerPreventOversending.Start();
+            }
+            
+            
         }
         private void btnSolido_Click(object sender, EventArgs e) {
             led.Send('s');
@@ -58,6 +62,7 @@ namespace lampGUI
             led.Send('w', tbFrequencia.Value);
         }
         private void UmaCor_Load(object sender, EventArgs e) {
+            timerPreventOversending.Start();
             //tbFrequencia.Value = PersistentData.delay;
             //tbBrilho.Value = PersistentData.brightness;
         }
@@ -167,6 +172,13 @@ namespace lampGUI
                     btnColor4x3.Style.PressedBackColor = MyDialog.Color;
                     PersistentData.btnColor4x3 = MyDialog.Color;
                 }
+            }
+        }
+        private void UpdateChklbLamp() {
+            chklbLamp.Items.Clear();
+            var items = chklbLamp.Items;
+            foreach (var lamp in PersistentData.lamps) {
+                items.Add(lamp.name, lamp.selected);
             }
         }
     }

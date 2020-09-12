@@ -38,7 +38,7 @@ namespace lampGUI {
             _hanctr = 0;
             _t = new DispatcherTimer();
             _t.Tick += _t_Tick;
-            _t.Interval = TimeSpan.FromMilliseconds(20); //40hz refresh rate//25
+            _t.Interval = TimeSpan.FromMilliseconds(0); //40hz refresh rate//25
             _t.IsEnabled = false;
             /*_l = left;
             _r = right;
