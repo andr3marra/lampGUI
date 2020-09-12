@@ -61,18 +61,26 @@ namespace lampGUI {
         private void pnlLeft_Paint(object sender, PaintEventArgs e) {
         }
         private void button1_Click(object sender, EventArgs e) {
-            Application.Exit();
+            if (PersistentData.HideMinimize) {
+                this.Hide();
+            }
+
+            else {
+                Application.Exit();
+            }
+
+
         }
 
         private void tgOnOff_ToggleStateChanged(object sender, Syncfusion.Windows.Forms.Tools.ToggleStateChangedEventArgs e) {
-            if(e.ToggleState == ToggleButtonState.Inactive)
+            if (e.ToggleState == ToggleButtonState.Inactive)
                 led.Send(0);
             if (e.ToggleState == ToggleButtonState.Active)
                 led.Send(255);
         }
 
         private void notifyIcon1_MouseDoubleClick(object sender, MouseEventArgs e) {
-
+            this.Show();
         }
 
         private void btnMusic_Click(object sender, EventArgs e) {
@@ -94,6 +102,17 @@ namespace lampGUI {
             pnlLeft.Height = pnlConfiguracoes.Height;
             pnlLeft.Top = pnlConfiguracoes.Top - 100;
             pnlLeft.BringToFront();
+        }
+
+        private void Form1_Load(object sender, EventArgs e) {
+            notifyIcon1.BalloonTipIcon = ToolTipIcon.Info;
+            notifyIcon1.BalloonTipText = "Welcome to TutorialsPanel.com!!";
+            notifyIcon1.BalloonTipTitle = "Welcome Message";
+            //notifyIcon1.ShowBalloonTip(2000);
+        }
+
+        private void btnMinimize_Click(object sender, EventArgs e) {
+            this.WindowState = FormWindowState.Minimized;
         }
     }
 }

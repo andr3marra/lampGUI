@@ -28,6 +28,8 @@
             this.IP = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.Status = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.button1 = new System.Windows.Forms.Button();
+            this.checkBoxHideMinimize = new Syncfusion.Windows.Forms.Tools.CheckBoxAdv();
+            ((System.ComponentModel.ISupportInitialize)(this.checkBoxHideMinimize)).BeginInit();
             this.SuspendLayout();
             // 
             // lvLamps
@@ -69,17 +71,30 @@
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
+            // checkBoxHideMinimize
+            // 
+            this.checkBoxHideMinimize.BeforeTouchSize = new System.Drawing.Size(337, 21);
+            this.checkBoxHideMinimize.Location = new System.Drawing.Point(157, 246);
+            this.checkBoxHideMinimize.Name = "checkBoxHideMinimize";
+            this.checkBoxHideMinimize.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.checkBoxHideMinimize.Size = new System.Drawing.Size(337, 21);
+            this.checkBoxHideMinimize.TabIndex = 4;
+            this.checkBoxHideMinimize.Text = "O botão Fechar minimiza a janela do aplicativo na bandeja";
+            this.checkBoxHideMinimize.CheckStateChanged += new System.EventHandler(this.checkBoxHideMinimize_CheckStateChanged);
+            // 
             // Configuracoes
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(54)))), ((int)(((byte)(57)))), ((int)(((byte)(63)))));
             this.ClientSize = new System.Drawing.Size(700, 550);
+            this.Controls.Add(this.checkBoxHideMinimize);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.lvLamps);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "Configuracoes";
             this.Text = "Configuracoes";
+            ((System.ComponentModel.ISupportInitialize)(this.checkBoxHideMinimize)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -91,5 +106,6 @@
         private System.Windows.Forms.ColumnHeader Nome;
         private System.Windows.Forms.ColumnHeader IP;
         private System.Windows.Forms.ColumnHeader Status;
+        private Syncfusion.Windows.Forms.Tools.CheckBoxAdv checkBoxHideMinimize;
     }
 }

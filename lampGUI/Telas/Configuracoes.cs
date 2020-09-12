@@ -25,6 +25,7 @@ namespace lampGUI.Telas {
                 lvLamps.Items.Add(lvi);
 
             }
+            checkBoxHideMinimize.BoolValue = PersistentData.HideMinimize;
         }
 
         private void listView1_SelectedIndexChanged(object sender, EventArgs e) {
@@ -34,6 +35,11 @@ namespace lampGUI.Telas {
         private void button1_Click(object sender, EventArgs e) {
             Form form = new Config_Add_Manually(lvLamps);
             form.Show();
+        }
+
+        private void checkBoxHideMinimize_CheckStateChanged(object sender, EventArgs e)
+        {
+            PersistentData.HideMinimize = checkBoxHideMinimize.BoolValue;
         }
     }
 }
