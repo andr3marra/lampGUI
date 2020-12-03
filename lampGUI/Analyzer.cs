@@ -1,17 +1,17 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.IO.Ports;
 //using System.Windows;
 using System.Windows.Forms;
 using System.Windows.Threading;
 using Un4seen.Bass;
 using Un4seen.BassWasapi;
-using System.Windows.Forms.DataVisualization.Charting;
 
-namespace lampGUI {
+namespace lampGUI
+{
 
 
-    internal class Analyzer {
+    internal class Analyzer
+    {
         private bool _enable;               //enabled status
         private DispatcherTimer _t;         //timer that refreshes the display
         public float[] _fft;               //buffer for fft data
@@ -31,7 +31,8 @@ namespace lampGUI {
         Api led;
 
         //ctor
-        public Analyzer(ComboBox devicelist, Api instancia) {
+        public Analyzer(ComboBox devicelist, Api instancia)
+        {
 
             _fft = new float[8192];
             _lastlevel = 0;
@@ -79,20 +80,26 @@ namespace lampGUI {
         public bool DisplayEnable { get; set; }
 
         //flag for enabling and disabling program functionality
-        public bool Enable {
+        public bool Enable
+        {
             get { return _enable; }
-            set {
+            set
+            {
                 _enable = value;
-                if (value) {
-                    if (!_initialized) {
+                if (value)
+                {
+                    if (!_initialized)
+                    {
                         var array = (_devicelist.Items[_devicelist.SelectedIndex] as string).Split(' ');
                         devindex = Convert.ToInt32(array[0]);
                         bool result = BassWasapi.BASS_WASAPI_Init(devindex, 0, 0, BASSWASAPIInit.BASS_WASAPI_BUFFER, 1f, 0.05f, _process, IntPtr.Zero);
-                        if (!result) {
+                        if (!result)
+                        {
                             var error = Bass.BASS_ErrorGetCode();
                             MessageBox.Show(error.ToString());
                         }
-                        else {
+                        else
+                        {
                             _initialized = true;
                             _devicelist.Enabled = true;
                         }
@@ -106,41 +113,49 @@ namespace lampGUI {
         }
 
         // initialization
-        private void Init() {
+        private void Init()
+        {
             bool result = false;
 
-            for (int i = 0; i < BassWasapi.BASS_WASAPI_GetDeviceCount(); i++) {
+            for (int i = 0; i < BassWasapi.BASS_WASAPI_GetDeviceCount(); i++)
+            {
                 var device = BassWasapi.BASS_WASAPI_GetDeviceInfo(i);
-                if (device.IsEnabled && device.IsLoopback) {
+                if (device.IsEnabled && device.IsLoopback)
+                {
                     _devicelist.Items.Add(string.Format("{0} - {1}", i, device.name));
                 }
             }
             _devicelist.SelectedIndex = 0;
-            try { 
+            try
+            {
                 Bass.BASS_SetConfig(BASSConfig.BASS_CONFIG_UPDATETHREADS, false);
                 result = Bass.BASS_Init(0, 44100, BASSInit.BASS_DEVICE_DEFAULT, IntPtr.Zero);
                 if (!result) throw new Exception("Init Error");
             }
-            catch {
+            catch
+            {
 
             }
         }
 
         //timer 
 
-        private void _t_Tick(object sender, EventArgs e) {
+        private void _t_Tick(object sender, EventArgs e)
+        {
             int ret = BassWasapi.BASS_WASAPI_GetData(_fft, (int)BASSData.BASS_DATA_FFT8192);  //get ch.annel fft data
             if (ret < -1) return;
             int x, y;
             int b0 = 0;
 
             //computes the spectrum data, the code is taken from a bass_wasapi sample.
-            for (x = 0; x < _lines; x++) {
+            for (x = 0; x < _lines; x++)
+            {
                 float peak = 0;
                 int b1 = (int)Math.Pow(2, x * 10.0 / (_lines - 1));
                 if (b1 > 1023) b1 = 1023;
                 if (b1 <= b0) b1 = b0 + 1;
-                for (; b0 < b1; b0++) {
+                for (; b0 < b1; b0++)
+                {
                     if (peak < _fft[1 + b0]) peak = _fft[1 + b0];
                 }
                 y = (int)(Math.Sqrt(peak) * 3 * 255 - 4);
@@ -179,11 +194,13 @@ namespace lampGUI {
                             array[9 * test +8] = _spectrumdata[test];                   //b
                         }*/
 
-            for(int i = 0; i < 270; i++) {
-                array[i] = 0;            }
+            for (int i = 0; i < 270; i++)
+            {
+                array[i] = 0;
+            }
             if (var_teste == 255)
                 var_teste = 0;
-                
+
             array[var_teste] = 0;
             array[var_teste + 1] = 254;
             var_teste++;
@@ -264,7 +281,8 @@ namespace lampGUI {
 
             //Required, because some programs hang the output. If the output hangs for a 75ms
             //this piece of code re initializes the output so it doesn't make a gliched sound for long.
-            if (_hanctr > 3) {
+            if (_hanctr > 3)
+            {
                 _hanctr = 0;
                 /*                _l.Value = (0);
                                 _r.Value = (0);*/
@@ -277,12 +295,14 @@ namespace lampGUI {
         }
 
         // WASAPI callback, required for continuous recording
-        private int Process(IntPtr buffer, int length, IntPtr user) {
+        private int Process(IntPtr buffer, int length, IntPtr user)
+        {
             return length;
         }
 
         //cleanup
-        public void Free() {
+        public void Free()
+        {
             BassWasapi.BASS_WASAPI_Free();
             Bass.BASS_Free();
         }

@@ -1,23 +1,20 @@
 ﻿using lampGUI.Telas;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace lampGUI {
-    public partial class _0_Cores : Form {
+namespace lampGUI
+{
+    public partial class _0_Cores : Form
+    {
         Api led = new Api();
-        public _0_Cores() {
+        public _0_Cores()
+        {
             InitializeComponent();
             openChildForm(new UmaCor(led));
         }
         private Form activeForm = null;
-        public void openChildForm(Form childForm) {
+        public void openChildForm(Form childForm)
+        {
             if (activeForm != null)
                 activeForm.Close();
             activeForm = childForm;
@@ -30,27 +27,33 @@ namespace lampGUI {
             childForm.Show();
         }
 
-        private void button1_Click(object sender, EventArgs e) {
+        private void button1_Click(object sender, EventArgs e)
+        {
             openChildForm(new UmaCor(led));
         }
 
-        private void button2_Click(object sender, EventArgs e) {
+        private void button2_Click(object sender, EventArgs e)
+        {
             openChildForm(new DuasCores(led));
         }
 
-        private void button3_Click(object sender, EventArgs e) {
+        private void button3_Click(object sender, EventArgs e)
+        {
             openChildForm(new _3_Arcoiris(led));
         }
 
-        private void btnSingle_Click(object sender, EventArgs e) {
+        private void btnSingle_Click(object sender, EventArgs e)
+        {
             openChildForm(new UmaCor(led));
         }
 
-        private void btnGradient_Click(object sender, EventArgs e) {
+        private void btnGradient_Click(object sender, EventArgs e)
+        {
             openChildForm(new DuasCores(led));
         }
 
-        private void btnRainbow_Click(object sender, EventArgs e) {
+        private void btnRainbow_Click(object sender, EventArgs e)
+        {
             openChildForm(new _3_Arcoiris(led));
         }
     }
