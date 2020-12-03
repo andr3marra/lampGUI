@@ -19,7 +19,7 @@ namespace lampGUI {
         public static List<lamp> lamps = new List<lamp> { };
 
         public static void Init() {
-            using (StreamReader r = new StreamReader("config.json")) {
+            using (StreamReader r = new StreamReader("External/config.json")) {
                 string json = r.ReadToEnd();
                 dynamic array = JsonConvert.DeserializeObject(json);
                 String[] ip = new String[array.Count];
