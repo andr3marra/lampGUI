@@ -11,6 +11,8 @@
 *.sln.docstates
 lampGUI/bin
 .vs/lampGUI/v16/
+bin
+obj
 
 # User-specific files (MonoDevelop/Xamarin Studio)
 *.userprefs
