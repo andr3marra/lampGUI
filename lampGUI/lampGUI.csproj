@@ -108,7 +108,7 @@
     <Compile Include="Telas\0-Cores.Designer.cs">
       <DependentUpon>0-Cores.cs</DependentUpon>
     </Compile>
-    <Compile Include="Api.cs" />
+    <Compile Include="LampClient.cs" />
     <Compile Include="Telas\1-UmaCor.cs">
       <SubType>Form</SubType>
     </Compile>

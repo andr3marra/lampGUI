@@ -16,8 +16,8 @@ namespace lampGUI
         public static extern int SendMessage(IntPtr hWnd, int Msg, int wParam, int lParam);
         [System.Runtime.InteropServices.DllImport("user32.dll")]
         public static extern bool ReleaseCapture();
-        Api led;
-        public Form1(Api instancia)
+        LampClient led;
+        public Form1(LampClient instancia)
         {
             led = instancia;
             InitializeComponent();

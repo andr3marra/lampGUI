@@ -28,10 +28,10 @@ namespace lampGUI
         //private Chart _chart;
 
         private int _lines = 10;            // number of spectrum lines
-        Api led;
+        LampClient led;
 
         //ctor
-        public Analyzer(ComboBox devicelist, Api instancia)
+        public Analyzer(ComboBox devicelist, LampClient instancia)
         {
 
             _fft = new float[8192];

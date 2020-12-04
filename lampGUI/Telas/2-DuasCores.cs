@@ -5,8 +5,8 @@ namespace lampGUI
 {
     public partial class DuasCores : Form
     {
-        Api led;
-        public DuasCores(Api instancia)
+        LampClient led;
+        public DuasCores(LampClient instancia)
         {
             led = instancia;
             InitializeComponent();

@@ -12,7 +12,7 @@ namespace lampGUI
         static void Main()
         {
             PersistentData.Init();
-            Api led = new Api();
+            LampClient led = new LampClient();
             //PersistentData.UpdateStatus(led);
             led.CheckConnectivity();
             led.Status();

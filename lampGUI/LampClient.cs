@@ -8,14 +8,14 @@ using System.Windows.Forms;
 
 namespace lampGUI
 {
-    public class Api
+    public class LampClient
     {
         private WebRequest request;
         private string url;
         private string endereco;
         private WebClient client;
         private static HttpClient client1;
-        public Api()
+        public LampClient()
         {
             this.endereco = PersistentData.lamps[0].ip;     // APENAS POST
             this.url = endereco;                            // APENAS POST

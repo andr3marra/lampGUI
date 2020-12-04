@@ -6,7 +6,7 @@ namespace lampGUI
 {
     public partial class _0_Cores : Form
     {
-        Api led = new Api();
+        LampClient led = new LampClient();
         public _0_Cores()
         {
             InitializeComponent();

@@ -5,8 +5,8 @@ namespace lampGUI.Telas
 {
     public partial class _3_Arcoiris : Form
     {
-        Api led;
-        public _3_Arcoiris(Api instancia)
+        LampClient led;
+        public _3_Arcoiris(LampClient instancia)
         {
             led = instancia;
             InitializeComponent();

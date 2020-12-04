@@ -6,8 +6,8 @@ namespace lampGUI.Telas
     public partial class Musica : Form
     {
         private Analyzer analyzer;
-        private Api led;
-        public Musica(Api instancia)
+        private LampClient led;
+        public Musica(LampClient instancia)
         {
             led = instancia;
             InitializeComponent();

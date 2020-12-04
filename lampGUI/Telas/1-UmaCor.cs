@@ -8,8 +8,8 @@ namespace lampGUI
 {
     public partial class UmaCor : Form
     {
-        Api led;
-        public UmaCor(Api api)
+        LampClient led;
+        public UmaCor(LampClient api)
         {
             led = api;
             InitializeComponent();
