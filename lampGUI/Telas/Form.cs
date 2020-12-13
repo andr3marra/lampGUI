@@ -7,7 +7,7 @@ using System.Windows.Forms;
 namespace lampGUI
 {
 
-    public partial class Form1 : Form
+    public partial class MainWindow : Form
     {
         public const int WM_NCLBUTTONDOWN = 0xA1;
         public const int HT_CAPTION = 0x2;
@@ -16,12 +16,14 @@ namespace lampGUI
         public static extern int SendMessage(IntPtr hWnd, int Msg, int wParam, int lParam);
         [System.Runtime.InteropServices.DllImport("user32.dll")]
         public static extern bool ReleaseCapture();
-        LampClient led;
-        public Form1(LampClient instancia)
+        LampClient _lampClient;
+        AppConfig _appConfig;
+        public MainWindow(LampClient lampClient, AppConfig appConfig)
         {
-            led = instancia;
+            _appConfig = appConfig;
+            _lampClient = lampClient;
             InitializeComponent();
-            openChildForm(new _0_Cores());
+            openChildForm(new _0_Cores(_lampClient, _appConfig));
             pnlLeft.BringToFront();
         }
         private Form activeForm = null;
@@ -40,7 +42,7 @@ namespace lampGUI
         }
         private void btnCores_Click_1(object sender, EventArgs e)
         {
-            openChildForm(new _0_Cores());
+            openChildForm(new _0_Cores(_lampClient, _appConfig));
             pnlLeft.Height = pnlCores.Height;
             pnlLeft.Top = pnlCores.Top - 100;
             pnlLeft.BringToFront();
@@ -66,7 +68,7 @@ namespace lampGUI
         }
         private void button1_Click(object sender, EventArgs e)
         {
-            if (PersistentData.HideMinimize)
+            if (_appConfig.applicationConfig.HideMinimize)
             {
                 this.Hide();
             }
@@ -82,9 +84,9 @@ namespace lampGUI
         private void tgOnOff_ToggleStateChanged(object sender, Syncfusion.Windows.Forms.Tools.ToggleStateChangedEventArgs e)
         {
             if (e.ToggleState == ToggleButtonState.Inactive)
-                led.Send(0);
+                _lampClient.Send(0);
             if (e.ToggleState == ToggleButtonState.Active)
-                led.Send(255);
+                _lampClient.Send(255);
         }
 
         private void notifyIcon1_MouseDoubleClick(object sender, MouseEventArgs e)
@@ -94,7 +96,7 @@ namespace lampGUI
 
         private void btnMusic_Click(object sender, EventArgs e)
         {
-            openChildForm(new Musica(led));
+            openChildForm(new Musica(_lampClient, _appConfig));
             pnlLeft.Height = pnlMusica.Height;
             pnlLeft.Top = pnlMusica.Top - 100;
             pnlLeft.BringToFront();
@@ -102,7 +104,7 @@ namespace lampGUI
 
         private void btnScreen_Click(object sender, EventArgs e)
         {
-            openChildForm(new Tela());
+            openChildForm(new Tela(_lampClient, _appConfig));
             pnlLeft.Height = pnlTela.Height;
             pnlLeft.Top = pnlTela.Top - 100;
             pnlLeft.BringToFront();
@@ -110,7 +112,7 @@ namespace lampGUI
 
         private void btnConfig_Click(object sender, EventArgs e)
         {
-            openChildForm(new Configuracoes());
+            openChildForm(new Configuracoes(_lampClient, _appConfig));
             pnlLeft.Height = pnlConfiguracoes.Height;
             pnlLeft.Top = pnlConfiguracoes.Top - 100;
             pnlLeft.BringToFront();

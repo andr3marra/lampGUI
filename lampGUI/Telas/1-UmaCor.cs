@@ -8,41 +8,43 @@ namespace lampGUI
 {
     public partial class UmaCor : Form
     {
-        LampClient led;
-        public UmaCor(LampClient api)
+        private LampClient _lampClient;
+        private AppConfig _appConfig;
+        public UmaCor(LampClient lampClient, AppConfig appConfig)
         {
-            led = api;
+            _lampClient = lampClient;
+            _appConfig = appConfig;
             InitializeComponent();
             UpdateChklbLamp();
             int countSelected = 0;
-            for (int i = 0; i < PersistentData.lamps.Count; i++)
+            for (int i = 0; i < _appConfig.lamps.Count; i++)
             {
-                if (PersistentData.lamps[i].selected == true)
+                if (_appConfig.lamps[i].selected == true)
                     countSelected++;
             }
             if (countSelected == 1)
             {
-                tbBrilho.Value = PersistentData.lamps.FirstOrDefault().brightness;
+                tbBrilho.Value = _appConfig.lamps.FirstOrDefault().brightness;
             }
-            btnColor4x1.BackColor = PersistentData.btnColor4x1;
-            btnColor4x1.Style.FocusedBackColor = PersistentData.btnColor4x1;
-            btnColor4x1.Style.HoverBackColor = PersistentData.btnColor4x1;
-            btnColor4x1.Style.PressedBackColor = PersistentData.btnColor4x1;
-            btnColor4x2.BackColor = PersistentData.btnColor4x2;
-            btnColor4x2.Style.FocusedBackColor = PersistentData.btnColor4x2;
-            btnColor4x2.Style.HoverBackColor = PersistentData.btnColor4x2;
-            btnColor4x2.Style.PressedBackColor = PersistentData.btnColor4x2;
-            btnColor4x3.BackColor = PersistentData.btnColor4x3;
-            btnColor4x3.Style.FocusedBackColor = PersistentData.btnColor4x3;
-            btnColor4x3.Style.HoverBackColor = PersistentData.btnColor4x3;
-            btnColor4x3.Style.PressedBackColor = PersistentData.btnColor4x3;
+            btnColor4x1.BackColor = _appConfig.customButtonColor[0];
+            btnColor4x1.Style.FocusedBackColor = _appConfig.customButtonColor[0];
+            btnColor4x1.Style.HoverBackColor = _appConfig.customButtonColor[0];
+            btnColor4x1.Style.PressedBackColor = _appConfig.customButtonColor[0];
+            btnColor4x2.BackColor = _appConfig.customButtonColor[1];
+            btnColor4x2.Style.FocusedBackColor = _appConfig.customButtonColor[1];
+            btnColor4x2.Style.HoverBackColor = _appConfig.customButtonColor[1];
+            btnColor4x2.Style.PressedBackColor = _appConfig.customButtonColor[1];
+            btnColor4x3.BackColor = _appConfig.customButtonColor[2];
+            btnColor4x3.Style.FocusedBackColor = _appConfig.customButtonColor[2];
+            btnColor4x3.Style.HoverBackColor = _appConfig.customButtonColor[2];
+            btnColor4x3.Style.PressedBackColor = _appConfig.customButtonColor[2];
         }
 
         private void cwUmaCor_ColorChanged(object sender, EventArgs e)
         {
             if (timerPreventOversending.Interval > 100)
             {
-                if (!led.Send(cwUmaCor.Color.R, cwUmaCor.Color.G, cwUmaCor.Color.B))
+                if (!_lampClient.Send(cwUmaCor.Color.R, cwUmaCor.Color.G, cwUmaCor.Color.B))
                     UpdateChklbLamp();
                 timerPreventOversending.Stop();
                 timerPreventOversending.Start();
@@ -52,17 +54,17 @@ namespace lampGUI
         }
         private void btnSolido_Click(object sender, EventArgs e)
         {
-            led.Send('s');
+            _lampClient.Send('s');
         }
 
         private void btnPulsar_Click(object sender, EventArgs e)
         {
-            led.Send('b', tbFrequencia.Value);
+            _lampClient.Send('b', tbFrequencia.Value);
         }
 
         private void btnWave_Click(object sender, EventArgs e)
         {
-            led.Send('w', tbFrequencia.Value);
+            _lampClient.Send('w', tbFrequencia.Value);
         }
         private void UmaCor_Load(object sender, EventArgs e)
         {
@@ -75,22 +77,22 @@ namespace lampGUI
         {
 
             string itemText = chklbLamp.Items[e.Index].ToString();
-            List<lamp> copy = new List<lamp>(PersistentData.lamps);
+            List<Lamp> copy = new List<Lamp>(_appConfig.lamps);
             if (e.NewValue == CheckState.Checked)
             {
-                int index = PersistentData.lamps.FindIndex(lamp => lamp.name == itemText);
-                var copyItem = PersistentData.lamps[index];
+                int index = _appConfig.lamps.FindIndex(lamp => lamp.name == itemText);
+                var copyItem = _appConfig.lamps[index];
                 copyItem.selected = true;
                 copy[index] = copyItem;
             }
             else
             {
-                int index = PersistentData.lamps.FindIndex(lamp => lamp.name == itemText);
-                var copyItem = PersistentData.lamps[index];
+                int index = _appConfig.lamps.FindIndex(lamp => lamp.name == itemText);
+                var copyItem = _appConfig.lamps[index];
                 copyItem.selected = false;
                 copy[index] = copyItem;
             }
-            PersistentData.lamps = copy;
+            _appConfig.lamps = copy;
         }
 
         private void tbFrequencia_Scroll(object sender, EventArgs e)
@@ -100,7 +102,7 @@ namespace lampGUI
 
         private void tbBrilho_Scroll(object sender, EventArgs e)
         {
-            led.Send((byte)tbBrilho.Value);
+            _lampClient.Send((byte)tbBrilho.Value);
 
         }
 
@@ -112,7 +114,7 @@ namespace lampGUI
                 array[i] = 127;
             }
 
-            led.PostAsync(array);
+            _lampClient.PostAsync(array);
         }
 
         private void btnColor1x1_Click(object sender, EventArgs e)
@@ -164,7 +166,7 @@ namespace lampGUI
                 btnColor4x1.Style.FocusedBackColor = MyDialog.Color;
                 btnColor4x1.Style.HoverBackColor = MyDialog.Color;
                 btnColor4x1.Style.PressedBackColor = MyDialog.Color;
-                PersistentData.btnColor4x1 = MyDialog.Color;
+                _appConfig.customButtonColor[0] = MyDialog.Color;
             }
         }
         private void btnColor4x2_MouseDown(object sender, MouseEventArgs e)
@@ -180,7 +182,7 @@ namespace lampGUI
                 btnColor4x2.Style.FocusedBackColor = MyDialog.Color;
                 btnColor4x2.Style.HoverBackColor = MyDialog.Color;
                 btnColor4x2.Style.PressedBackColor = MyDialog.Color;
-                PersistentData.btnColor4x2 = MyDialog.Color;
+                _appConfig.customButtonColor[1] = MyDialog.Color;
             }
         }
         private void btnColor4x3_MouseDown(object sender, MouseEventArgs e)
@@ -197,7 +199,7 @@ namespace lampGUI
                     btnColor4x3.Style.FocusedBackColor = MyDialog.Color;
                     btnColor4x3.Style.HoverBackColor = MyDialog.Color;
                     btnColor4x3.Style.PressedBackColor = MyDialog.Color;
-                    PersistentData.btnColor4x3 = MyDialog.Color;
+                    _appConfig.customButtonColor[2] = MyDialog.Color;
                 }
             }
         }
@@ -205,7 +207,7 @@ namespace lampGUI
         {
             chklbLamp.Items.Clear();
             var items = chklbLamp.Items;
-            foreach (var lamp in PersistentData.lamps)
+            foreach (var lamp in _appConfig.lamps)
             {
                 items.Add(lamp.name, lamp.selected);
             }

@@ -1,7 +1,20 @@
-[					
-    { 
-        "id":"0",
-        "name":"LAMP L",
-        "ip":"192.168.15.38"
+{
+  "lamps": [
+    {
+      "name": "Lamp R",
+      "ip": "192.168.15.16",
+      "brightness": 255,
+      "delay": 200,
+      "selected": true,
+      "mode": "s"
     }
-]
+  ],
+  "customButtonColor": [
+    "245, 254, 0",
+    "245, 254, 0",
+    "245, 254, 0"
+  ],
+  "applicationConfig": {
+    "HideMinimize": false
+  }
+}

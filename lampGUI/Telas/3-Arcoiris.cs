@@ -5,10 +5,12 @@ namespace lampGUI.Telas
 {
     public partial class _3_Arcoiris : Form
     {
-        LampClient led;
-        public _3_Arcoiris(LampClient instancia)
+        private LampClient _lampClient;
+        private AppConfig _appConfig;
+        public _3_Arcoiris(LampClient lampClient, AppConfig appConfig)
         {
-            led = instancia;
+            _lampClient = lampClient;
+            _appConfig = appConfig;
             InitializeComponent();
         }
 
@@ -19,12 +21,12 @@ namespace lampGUI.Telas
 
         private void tbBrilho_Scroll(object sender, EventArgs e)
         {
-            led.Send((byte)tbBrilho.Value);
+            _lampClient.Send((byte)tbBrilho.Value);
         }
 
         private void pbArcoIris_Click(object sender, EventArgs e)
         {
-            led.Send('r');
+            _lampClient.Send('r');
         }
         private void _3_Arcoiris_Load(object sender, EventArgs e)
         {
@@ -33,12 +35,12 @@ namespace lampGUI.Telas
 
         private void btnSolido_Click(object sender, EventArgs e)
         {
-            led.Send('r');
+            _lampClient.Send('r');
         }
 
         private void btnBreath_Click(object sender, EventArgs e)
         {
-            led.Send('b', tbFrequencia.Value);
+            _lampClient.Send('b', tbFrequencia.Value);
         }
 
         private void notifyIcon1_MouseDoubleClick(object sender, MouseEventArgs e)

@@ -5,11 +5,11 @@ namespace lampGUI.Telas
 {
     public partial class Config_Add_Manually : Form
     {
-        private ListView lvLamps;
+        private AppConfig _appConfig;
 
-        public Config_Add_Manually(ListView lvLamps)
+        public Config_Add_Manually(AppConfig appConfig)
         {
-            this.lvLamps = lvLamps;
+            _appConfig = appConfig;
             InitializeComponent();
         }
 
@@ -19,10 +19,7 @@ namespace lampGUI.Telas
         }
         private void btnSaveClick(object sender, EventArgs e)
         {
-            PersistentData.lamps.Add(new lamp(txbName.Text, txbIp.Text));
-            ListViewItem lvi = new ListViewItem(txbName.Text);
-            lvi.SubItems.Add(txbIp.Text);
-            lvLamps.Items.Add(lvi);
+            _appConfig.lamps.Add(new Lamp(txbName.Text, txbIp.Text));
             this.Close();
         }
         private void btnCancel_Click(object sender, EventArgs e)

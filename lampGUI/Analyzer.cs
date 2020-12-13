@@ -28,10 +28,10 @@ namespace lampGUI
         //private Chart _chart;
 
         private int _lines = 10;            // number of spectrum lines
-        LampClient led;
+        LampClient _lampClient;
 
         //ctor
-        public Analyzer(ComboBox devicelist, LampClient instancia)
+        public Analyzer(ComboBox devicelist, LampClient lampClient)
         {
 
             _fft = new float[8192];
@@ -39,7 +39,7 @@ namespace lampGUI
             _hanctr = 0;
             _t = new DispatcherTimer();
             _t.Tick += _t_Tick;
-            _t.Interval = TimeSpan.FromMilliseconds(0); //40hz refresh rate//25
+            _t.Interval = TimeSpan.FromMilliseconds(1/40); //40hz refresh rate//25
             _t.IsEnabled = false;
             /*_l = left;
             _r = right;
@@ -69,7 +69,7 @@ namespace lampGUI
                         {
                             chart.Series["wave"].Points.Add(0);
                         }*/
-            led = instancia;
+            _lampClient = lampClient;
             Init();
         }
 
@@ -182,7 +182,7 @@ namespace lampGUI
 
             }
             byte[] array = new byte[270];
-            /*            for (int test = 0; test < _lines; test++) {
+                        for (int test = 0; test < _lines; test++) {
                             array[9 * test] = (byte)(_spectrumdata[test] * 5);          //r
                             array[9 * test +1] = _spectrumdata[test];                   //g
                             array[9 * test +2] = _spectrumdata[test];                   //b
@@ -192,9 +192,9 @@ namespace lampGUI
                             array[9 * test + 6] = (byte)(_spectrumdata[test] * 5);      //r
                             array[9 * test +7] = _spectrumdata[test];                   //g
                             array[9 * test +8] = _spectrumdata[test];                   //b
-                        }*/
+                        }
 
-            for (int i = 0; i < 270; i++)
+/*            for (int i = 0; i < 270; i++)
             {
                 array[i] = 0;
             }
@@ -203,9 +203,9 @@ namespace lampGUI
 
             array[var_teste] = 0;
             array[var_teste + 1] = 254;
-            var_teste++;
+            var_teste++;*/
 
-            led.PostAsync(array);
+            _lampClient.PostAsync(array);
 
             /*            if (DisplayEnable) _spectrum.Set(_spectrumdata);
                         for (int i = 0; i < _spectrumdata.ToArray().Length; i++)

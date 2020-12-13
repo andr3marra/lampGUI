@@ -101,7 +101,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Analyzer.cs" />
-    <Compile Include="PersistentData.cs" />
+    <Compile Include="AppConfig.cs" />
     <Compile Include="Telas\0-Cores.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -193,9 +193,7 @@
     <EmbeddedResource Include="Telas\Tela.resx">
       <DependentUpon>Tela.cs</DependentUpon>
     </EmbeddedResource>
-    <None Include="External\config.json">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
+    <None Include="External\config.json" />
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>

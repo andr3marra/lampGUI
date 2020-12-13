@@ -4,6 +4,7 @@ using System.IO;
 using System.Net;
 using System.Net.Http;
 using System.Net.NetworkInformation;
+using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace lampGUI
@@ -15,9 +16,11 @@ namespace lampGUI
         private string endereco;
         private WebClient client;
         private static HttpClient client1;
-        public LampClient()
+        private AppConfig _appConfig;
+        public LampClient(AppConfig appConfig)
         {
-            this.endereco = PersistentData.lamps[0].ip;     // APENAS POST
+            _appConfig = appConfig;
+            this.endereco = _appConfig.lamps[0].ip;     // APENAS POST
             this.url = endereco;                            // APENAS POST
             client = new WebClient();
             client.Proxy = null;
@@ -25,21 +28,25 @@ namespace lampGUI
             ServicePointManager.DefaultConnectionLimit = Int32.MaxValue;
             ServicePointManager.Expect100Continue = false;
             client1 = new HttpClient();
-            client1.Timeout = new TimeSpan(50);
+            client1.Timeout = new TimeSpan(100000000);
         }
         public async void PostAsync(byte[] data)
         {
-            string requestUri = "http://192.168.15.83/color/custom";
+            string requestUri = "http://192.168.15.16/color/custom";
             byte[] requestBodyBytes = data;
             var dataHttp = new ByteArrayContent(data);
 
             using (client)
             {
-                var bla = await client1.PostAsync(requestUri, dataHttp);
+                Task taskA = new Task(() => client1.PostAsync(requestUri, dataHttp));
+                taskA.RunSynchronously();
+                //var bla = await client1.PostAsync(requestUri, dataHttp);
+                //var bla = await client1.GetAsync("http://" + _lamp.ip + data);
             }
         }
-        public string Get(lamp _lamp, String data)
+        public string Get(Lamp _lamp, String data)
         {
+            
             request = WebRequest.Create("http://" + _lamp.ip + data);
             request.Method = "GET";
             request.UseDefaultCredentials = true;
@@ -57,7 +64,7 @@ namespace lampGUI
                 response.Close();
                 return responseData;
             }
-            catch
+            catch(Exception e)
             {
                 // Initializes the variables to pass to the MessageBox.Show method.
                 string message = "Verifique se as lampadas estão ligadas na tomada, e conectadas a rede sem fio. ";
@@ -100,27 +107,27 @@ namespace lampGUI
         }
         public void CheckConnectivity()
         {
-            List<lamp> copy = new List<lamp>(PersistentData.lamps);
+            List<Lamp> copy = new List<Lamp>(_appConfig.lamps);
 
-            foreach (var lamp in PersistentData.lamps)
+            foreach (var lamp in _appConfig.lamps)
             {
                 Ping myPing = new Ping();
                 PingReply reply = myPing.Send(lamp.ip, 900);
                 if (reply.Status == IPStatus.Success)
                 {
-                    int index = PersistentData.lamps.FindIndex(lamp1 => lamp1.name == lamp.name);
-                    var copyItem = PersistentData.lamps[index];
+                    int index = _appConfig.lamps.FindIndex(lamp1 => lamp1.name == lamp.name);
+                    var copyItem = _appConfig.lamps[index];
                     copy[index] = copyItem;
                 }
                 else
                 {
-                    int index = PersistentData.lamps.FindIndex(lamp1 => lamp1.name == lamp.name);
-                    var copyItem = PersistentData.lamps[index];
+                    int index = _appConfig.lamps.FindIndex(lamp1 => lamp1.name == lamp.name);
+                    var copyItem = _appConfig.lamps[index];
                     copyItem.selected = false;
                     copy[index] = copyItem;
                 }
             }
-            PersistentData.lamps = copy;
+            _appConfig.lamps = copy;
         }
         public void Status()
         {
@@ -128,25 +135,25 @@ namespace lampGUI
         }
         public bool multipleRequests(String _sendData)
         {
-            List<lamp> copy = new List<lamp>(PersistentData.lamps);
+            List<Lamp> copy = new List<Lamp>(_appConfig.lamps);
             bool success = true;
-            for (byte i = 0; i < PersistentData.lamps.Count; i++)
+            for (byte i = 0; i < _appConfig.lamps.Count; i++)
             {
-                var x = PersistentData.lamps[i];
+                var x = _appConfig.lamps[i];
                 if (x.selected)
                 {
                     String data = Get(x, _sendData);
                     if (data == "notFound")
                     {
-                        int index = PersistentData.lamps.FindIndex(lamp1 => lamp1.name == x.name);
-                        var copyItem = PersistentData.lamps[index];
+                        int index = _appConfig.lamps.FindIndex(lamp1 => lamp1.name == x.name);
+                        var copyItem = _appConfig.lamps[index];
                         copy[index] = copyItem;
                         success = success && false;
                     }
                     else
                     {
-                        int index = PersistentData.lamps.FindIndex(lamp1 => lamp1.name == x.name);
-                        var copyItem = PersistentData.lamps[index];
+                        int index = _appConfig.lamps.FindIndex(lamp1 => lamp1.name == x.name);
+                        var copyItem = _appConfig.lamps[index];
                         if (_sendData == "/status")
                             copyItem.brightness = (byte)Int16.Parse(data);
                         copy[index] = copyItem;
@@ -154,7 +161,7 @@ namespace lampGUI
                     }
                 }
             }
-            PersistentData.lamps = copy;
+            _appConfig.lamps = copy;
             return success;
         }
 

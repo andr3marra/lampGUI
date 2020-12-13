@@ -5,41 +5,43 @@ namespace lampGUI
 {
     public partial class DuasCores : Form
     {
-        LampClient led;
-        public DuasCores(LampClient instancia)
+        private LampClient _lampClient;
+        private AppConfig _appConfig;
+        public DuasCores(LampClient lampClient, AppConfig appConfig)
         {
-            led = instancia;
+            _lampClient = lampClient;
+            _appConfig = appConfig;
             InitializeComponent();
         }
 
         private void cwDuasCores1_ColorChanged(object sender, EventArgs e)
         {
-            led.Send(cwDuasCores1.Color.R, cwDuasCores1.Color.G, cwDuasCores1.Color.B, cwDuasCores2.Color.R, cwDuasCores2.Color.G, cwDuasCores2.Color.B);
+            _lampClient.Send(cwDuasCores1.Color.R, cwDuasCores1.Color.G, cwDuasCores1.Color.B, cwDuasCores2.Color.R, cwDuasCores2.Color.G, cwDuasCores2.Color.B);
         }
 
         private void cwDuasCores2_ColorChanged(object sender, EventArgs e)
         {
-            led.Send(cwDuasCores1.Color.R, cwDuasCores1.Color.G, cwDuasCores1.Color.B, cwDuasCores2.Color.R, cwDuasCores2.Color.G, cwDuasCores2.Color.B);
+            _lampClient.Send(cwDuasCores1.Color.R, cwDuasCores1.Color.G, cwDuasCores1.Color.B, cwDuasCores2.Color.R, cwDuasCores2.Color.G, cwDuasCores2.Color.B);
         }
 
         private void btnSolido_Click_1(object sender, EventArgs e)
         {
-            led.Send('s');
+            _lampClient.Send('s');
         }
 
         private void btnBreath_Click(object sender, EventArgs e)
         {
-            led.Send('b', tbFrequencia.Value);
+            _lampClient.Send('b', tbFrequencia.Value);
         }
 
         private void btnWave_Click(object sender, EventArgs e)
         {
-            led.Send('w', tbFrequencia.Value);
+            _lampClient.Send('w', tbFrequencia.Value);
         }
 
         private void tbBrilho_Scroll(object sender, EventArgs e)
         {
-            led.Send((byte)tbBrilho.Value);
+            _lampClient.Send((byte)tbBrilho.Value);
         }
 
         private void DuasCores_Load(object sender, EventArgs e)

@@ -1,5 +1,5 @@
 ﻿namespace lampGUI {
-    partial class Form1 {
+    partial class MainWindow {
         /// <summary>
         /// Variável de designer necessária.
         /// </summary>
@@ -25,7 +25,7 @@
         private void InitializeComponent() {
             this.components = new System.ComponentModel.Container();
             Syncfusion.Windows.Forms.Tools.SliderCollection sliderCollection4 = new Syncfusion.Windows.Forms.Tools.SliderCollection();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainWindow));
             this.colorDialog1 = new System.Windows.Forms.ColorDialog();
             this.pnlLateral = new System.Windows.Forms.Panel();
             this.pnlConfiguracoes = new System.Windows.Forms.Panel();
