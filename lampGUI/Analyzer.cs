@@ -10,7 +10,7 @@ namespace lampGUI
 {
 
 
-    internal class Analyzer
+    public class Analyzer
     {
         private bool _enable;               //enabled status
         private DispatcherTimer _t;         //timer that refreshes the display
@@ -21,17 +21,17 @@ namespace lampGUI
         private int _hanctr;                //last output level counter
         public List<byte> _spectrumdata;   //spectrum data buffer
         //private Spectrum _spectrum;         //spectrum dispay control
-        private ComboBox _devicelist;       //device list
+        public Dictionary<int, string> _devicelist;       //device list
         private bool _initialized;          //initialized flag
         private int devindex;               //used device index
         private int var_teste = 0;
         //private Chart _chart;
-
+        public int selectedIndex;
         private int _lines = 10;            // number of spectrum lines
         LampClient _lampClient;
 
         //ctor
-        public Analyzer(ComboBox devicelist, LampClient lampClient)
+        public Analyzer(LampClient lampClient)
         {
 
             _fft = new float[8192];
@@ -39,7 +39,7 @@ namespace lampGUI
             _hanctr = 0;
             _t = new DispatcherTimer();
             _t.Tick += _t_Tick;
-            _t.Interval = TimeSpan.FromMilliseconds(1/40); //40hz refresh rate//25
+            _t.Interval = TimeSpan.FromMilliseconds(1 / 40); //40hz refresh rate//25
             _t.IsEnabled = false;
             /*_l = left;
             _r = right;
@@ -51,7 +51,6 @@ namespace lampGUI
             _spectrumdata = new List<byte>();
             //_spectrum = spectrum;
             //_chart = chart;
-            _devicelist = devicelist;
             _initialized = false;
 
 
@@ -70,6 +69,7 @@ namespace lampGUI
                             chart.Series["wave"].Points.Add(0);
                         }*/
             _lampClient = lampClient;
+            _devicelist = new Dictionary<int, string>();
             Init();
         }
 
@@ -90,9 +90,9 @@ namespace lampGUI
                 {
                     if (!_initialized)
                     {
-                        var array = (_devicelist.Items[_devicelist.SelectedIndex] as string).Split(' ');
-                        devindex = Convert.ToInt32(array[0]);
-                        bool result = BassWasapi.BASS_WASAPI_Init(devindex, 0, 0, BASSWASAPIInit.BASS_WASAPI_BUFFER, 1f, 0.05f, _process, IntPtr.Zero);
+
+                        /// PRIMEIRO ZERO É O DEV INDEX
+                        bool result = BassWasapi.BASS_WASAPI_Init(selectedIndex, 0, 0, BASSWASAPIInit.BASS_WASAPI_BUFFER, 1f, 0.05f, _process, IntPtr.Zero);
                         if (!result)
                         {
                             var error = Bass.BASS_ErrorGetCode();
@@ -101,7 +101,6 @@ namespace lampGUI
                         else
                         {
                             _initialized = true;
-                            _devicelist.Enabled = true;
                         }
                     }
                     BassWasapi.BASS_WASAPI_Start();
@@ -122,10 +121,9 @@ namespace lampGUI
                 var device = BassWasapi.BASS_WASAPI_GetDeviceInfo(i);
                 if (device.IsEnabled && device.IsLoopback)
                 {
-                    _devicelist.Items.Add(string.Format("{0} - {1}", i, device.name));
+                    _devicelist.Add(i, device.name);
                 }
             }
-            _devicelist.SelectedIndex = 0;
             try
             {
                 Bass.BASS_SetConfig(BASSConfig.BASS_CONFIG_UPDATETHREADS, false);
@@ -182,28 +180,29 @@ namespace lampGUI
 
             }
             byte[] array = new byte[270];
-                        for (int test = 0; test < _lines; test++) {
-                            array[9 * test] = (byte)(_spectrumdata[test] * 5);          //r
-                            array[9 * test +1] = _spectrumdata[test];                   //g
-                            array[9 * test +2] = _spectrumdata[test];                   //b
-                            array[9 * test + 3] = (byte)(_spectrumdata[test] * 5);      //r
-                            array[9 * test +4] = _spectrumdata[test];                   //g
-                            array[9 * test +5] = _spectrumdata[test];                   //b
-                            array[9 * test + 6] = (byte)(_spectrumdata[test] * 5);      //r
-                            array[9 * test +7] = _spectrumdata[test];                   //g
-                            array[9 * test +8] = _spectrumdata[test];                   //b
-                        }
-
-/*            for (int i = 0; i < 270; i++)
+            for (int test = 0; test < _lines; test++)
             {
-                array[i] = 0;
+                array[9 * test] = (byte)(_spectrumdata[test] * 5);          //r
+                array[9 * test + 1] = _spectrumdata[test];                   //g
+                array[9 * test + 2] = _spectrumdata[test];                   //b
+                array[9 * test + 3] = (byte)(_spectrumdata[test] * 5);      //r
+                array[9 * test + 4] = _spectrumdata[test];                   //g
+                array[9 * test + 5] = _spectrumdata[test];                   //b
+                array[9 * test + 6] = (byte)(_spectrumdata[test] * 5);      //r
+                array[9 * test + 7] = _spectrumdata[test];                   //g
+                array[9 * test + 8] = _spectrumdata[test];                   //b
             }
-            if (var_teste == 255)
-                var_teste = 0;
 
-            array[var_teste] = 0;
-            array[var_teste + 1] = 254;
-            var_teste++;*/
+            /*            for (int i = 0; i < 270; i++)
+                        {
+                            array[i] = 0;
+                        }
+                        if (var_teste == 255)
+                            var_teste = 0;
+
+                        array[var_teste] = 0;
+                        array[var_teste + 1] = 254;
+                        var_teste++;*/
 
             _lampClient.PostAsync(array);
 

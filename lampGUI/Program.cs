@@ -11,15 +11,17 @@ namespace lampGUI
 
         static void Main()
         {
+            Application.EnableVisualStyles();
+            Application.SetCompatibleTextRenderingDefault(false);
             var appConfig = AppConfig.Init();
             //appConfig.lamps.Add(new Lamp("Lamp R", "192.168.15.16"));
             //appConfig.SaveConfig();
-            LampClient led = new LampClient(appConfig);
-            led.CheckConnectivity();
-            led.Status();
-            Application.EnableVisualStyles();
-            Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new MainWindow(led, appConfig));
+            LampClient lampClient = new LampClient(appConfig);
+            lampClient.CheckConnectivity();
+            lampClient.Status();
+            var analyzer = new Analyzer(lampClient);
+
+            Application.Run(new MainWindow(lampClient, appConfig, analyzer));
         }
     }
 }

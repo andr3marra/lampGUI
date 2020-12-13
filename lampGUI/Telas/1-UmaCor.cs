@@ -212,5 +212,29 @@ namespace lampGUI
                 items.Add(lamp.name, lamp.selected);
             }
         }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            byte[] array = new byte[270];
+            int var_teste = 236;
+            int jump = 3;
+            while (true)
+            {
+                /*                for (int i = 0; i < 270; i++)
+                                {
+                                    array[i] = 0;
+                                }*/
+                if (var_teste >= 269)
+                {
+                    array[var_teste] = 0;
+                    var_teste = 236;
+                }
+                array[var_teste] = 0;
+                array[var_teste + jump] = 255;
+                var_teste += jump;
+                //System.Threading.Thread.Sleep(100);
+                _lampClient.PostAsync(array);
+            }
+        }
     }
 }

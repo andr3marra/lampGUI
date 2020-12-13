@@ -16,12 +16,14 @@ namespace lampGUI
         public static extern int SendMessage(IntPtr hWnd, int Msg, int wParam, int lParam);
         [System.Runtime.InteropServices.DllImport("user32.dll")]
         public static extern bool ReleaseCapture();
-        LampClient _lampClient;
-        AppConfig _appConfig;
-        public MainWindow(LampClient lampClient, AppConfig appConfig)
+        private LampClient _lampClient;
+        private AppConfig _appConfig;
+        private Analyzer _analyzer;
+        public MainWindow(LampClient lampClient, AppConfig appConfig, Analyzer analyzer)
         {
             _appConfig = appConfig;
             _lampClient = lampClient;
+            _analyzer = analyzer;
             InitializeComponent();
             openChildForm(new _0_Cores(_lampClient, _appConfig));
             pnlLeft.BringToFront();
@@ -29,6 +31,10 @@ namespace lampGUI
         private Form activeForm = null;
         public void openChildForm(Form childForm)
         {
+            if(activeForm?.GetType() == childForm.GetType())
+            {
+                return;
+            }
             if (activeForm != null)
                 activeForm.Close();
             activeForm = childForm;
@@ -43,8 +49,7 @@ namespace lampGUI
         private void btnCores_Click_1(object sender, EventArgs e)
         {
             openChildForm(new _0_Cores(_lampClient, _appConfig));
-            pnlLeft.Height = pnlCores.Height;
-            pnlLeft.Top = pnlCores.Top - 100;
+            pnlLeft.Location = new Point(pnlCores.Location.X, pnlCores.Location.Y-panel2.Size.Height);
             pnlLeft.BringToFront();
         }
         private void panel2_MouseDown(object sender, MouseEventArgs e)
@@ -68,6 +73,7 @@ namespace lampGUI
         }
         private void button1_Click(object sender, EventArgs e)
         {
+            notifyIcon1.Dispose();
             if (_appConfig.applicationConfig.HideMinimize)
             {
                 this.Hide();
@@ -96,33 +102,30 @@ namespace lampGUI
 
         private void btnMusic_Click(object sender, EventArgs e)
         {
-            openChildForm(new Musica(_lampClient, _appConfig));
-            pnlLeft.Height = pnlMusica.Height;
-            pnlLeft.Top = pnlMusica.Top - 100;
+            openChildForm(new Musica(_lampClient, _appConfig, _analyzer));
+            pnlLeft.Location = new Point(pnlMusica.Location.X, pnlMusica.Location.Y - panel2.Size.Height);
             pnlLeft.BringToFront();
         }
 
         private void btnScreen_Click(object sender, EventArgs e)
         {
             openChildForm(new Tela(_lampClient, _appConfig));
-            pnlLeft.Height = pnlTela.Height;
-            pnlLeft.Top = pnlTela.Top - 100;
+            pnlLeft.Location = new Point(pnlTela.Location.X, pnlTela.Location.Y - panel2.Size.Height);
             pnlLeft.BringToFront();
         }
 
         private void btnConfig_Click(object sender, EventArgs e)
         {
             openChildForm(new Configuracoes(_lampClient, _appConfig));
-            pnlLeft.Height = pnlConfiguracoes.Height;
-            pnlLeft.Top = pnlConfiguracoes.Top - 100;
+            pnlLeft.Location = new Point(pnlConfiguracoes.Location.X, pnlConfiguracoes.Location.Y - panel2.Size.Height);
             pnlLeft.BringToFront();
         }
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            notifyIcon1.BalloonTipIcon = ToolTipIcon.Info;
-            notifyIcon1.BalloonTipText = "Welcome to TutorialsPanel.com!!";
-            notifyIcon1.BalloonTipTitle = "Welcome Message";
+            //notifyIcon1.BalloonTipIcon = ToolTipIcon.Info;
+            //notifyIcon1.BalloonTipText = "Welcome to TutorialsPanel.com!!";
+            //notifyIcon1.BalloonTipTitle = "Welcome Message";
             //notifyIcon1.ShowBalloonTip(2000);
         }
 

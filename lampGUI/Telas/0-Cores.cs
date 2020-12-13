@@ -18,6 +18,10 @@ namespace lampGUI
         private Form activeForm = null;
         public void openChildForm(Form childForm)
         {
+            if (activeForm?.GetType() == childForm.GetType())
+            {
+                return;
+            }
             if (activeForm != null)
                 activeForm.Close();
             activeForm = childForm;

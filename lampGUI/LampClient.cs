@@ -1,70 +1,43 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.IO;
 using System.Net;
 using System.Net.Http;
 using System.Net.NetworkInformation;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace lampGUI
 {
     public class LampClient
     {
-        private WebRequest request;
-        private string url;
-        private string endereco;
-        private WebClient client;
-        private static HttpClient client1;
+        private static HttpClient httpClient;
         private AppConfig _appConfig;
         public LampClient(AppConfig appConfig)
         {
             _appConfig = appConfig;
-            this.endereco = _appConfig.lamps[0].ip;     // APENAS POST
-            this.url = endereco;                            // APENAS POST
-            client = new WebClient();
-            client.Proxy = null;
             ServicePointManager.ServerCertificateValidationCallback += (sender, certificate, chain, sslPolicyErrors) => true;
             ServicePointManager.DefaultConnectionLimit = Int32.MaxValue;
             ServicePointManager.Expect100Continue = false;
-            client1 = new HttpClient();
-            client1.Timeout = new TimeSpan(100000000);
+            httpClient = new HttpClient();
+            httpClient.Timeout = new TimeSpan(100000000);
         }
         public async void PostAsync(byte[] data)
         {
-            string requestUri = "http://192.168.15.16/color/custom";
+            string requestUri = "http://" + "192.168.15.16" + "/color/custom";
             byte[] requestBodyBytes = data;
             var dataHttp = new ByteArrayContent(data);
 
-            using (client)
-            {
-                Task taskA = new Task(() => client1.PostAsync(requestUri, dataHttp));
-                taskA.RunSynchronously();
-                //var bla = await client1.PostAsync(requestUri, dataHttp);
-                //var bla = await client1.GetAsync("http://" + _lamp.ip + data);
-            }
+            var taskA = httpClient.PostAsync(requestUri, dataHttp);
+            var result = taskA.Result.Content.ReadAsStringAsync().Result;
         }
+
         public string Get(Lamp _lamp, String data)
         {
-            
-            request = WebRequest.Create("http://" + _lamp.ip + data);
-            request.Method = "GET";
-            request.UseDefaultCredentials = true;
-            request.Timeout = 200;
             try
             {
-                WebResponse response = request.GetResponse();
-                string responseData;
-
-                using (Stream dataStream = response.GetResponseStream())
-                {
-                    StreamReader reader = new StreamReader(dataStream);
-                    responseData = reader.ReadToEnd();
-                }
-                response.Close();
-                return responseData;
+                var taskA = httpClient.GetAsync("http://" + _lamp.ip + data);
+                return taskA.Result.Content.ReadAsStringAsync().Result;
             }
-            catch(Exception e)
+            catch (Exception e)
             {
                 // Initializes the variables to pass to the MessageBox.Show method.
                 string message = "Verifique se as lampadas estão ligadas na tomada, e conectadas a rede sem fio. ";
