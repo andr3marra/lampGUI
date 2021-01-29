@@ -2,7 +2,7 @@
   "lamps": [
     {
       "name": "Lamp R",
-      "ip": "192.168.15.16",
+      "ip": "192.168.16.103",
       "brightness": 255,
       "delay": 200,
       "selected": true,

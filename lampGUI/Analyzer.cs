@@ -5,6 +5,7 @@ using System.Windows.Forms;
 using System.Windows.Threading;
 using Un4seen.Bass;
 using Un4seen.BassWasapi;
+using System.Linq;
 
 namespace lampGUI
 {
@@ -27,8 +28,9 @@ namespace lampGUI
         private int var_teste = 0;
         //private Chart _chart;
         public int selectedIndex;
-        private int _lines = 10;            // number of spectrum lines
+        private int _lines = 64;            // number of spectrum lines
         LampClient _lampClient;
+        private WebSocketManager socketManager;
 
         //ctor
         public Analyzer(LampClient lampClient)
@@ -39,7 +41,7 @@ namespace lampGUI
             _hanctr = 0;
             _t = new DispatcherTimer();
             _t.Tick += _t_Tick;
-            _t.Interval = TimeSpan.FromMilliseconds(1 / 40); //40hz refresh rate//25
+            _t.Interval = TimeSpan.FromMilliseconds(25); //40hz refresh rate//25
             _t.IsEnabled = false;
             /*_l = left;
             _r = right;
@@ -70,6 +72,7 @@ namespace lampGUI
                         }*/
             _lampClient = lampClient;
             _devicelist = new Dictionary<int, string>();
+            socketManager = new WebSocketManager("ws://192.168.15.14:81");
             Init();
         }
 
@@ -180,32 +183,60 @@ namespace lampGUI
 
             }
             byte[] array = new byte[270];
-            for (int test = 0; test < _lines; test++)
+
+
+            // Starting from botton
+            
+/*            var intensity = ((int)_spectrumdata[1]) * 90 / 255;
+            for (int qtyy = 0; qtyy < intensity; qtyy++)
             {
-                array[9 * test] = (byte)(_spectrumdata[test] * 5);          //r
-                array[9 * test + 1] = _spectrumdata[test];                   //g
-                array[9 * test + 2] = _spectrumdata[test];                   //b
-                array[9 * test + 3] = (byte)(_spectrumdata[test] * 5);      //r
-                array[9 * test + 4] = _spectrumdata[test];                   //g
-                array[9 * test + 5] = _spectrumdata[test];                   //b
-                array[9 * test + 6] = (byte)(_spectrumdata[test] * 5);      //r
-                array[9 * test + 7] = _spectrumdata[test];                   //g
-                array[9 * test + 8] = _spectrumdata[test];                   //b
+                array[qtyy * 3] = 255;
+            }
+            intensity = ((int)_spectrumdata[4]) * 90 / 255;
+            for (int qtyy = 0; qtyy < intensity; qtyy++)
+            {
+                array[qtyy * 3+1] = 255;
+            }
+            intensity = ((int)_spectrumdata[8]) * 90 / 255;
+            for (int qtyy = 0; qtyy < intensity; qtyy++)
+            {
+                array[qtyy * 3+2] = 255;
+            }*/
+            // Starting from middle
+            var teste = _spectrumdata.GetRange(0,20).Max();
+            var intensity = ((int)teste) * 45 / 255;
+            for (int qtyy = 0; qtyy < intensity; qtyy++)
+            {
+                array[qtyy * 3 + 2 + 135] = 255;
+            }
+            for (int qtyy = 0; qtyy < intensity; qtyy++)
+            {
+                array[-qtyy * 3 + 2 + 135] = 255;
             }
 
-            /*            for (int i = 0; i < 270; i++)
-                        {
-                            array[i] = 0;
-                        }
-                        if (var_teste == 255)
-                            var_teste = 0;
+            teste = _spectrumdata.GetRange(20, 40).Max();
+            intensity = ((int)teste) * 35 / 255;
+            for (int qtyy = 0; qtyy < intensity; qtyy++)
+            {
+                array[qtyy * 3  + 135] = 255;
+            }
+            for (int qtyy = 0; qtyy < intensity; qtyy++)
+            {
+                array[-qtyy * 3 + 135] = 255;
+            }
+/*            teste = _spectrumdata.GetRange(40, 50).Max();
+            intensity = ((int)teste) * 25 / 255;
+            intensity = ((int)_spectrumdata[8]) * 25 / 255;
+            for (int qtyy = 0; qtyy < intensity; qtyy++)
+            {
+                array[qtyy * 3 + 2 + 135] = 255;
+            }
+            for (int qtyy = 0; qtyy < intensity; qtyy++)
+            {
+                array[-qtyy * 3 + 2 + 135] = 255;
+            }*/
 
-                        array[var_teste] = 0;
-                        array[var_teste + 1] = 254;
-                        var_teste++;*/
-
-            _lampClient.PostAsync(array);
-
+            socketManager.Send(array);
             /*            if (DisplayEnable) _spectrum.Set(_spectrumdata);
                         for (int i = 0; i < _spectrumdata.ToArray().Length; i++)
                         {

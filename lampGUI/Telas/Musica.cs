@@ -10,6 +10,7 @@ namespace lampGUI.Telas
         private Analyzer _analyzer;
         private LampClient _lampClient;
         private AppConfig _appConfig;
+        
         public Musica(LampClient lampClient, AppConfig appConfig, Analyzer analyzer)
         {
             _lampClient = lampClient;
@@ -28,6 +29,7 @@ namespace lampGUI.Telas
         {
             if (Btn_Enable.Text == "Enable")
             {
+                
                 _analyzer.selectedIndex = _analyzer._devicelist.Where(item => item.Value == comboBox1.SelectedItem.ToString()).FirstOrDefault().Key;
                 _analyzer.Enable = true;
                 _analyzer.DisplayEnable = true;

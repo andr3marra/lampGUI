@@ -14,8 +14,8 @@ namespace lampGUI
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             var appConfig = AppConfig.Init();
-            //appConfig.lamps.Add(new Lamp("Lamp R", "192.168.15.16"));
-            //appConfig.SaveConfig();
+            //appConfig.lamps.Add(new Lamp("Lamp R", "192.168.15.14"));
+            //.SaveConfig();
             LampClient lampClient = new LampClient(appConfig);
             lampClient.CheckConnectivity();
             lampClient.Status();
